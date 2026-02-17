@@ -27,8 +27,21 @@ def read_adsorption_csv(path: str = "Reports_gen/Adsorption_gibbs.csv"):
                 fields = [field.strip().strip('"') for field in line.strip().split(",")]
                 rows.append(fields)
         
-        # Convert to numpy array, then to float (will be mixed types but preserve structure)
+        # Convert to numpy array with object dtype
         data = np.array(rows, dtype=object)
+        
+        # Convert last two columns to float, replacing N/A with nan
+        for col_idx in [-2, -1]:
+            float_col = []
+            for val in data[:, col_idx]:
+                try:
+                    if val.upper() == 'N/A' or val == '':
+                        float_col.append(np.nan)
+                    else:
+                        float_col.append(float(val))
+                except (ValueError, AttributeError):
+                    float_col.append(np.nan)
+            data[:, col_idx] = np.array(float_col, dtype=float)
         
     except Exception as e:
         raise RuntimeError(f"Failed to read CSV with NumPy: {e}")
