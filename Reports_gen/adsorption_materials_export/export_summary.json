@@ -1,0 +1,81 @@
+{
+  "found_final_structures": 9,
+  "found_material_records": 9,
+  "generated_at_utc": "2026-02-27T11:27:19.210536+00:00",
+  "materials_count": 9,
+  "results": [
+    {
+      "final_structure_exported_to": "report/adsorption_materials_export/materials/C2DB_W-N-2D_W4N3_C2DB-11836/FINAL_STRUCTURE.vasp",
+      "final_structure_source": "data/structures/C2DB/W-N-2D/Relaxed/Relax_Positions/W4N3_C2DB-11836.vasp",
+      "found_final_structure": true,
+      "found_material_record": true,
+      "input_files_count": 0,
+      "material": "C2DB_W-N-2D_W4N3_C2DB-11836"
+    },
+    {
+      "final_structure_exported_to": "report/adsorption_materials_export/materials/USPEX_FIXED_W-N-2D_287/FINAL_STRUCTURE.vasp",
+      "final_structure_source": "data/structures/USPEX_FIXED/W-N-2D/Relaxed/Relax_Positions/287.vasp",
+      "found_final_structure": true,
+      "found_material_record": true,
+      "input_files_count": 0,
+      "material": "USPEX_FIXED_W-N-2D_287"
+    },
+    {
+      "final_structure_exported_to": "report/adsorption_materials_export/materials/USPEX_VARIABLE_W-N-2D_1042/FINAL_STRUCTURE.vasp",
+      "final_structure_source": "data/structures/USPEX_VARIABLE/W-N-2D/Relaxed/Relax_Positions/1042.vasp",
+      "found_final_structure": true,
+      "found_material_record": true,
+      "input_files_count": 0,
+      "material": "USPEX_VARIABLE_W-N-2D_1042"
+    },
+    {
+      "final_structure_exported_to": "report/adsorption_materials_export/materials/USPEX_VARIABLE_W-N-2D_2175/FINAL_STRUCTURE.vasp",
+      "final_structure_source": "data/structures/USPEX_VARIABLE/W-N-2D/Relaxed/Relax_Positions/2175.vasp",
+      "found_final_structure": true,
+      "found_material_record": true,
+      "input_files_count": 0,
+      "material": "USPEX_VARIABLE_W-N-2D_2175"
+    },
+    {
+      "final_structure_exported_to": "report/adsorption_materials_export/materials/USPEX_VARIABLE_W-N-2D_2403/FINAL_STRUCTURE.vasp",
+      "final_structure_source": "data/structures/USPEX_VARIABLE/W-N-2D/Relaxed/Relax_Positions/2403.vasp",
+      "found_final_structure": true,
+      "found_material_record": true,
+      "input_files_count": 0,
+      "material": "USPEX_VARIABLE_W-N-2D_2403"
+    },
+    {
+      "final_structure_exported_to": "report/adsorption_materials_export/materials/USPEX_VARIABLE_W-N-2D_2971/FINAL_STRUCTURE.vasp",
+      "final_structure_source": "data/structures/USPEX_VARIABLE/W-N-2D/Relaxed/Relax_Positions/2971.vasp",
+      "found_final_structure": true,
+      "found_material_record": true,
+      "input_files_count": 0,
+      "material": "USPEX_VARIABLE_W-N-2D_2971"
+    },
+    {
+      "final_structure_exported_to": "report/adsorption_materials_export/materials/USPEX_VARIABLE_W-N-2D_3035/FINAL_STRUCTURE.vasp",
+      "final_structure_source": "data/structures/USPEX_VARIABLE/W-N-2D/Relaxed/Relax_Positions/3035.vasp",
+      "found_final_structure": true,
+      "found_material_record": true,
+      "input_files_count": 0,
+      "material": "USPEX_VARIABLE_W-N-2D_3035"
+    },
+    {
+      "final_structure_exported_to": "report/adsorption_materials_export/materials/USPEX_VARIABLE_W-N-2D_3596/FINAL_STRUCTURE.vasp",
+      "final_structure_source": "data/structures/USPEX_VARIABLE/W-N-2D/Relaxed/Relax_Positions/3596.vasp",
+      "found_final_structure": true,
+      "found_material_record": true,
+      "input_files_count": 0,
+      "material": "USPEX_VARIABLE_W-N-2D_3596"
+    },
+    {
+      "final_structure_exported_to": "report/adsorption_materials_export/materials/USPEX_VARIABLE_W-N-2D_4683/FINAL_STRUCTURE.vasp",
+      "final_structure_source": "data/structures/USPEX_VARIABLE/W-N-2D/Relaxed/Relax_Positions/4683.vasp",
+      "found_final_structure": true,
+      "found_material_record": true,
+      "input_files_count": 0,
+      "material": "USPEX_VARIABLE_W-N-2D_4683"
+    }
+  ],
+  "source_csv": "report/adsorption_report/Adsorption_gibbs_with_i0.csv"
+}
