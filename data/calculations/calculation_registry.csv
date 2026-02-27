@@ -1,0 +1,2 @@
+calc_id,material_id,workflow,code,status,xc,ecut_ev,kpoints,created_at,updated_at,result_file
+relax_W4N3_0001,C2DB-11836,relaxation,VASP,queued,PBE,520,"9x9x1",2026-02-27,2026-02-27,results/relax_W4N3_0001.json

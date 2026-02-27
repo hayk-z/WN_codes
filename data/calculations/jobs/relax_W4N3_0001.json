@@ -1,0 +1,17 @@
+{
+  "calc_id": "relax_W4N3_0001",
+  "material_id": "C2DB-11836",
+  "workflow": "relaxation",
+  "code": "VASP",
+  "input_structure": "Reports_gen/adsorption_materials_export/materials/C2DB_W-N-2D_W4N3_C2DB-11836/FINAL_STRUCTURE.vasp",
+  "settings": {
+    "xc": "PBE",
+    "encut_ev": 520,
+    "kpoints": "9x9x1",
+    "ediff": 1e-05,
+    "ismear": 0,
+    "sigma": 0.05
+  },
+  "status": "queued",
+  "created_at": "2026-02-27"
+}
