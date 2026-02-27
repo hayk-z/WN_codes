@@ -1,0 +1,9 @@
+name: wn_env
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+  - nodejs
+  - pandas
+  - matplotlib
+prefix: /opt/anaconda3/envs/wn_env
