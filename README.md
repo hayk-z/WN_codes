@@ -40,6 +40,27 @@ conda activate wn_env
 ```
 Then run python commands normally.
 
+## SLURM submission config (YSU2)
+
+Cluster submission parameters are now separated in config files under `configs/`.
+
+- `configs/slurm_ysu2.conf`: YSU2 defaults (job name, partition, walltime, memory, modules, run command)
+- `configs/myrun.sh`: reads a cluster config, creates a submit script, and calls `sbatch`
+
+Usage from repository root:
+
+```bash
+bash configs/myrun.sh
+```
+
+Optional arguments:
+
+```bash
+bash configs/myrun.sh configs/slurm_ysu2.conf /path/to/calculation_dir
+```
+
+To add another cluster, copy `configs/slurm_ysu2.conf`, adjust values, and pass that file to `configs/myrun.sh`.
+
 ## Build the ASE database
 
 From repository root:
