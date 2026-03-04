@@ -1,0 +1,18 @@
+job_name_prefix: dos_pbe
+potcar_root: /mnt/dftevn/opt/vasp/pseudo/potpaw_PBE
+
+step1_relax:
+  # Add or remove any ASE Vasp keyword here without code edits.
+  # Examples: lasph, lcharg, lwave, nelm, algo, ivdw, ispin, magmom, etc.
+  vasp_tags:
+    xc: PBE
+    encut: 520
+    kpts: [4, 4, 1]
+    ediff: 1e-5
+    ismear: 0
+    sigma: 0.05
+    ibrion: 2
+    nsw: 120
+    isif: 2
+    lwave: False
+    lcharge: False

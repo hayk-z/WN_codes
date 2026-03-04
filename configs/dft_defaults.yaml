@@ -1,7 +1,7 @@
 calculator: VASP
 xc: PBE
 encut_ev: 520
-kpoints: "9x9x1"
+kpoints: "4x4x1"
 ediff: 1e-5
 ismear: 0
 sigma: 0.05
