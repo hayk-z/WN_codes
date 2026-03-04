@@ -1,200 +1,106 @@
 # W-N Materials DFT Project
 
-This repository organizes W-N 2D materials data, analysis scripts, and an ASE database workflow.
+This repository stores W-N 2D materials data and Python workflows for database building, VASP input preparation, job submission, and DOS/PDOS/Band step orchestration.
 
-## Project structure
+## Project tree
 
 ```text
 .
 ├── configs/
-│   └── dft_defaults.yaml                # default DFT settings template
+│   ├── dft_defaults.yaml
+│   ├── dos_calc_pbe.conf
+│   ├── dos_calc_pbe.yaml
+│   ├── myrun.sh
+│   └── slurm_ysu2.conf
 ├── data/
-│   ├── raw/
-│   │   └── adsorption_materials_export/ # source CSV + material JSON/VASP files
+│   ├── calculations/
 │   ├── processed/
-│   │   ├── wn_materials.db              # ASE database (generated)
-│   │   ├── wn_materials_export.json     # JSON export (generated)
-│   │   └── wn_materials_export.yaml     # YAML export (generated)
-│   └── calculations/                    # calculation tracking scaffolding
-├── reports/
-│   ├── figures/
-│   └── tables/
-├── scripts/                             # plotting / one-off scripts
+│   │   ├── wn_materials.db
+│   │   ├── wn_materials_export.json
+│   │   └── wn_materials_export.yaml
+│   └── raw/
+├── scripts/
 ├── src/
 │   └── dftkit/
+│       ├── db/
+│       │   └── query_wn_db.py
 │       ├── io/
-│       │   └── build_wn_materials_db.py # builds ASE DB from raw inputs
-│       └── db/
-│           └── query_wn_db.py           # query and export DB content
+│       │   └── build_wn_materials_db.py
+│       ├── utils/
+│       │   ├── bsub_funcs_vasp.py
+│       │   ├── calc_funcs_vasp.py
+│       │   └── create_myrun_from_config.py
+│       └── workflows/
+│           ├── dos_pdos_band_workflow.py
+│           ├── prepare_vasp_inputs.py
+│           └── submit_prepared_jobs.py
 ├── tests/
 └── environment.yml
 ```
 
 ## Environment
 
-The Conda environment name is `wn_env` (see `environment.yml`).
-
-Activate once:
 ```bash
+conda env update --file environment.yml --prune
 conda activate wn_env
 ```
-Then run python commands normally.
 
-## SLURM submission config (YSU2)
+## Source Files
 
-Cluster submission parameters are now separated in config files under `configs/`.
+### `src/dftkit/io/build_wn_materials_db.py`
 
-- `configs/slurm_ysu2.conf`: YSU2 defaults (job name, partition, walltime, memory, modules, run command)
-- `configs/myrun.sh`: reads a cluster config, creates a submit script, and calls `sbatch`
+Purpose:
+- Build ASE database from raw adsorption export files.
 
-Usage from repository root:
+Inputs:
+- CSV table (default: `data/raw/adsorption_materials_export/Adsorption_gibbs_with_i0.csv`)
+- Material folders with `material_database_entry.json` and `FINAL_STRUCTURE.vasp`
 
-```bash
-bash configs/myrun.sh
-```
+Options:
+- `--csv`
+- `--materials-root`
+- `--output-db`
+- `--expected-count`
 
-Optional arguments:
-
-```bash
-bash configs/myrun.sh configs/slurm_ysu2.conf /path/to/calculation_dir
-```
-
-To add another cluster, copy `configs/slurm_ysu2.conf`, adjust values, and pass that file to `configs/myrun.sh`.
-
-## Prepare VASP input folders (Python)
-
-Use `prepare_vasp_inputs.py` to generate VASP-ready job directories with:
-- `INCAR`, `KPOINTS`, `POSCAR`, `POTCAR`, `myrun.sh`
-
-The script reads:
-- DFT defaults from `configs/dft_defaults.yaml`
-- Cluster run settings from `configs/slurm_ysu2.conf`
-- Structures from `.db`, `.json`, or `.yml/.yaml`
-
-Run from repository root with `wn_env`:
-
-```bash
-/mnt/dftevn/home/hayk/miniconda3/envs/wn_env/bin/python \
-src/dftkit/workflows/prepare_vasp_inputs.py \
---input-db data/processed/wn_materials.db \
---calc-name wn_relax_all
-```
-
-Generate only specific IDs:
-
-```bash
-/mnt/dftevn/home/hayk/miniconda3/envs/wn_env/bin/python \
-src/dftkit/workflows/prepare_vasp_inputs.py \
---input-db data/processed/wn_materials.db \
---calc-name wn_relax_selected \
---ids 1,2,5
-```
-
-Use JSON/YAML exported records instead of ASE DB:
-
-```bash
-/mnt/dftevn/home/hayk/miniconda3/envs/wn_env/bin/python \
-src/dftkit/workflows/prepare_vasp_inputs.py \
---input-db data/processed/wn_materials_export.json \
---calc-name wn_relax_json
-```
-
-Custom options:
-- `--dft-config` path to DFT defaults YAML
-- `--slurm-config` path to cluster config
-- `--output-root` output base folder (default: `data/calculations`)
-- `--potcar-root` POTCAR family path (default: `/mnt/dftevn/opt/vasp/pseudo/potpaw_PBE`)
-
-Output layout:
-
-```text
-data/calculations/<input_name>_<calc_name>/
-  id_<id>_<material>/
-    INCAR
-    KPOINTS
-    POSCAR
-    POTCAR
-    myrun.sh
-```
-
-## Generate only myrun.sh from cluster config (Python)
-
-If needed, generate just a `myrun.sh` template from config:
-
-```bash
-python src/dftkit/utils/create_myrun_from_config.py \
-  --config configs/slurm_ysu2.conf \
-  --output myrun.sh \
-  --workdir /path/to/calculation_dir
-```
-
-## Submit prepared jobs by DB IDs (Python)
-
-Use `submit_prepared_jobs.py` to submit `myrun.sh` inside prepared folders:
-
-```bash
-python src/dftkit/workflows/submit_prepared_jobs.py \
-  --prepared-root data/calculations/wn_materials_relax_all \
-  --ids 1,3,5
-```
-
-Submit all prepared IDs:
-
-```bash
-python src/dftkit/workflows/submit_prepared_jobs.py \
-  --prepared-root data/calculations/wn_materials_relax_all
-```
-
-Dry-run (no submission, only print commands):
-
-```bash
-python src/dftkit/workflows/submit_prepared_jobs.py \
-  --prepared-root data/calculations/wn_materials_relax_all \
-  --ids 1,3 \
-  --dry-run
-```
-
-## Build the ASE database
-
-From repository root:
-
+Examples:
 ```bash
 python src/dftkit/io/build_wn_materials_db.py
 ```
+```bash
+python src/dftkit/io/build_wn_materials_db.py \
+  --csv data/raw/adsorption_materials_export/Adsorption_gibbs_with_i0.csv \
+  --materials-root data/raw/adsorption_materials_export/materials \
+  --output-db data/processed/wn_materials.db \
+  --expected-count 9
+```
 
-This reads:
-- `data/raw/adsorption_materials_export/Adsorption_gibbs_with_i0.csv`
-- `data/raw/adsorption_materials_export/materials/*/material_database_entry.json`
-- `data/raw/adsorption_materials_export/materials/*/FINAL_STRUCTURE.vasp`
+### `src/dftkit/db/query_wn_db.py`
 
-And writes:
-- `data/processed/wn_materials.db`
+Purpose:
+- Query ASE DB and optionally export matched records to JSON/YAML.
 
-## Query the DB
+Inputs:
+- ASE database (`--db`)
 
-Print matched records:
+Options:
+- `--db`
+- `--material`
+- `--crystal-system`
+- `--limit`
+- `--json-out`
+- `--yaml-out`
+- `--export-all`
 
+Examples:
 ```bash
 python src/dftkit/db/query_wn_db.py --db data/processed/wn_materials.db
 ```
-
-Filter examples:
-
 ```bash
 python src/dftkit/db/query_wn_db.py \
   --db data/processed/wn_materials.db \
-  --crystal-system monoclinic \
-  --limit 3
+  --material USPEX_VARIABLE_W-N-2D_2971 \
+  --limit 5
 ```
-
-```bash
-python src/dftkit/db/query_wn_db.py \
-  --db data/processed/wn_materials.db \
-  --material USPEX_VARIABLE_W-N-2D_2971
-```
-
-## Export DB to JSON and YAML
-
 ```bash
 python src/dftkit/db/query_wn_db.py \
   --db data/processed/wn_materials.db \
@@ -203,9 +109,141 @@ python src/dftkit/db/query_wn_db.py \
   --yaml-out data/processed/wn_materials_export.yaml
 ```
 
-## Typical workflow
+### `src/dftkit/workflows/prepare_vasp_inputs.py`
 
-1. Update raw data in `data/raw/adsorption_materials_export/`.
-2. Rebuild DB with `build_wn_materials_db.py`.
-3. Run query/export with `query_wn_db.py`.
-4. Use exported JSON/YAML or direct ASE DB access for analysis and plotting.
+Purpose:
+- Prepare per-material VASP job folders (`INCAR`, `KPOINTS`, `POSCAR`, `POTCAR`, `myrun.sh`) from DB/JSON/YAML records.
+
+Inputs:
+- Dataset file: `.db`, `.json`, `.yml`, `.yaml` via `--input-db`
+- Calculation label via `--calc-name`
+
+Options:
+- `--input-db` (required)
+- `--calc-name` (required)
+- `--ids` (optional subset)
+- `--dft-config` (default: `configs/dft_defaults.yaml`)
+- `--slurm-config` (default: `configs/slurm_ysu2.conf`)
+- `--output-root` (default: `data/calculations`)
+- `--potcar-root` (default: `/mnt/dftevn/opt/vasp/pseudo/potpaw_PBE`)
+
+Examples:
+```bash
+python src/dftkit/workflows/prepare_vasp_inputs.py \
+  --input-db data/processed/wn_materials.db \
+  --calc-name wn_relax_all
+```
+```bash
+python src/dftkit/workflows/prepare_vasp_inputs.py \
+  --input-db data/processed/wn_materials.db \
+  --calc-name wn_relax_selected \
+  --ids 1,2,5
+```
+
+### `src/dftkit/workflows/submit_prepared_jobs.py`
+
+Purpose:
+- Submit already prepared folders that contain `myrun.sh`.
+
+Inputs:
+- Prepared root directory with folders like `id_<id>_<material>/`
+
+Options:
+- `--prepared-root` (required)
+- `--ids` (optional subset)
+- `--script-name` (default: `myrun.sh`)
+- `--submit-cmd` (default: `sbatch`)
+- `--dry-run`
+
+Examples:
+```bash
+python src/dftkit/workflows/submit_prepared_jobs.py \
+  --prepared-root data/calculations/wn_materials_relax_all
+```
+```bash
+python src/dftkit/workflows/submit_prepared_jobs.py \
+  --prepared-root data/calculations/wn_materials_relax_all \
+  --ids 1,3,5 \
+  --dry-run
+```
+
+### `src/dftkit/workflows/dos_pdos_band_workflow.py`
+
+Purpose:
+- DOS/PDOS/Band workflow driver.
+- Current implemented stage: `01_relax` (prepare + submit + monitor).
+- Creates step folders: `01_relax`, `02_dos`, `03_pdos`, `04_band`.
+
+Inputs:
+- Structure source via `--input-db` (`.db` or `.json`)
+- Workflow YAML config (default: `configs/dos_calc_pbe.yaml`)
+- SLURM config (default: `configs/slurm_ysu2.conf`)
+- Optional ID subset
+
+Options:
+- `--input-db` (required)
+- `--calc-name` (default: `DOS_calc`)
+- `--ids`
+- `--config` (workflow YAML)
+- `--slurm-config`
+- `--output-root`
+- `--poll-seconds`
+- `--max-wait-hours`
+- `--dry-run`
+
+Examples:
+```bash
+python src/dftkit/workflows/dos_pdos_band_workflow.py \
+  --input-db data/processed/wn_materials.db \
+  --ids 2 \
+  --config configs/dos_calc_pbe.yaml \
+  --slurm-config configs/slurm_ysu2.conf \
+  --calc-name DOS_calc
+```
+```bash
+python src/dftkit/workflows/dos_pdos_band_workflow.py \
+  --input-db data/processed/wn_materials.db \
+  --ids 1,2 \
+  --config configs/dos_calc_pbe.yaml \
+  --dry-run
+```
+
+### `src/dftkit/utils/create_myrun_from_config.py`
+
+Purpose:
+- Generate standalone `myrun.sh` from cluster `.conf` file.
+
+Inputs:
+- Cluster config file (`--config`)
+
+Options:
+- `--config` (default: `configs/slurm_ysu2.conf`)
+- `--output` (default: `myrun.sh`)
+- `--workdir` (default: current directory)
+
+Examples:
+```bash
+python src/dftkit/utils/create_myrun_from_config.py \
+  --config configs/slurm_ysu2.conf \
+  --output myrun.sh \
+  --workdir /path/to/calculation_dir
+```
+
+### `src/dftkit/utils/calc_funcs_vasp.py`
+
+Purpose:
+- Utility functions for VASP setup and output parsing.
+- Used by workflows to write VASP inputs (`set_vasp`) and post-process outputs.
+
+Inputs/options/examples:
+- Library module (no CLI arguments).
+- Used internally from workflow scripts.
+
+### `src/dftkit/utils/bsub_funcs_vasp.py`
+
+Purpose:
+- Utility functions for SLURM submission/status helper calls (`bsub_run`, `bsub_stat`, etc.).
+
+Inputs/options/examples:
+- Library module (no CLI arguments).
+- Used internally from workflow scripts.

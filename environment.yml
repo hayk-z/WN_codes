@@ -2,9 +2,10 @@ name: wn_env
 channels:
   - defaults
 dependencies:
-  - python=3.10
-  - nodejs
   - pandas
+  - nodejs
+  - python=3.10
   - matplotlib
   - ase
-prefix: /opt/anaconda3/envs/wn_env
+  - pyyaml
+prefix: /mnt/dftevn/home/hayk/miniconda3/envs/wn_env
