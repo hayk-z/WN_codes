@@ -5,3 +5,6 @@ kpoints: "9x9x1"
 ediff: 1e-5
 ismear: 0
 sigma: 0.05
+lwave: False
+lcharge: False  
+
