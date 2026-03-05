@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
+import math
 import os
 import re
 import shutil
@@ -19,6 +20,8 @@ from ase import Atoms
 from ase.calculators.vasp import Vasp
 from ase.db import connect
 from ase.io import read
+import spglib
+import seekpath
 
 # Allow running as a script from repository root.
 try:
@@ -235,6 +238,10 @@ def load_records(input_db: Path) -> list[dict[str, Any]]:
                         "id": row.id,
                         "material": getattr(row, "material", f"id_{row.id}"),
                         "atoms": row.toatoms(),
+                        "db_high_symmetry_path": getattr(row, "high_symmetry_path", None),
+                        "db_space_group_number": getattr(row, "space_group_number", None),
+                        "db_crystal_system": getattr(row, "crystal_system", None),
+                        "db_kpts": json.loads(getattr(row, "kpts", "{}") or "{}"),
                     }
                 )
         return rows
@@ -253,6 +260,10 @@ def load_records(input_db: Path) -> list[dict[str, Any]]:
                     "id": rec.get("id"),
                     "material": rec.get("material", f"id_{rec.get('id', 'unknown')}"),
                     "atoms": atoms_from_structure_dict(rec["structure"]),
+                    "db_high_symmetry_path": rec.get("high_symmetry_path"),
+                    "db_space_group_number": rec.get("space_group_number"),
+                    "db_crystal_system": rec.get("crystal_system"),
+                    "db_kpts": rec.get("kpts", {}),
                 }
             )
         return rows
@@ -412,6 +423,316 @@ def copy_restart_files(src_dir: Path, dst_dir: Path, names: list[str]) -> None:
         shutil.copy2(src, dst_dir / name)
 
 
+def select_structure_file_for_step4(step1_dir: Path, step2_dir: Path, step3_dir: Path) -> Path:
+    candidates = [
+        step3_dir / "CONTCAR",
+        step3_dir / "POSCAR",
+        step2_dir / "CONTCAR",
+        step2_dir / "POSCAR",
+        step1_dir / "CONTCAR",
+        step1_dir / "POSCAR",
+    ]
+    for path in candidates:
+        if path.exists():
+            return path
+    raise FileNotFoundError(
+        "Step 4 requested but no CONTCAR/POSCAR found in 03_dos, 02_scf, or 01_relax."
+    )
+
+
+def run_step4_symmetry_analysis(
+    step4_dir: Path,
+    atoms: Atoms,
+    workflow_cfg: dict[str, Any],
+    rec: dict[str, Any],
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    def to_json_safe(obj: Any) -> Any:
+        if isinstance(obj, dict):
+            return {str(k): to_json_safe(v) for k, v in obj.items()}
+        if isinstance(obj, (list, tuple)):
+            return [to_json_safe(v) for v in obj]
+        if hasattr(obj, "tolist"):
+            try:
+                return to_json_safe(obj.tolist())
+            except Exception:
+                pass
+        if isinstance(obj, (int, float, str, bool)) or obj is None:
+            return obj
+        return str(obj)
+
+    step4_cfg = workflow_cfg.get("step4_band", {})
+    if not isinstance(step4_cfg, dict):
+        step4_cfg = {}
+    sym_tol = float(coerce_scalar_for_vasp(step4_cfg.get("symmetry_tolerance", 1e-2)))
+    angle_tol = float(coerce_scalar_for_vasp(step4_cfg.get("angle_tolerance", 5.0)))
+
+    cell = atoms.cell.array.tolist()
+    scaled_positions = atoms.get_scaled_positions().tolist()
+    numbers = atoms.get_atomic_numbers().tolist()
+    spgcell = (cell, scaled_positions, numbers)
+
+    # By default we treat the largest lattice direction as non-periodic (2D slab).
+    aperiodic_dir_cfg = step4_cfg.get("aperiodic_dir", "auto")
+    if str(aperiodic_dir_cfg).lower() == "auto":
+        lengths = atoms.cell.lengths()
+        aperiodic_dir = int(max(range(3), key=lambda i: lengths[i]))
+    else:
+        aperiodic_dir = int(coerce_scalar_for_vasp(aperiodic_dir_cfg))
+        if aperiodic_dir not in (0, 1, 2):
+            raise ValueError("step4_band.aperiodic_dir must be 0, 1, 2, or 'auto'")
+
+    layer_result: dict[str, Any] = {
+        "symmetry_tolerance": sym_tol,
+        "angle_tolerance": angle_tol,
+        "aperiodic_dir": aperiodic_dir,
+    }
+    seekpath_result: dict[str, Any] = {
+        "symmetry_tolerance": sym_tol,
+        "angle_tolerance": angle_tol,
+        "aperiodic_dir": aperiodic_dir,
+    }
+
+    def two_d_lattice_type(atoms_obj: Atoms, non_periodic_dir: int) -> str:
+        idx = [i for i in range(3) if i != non_periodic_dir]
+        v1 = atoms_obj.cell.array[idx[0]]
+        v2 = atoms_obj.cell.array[idx[1]]
+        l1 = float((v1 @ v1) ** 0.5)
+        l2 = float((v2 @ v2) ** 0.5)
+        cosang = max(-1.0, min(1.0, float((v1 @ v2) / (l1 * l2))))
+        angle = float(math.degrees(math.acos(cosang)))
+        rel = abs(l1 - l2) / max(l1, l2, 1e-12)
+        len_tol = float(coerce_scalar_for_vasp(step4_cfg.get("lattice_length_rel_tol", 0.03)))
+        ang_tol = float(coerce_scalar_for_vasp(step4_cfg.get("lattice_angle_tol_deg", 3.0)))
+        if abs(angle - 90.0) <= ang_tol and rel <= len_tol:
+            return "square"
+        if abs(angle - 90.0) <= ang_tol:
+            return "rectangular"
+        if rel <= len_tol and (abs(angle - 60.0) <= ang_tol or abs(angle - 120.0) <= ang_tol):
+            return "hexagonal"
+        return "oblique"
+
+    def format_kpath_string(path_segments: list[Any]) -> str:
+        if not path_segments:
+            return ""
+        label_map = {"GAMMA": "G", "\\Gamma": "G"}
+        chain: list[str] = []
+        for idx_seg, seg in enumerate(path_segments):
+            if not isinstance(seg, (list, tuple)) or len(seg) != 2:
+                continue
+            s = label_map.get(str(seg[0]), str(seg[0]))
+            e = label_map.get(str(seg[1]), str(seg[1]))
+            if idx_seg == 0:
+                chain.extend([s, e])
+                continue
+            if chain and chain[-1] == s:
+                chain.append(e)
+            else:
+                chain.extend(["|", s, e])
+        return " ".join(chain).strip()
+
+    def canonical_2d_kpath(lattice_type: str) -> str:
+        lut = {
+            "square": "G X M G",
+            "rectangular": "G X S Y G",
+            "hexagonal": "G K M G",
+            "oblique": "G X Y G",
+        }
+        return lut.get(lattice_type, "G X Y G")
+
+    def canonical_2d_kpoints(lattice_type: str) -> dict[str, list[float]]:
+        lut = {
+            "square": {"G": [0.0, 0.0], "X": [0.5, 0.0], "M": [0.5, 0.5]},
+            "rectangular": {
+                "G": [0.0, 0.0],
+                "X": [0.5, 0.0],
+                "S": [0.5, 0.5],
+                "Y": [0.0, 0.5],
+            },
+            "hexagonal": {"G": [0.0, 0.0], "K": [1.0 / 3.0, 1.0 / 3.0], "M": [0.5, 0.0]},
+            "oblique": {"G": [0.0, 0.0], "X": [0.5, 0.0], "Y": [0.0, 0.5]},
+        }
+        return lut.get(lattice_type, lut["oblique"])
+
+    try:
+        layer_ds = spglib.get_symmetry_layerdataset(
+            spgcell,
+            aperiodic_dir=aperiodic_dir,
+            symprec=sym_tol,
+        )
+        if layer_ds is None:
+            raise RuntimeError("spglib returned no layer dataset")
+
+        layer_group = spglib.get_layergroup(
+            spgcell,
+            aperiodic_dir=aperiodic_dir,
+            symprec=sym_tol,
+        )
+        if layer_group is None:
+            raise RuntimeError("spglib returned no layer group")
+
+        standardized_cell = (
+            layer_ds.std_lattice,
+            layer_ds.std_positions,
+            layer_ds.std_types,
+        )
+        kpath_raw = seekpath.get_path(
+            standardized_cell,
+            symprec=sym_tol,
+            angle_tolerance=angle_tol,
+        )
+
+        point_coords_3d = dict(kpath_raw.get("point_coords", {}))
+        path_3d = list(kpath_raw.get("path", []))
+
+        # 2D projection: remove the aperiodic component from k-points.
+        point_coords_2d: dict[str, list[float]] = {}
+        for label, coord in point_coords_3d.items():
+            if not isinstance(coord, (list, tuple)) or len(coord) != 3:
+                continue
+            in_plane = [float(coord[i]) for i in range(3) if i != aperiodic_dir]
+            point_coords_2d[str(label)] = in_plane
+
+        path_2d = [[str(p[0]), str(p[1])] for p in path_3d if isinstance(p, (list, tuple)) and len(p) == 2]
+        lattice2d = two_d_lattice_type(atoms, aperiodic_dir)
+        kpath_string_canonical = canonical_2d_kpath(lattice2d)
+        kpoints_canonical = canonical_2d_kpoints(lattice2d)
+
+        layer_result.update(
+            {
+                "layer_group_number": int(layer_group.number),
+                "layer_group_symbol": str(layer_group.international),
+                "layer_hall": str(layer_group.hall),
+                "pointgroup": str(layer_group.pointgroup),
+                "lattice_type_2d": lattice2d,
+                "kpath_string_2d": kpath_string_canonical,
+                "kpath_kpoints_2d": kpoints_canonical,
+            }
+        )
+        seekpath_result.update(
+            {
+                "bravais_lattice": str(kpath_raw.get("bravais_lattice", "")),
+                "bravais_lattice_extended": str(kpath_raw.get("bravais_lattice_extended", "")),
+                "kpath_path_2d": path_2d,
+                "kpath_kpoints_2d": point_coords_2d,
+                "kpath_string_2d_canonical": kpath_string_canonical,
+                "kpath_kpoints_2d_canonical": kpoints_canonical,
+                "lattice_type_2d": lattice2d,
+                "source": "seekpath",
+            }
+        )
+    except Exception as exc:
+        layer_result["error"] = f"{type(exc).__name__}: {exc}"
+        seekpath_result["error"] = f"{type(exc).__name__}: {exc}"
+
+    db_result = {
+        "db_space_group_number": rec.get("db_space_group_number"),
+        "db_crystal_system": rec.get("db_crystal_system"),
+        "db_high_symmetry_path": rec.get("db_high_symmetry_path"),
+        "db_kpts": rec.get("db_kpts", {}),
+    }
+
+    layer_result = to_json_safe(layer_result)
+    seekpath_result = to_json_safe(seekpath_result)
+    db_result = to_json_safe(db_result)
+
+    # Explicitly remove obsolete ASE file from previous runs.
+    ase_old = step4_dir / "ase_output.json"
+    if ase_old.exists():
+        ase_old.unlink()
+
+    (step4_dir / "pymatgen_output.json").write_text(
+        json.dumps(layer_result, indent=2), encoding="utf-8"
+    )
+    (step4_dir / "seekpath_output.json").write_text(
+        json.dumps(seekpath_result, indent=2), encoding="utf-8"
+    )
+    (step4_dir / "db_kpath_summary.json").write_text(json.dumps(db_result, indent=2), encoding="utf-8")
+
+    summary_lines = [
+        "Step 4 2D Band/Symmetry Summary",
+        f"symmetry_tolerance: {sym_tol}",
+        f"angle_tolerance: {angle_tol}",
+        f"aperiodic_dir: {aperiodic_dir}",
+        f"lattice_type_2d: {layer_result.get('lattice_type_2d')}",
+        f"kpath_string_2d: {layer_result.get('kpath_string_2d')}",
+        "",
+        "[spglib + seekpath]",
+        f"layer_group_number: {layer_result.get('layer_group_number')}",
+        f"layer_group_symbol: {layer_result.get('layer_group_symbol')}",
+        f"pointgroup: {layer_result.get('pointgroup')}",
+        f"kpath_segments: {len(seekpath_result.get('kpath_path_2d', []))}",
+        f"error: {layer_result.get('error', '')}",
+        "",
+        "[2D path comparison]",
+        f"spglib_path_2d: {layer_result.get('kpath_string_2d')}",
+        f"seekpath_path_2d_canonical: {seekpath_result.get('kpath_string_2d_canonical')}",
+        f"paths_match: {layer_result.get('kpath_string_2d') == seekpath_result.get('kpath_string_2d_canonical')}",
+        "",
+        "[DB]",
+        f"db_space_group_number: {db_result.get('db_space_group_number')}",
+        f"db_crystal_system: {db_result.get('db_crystal_system')}",
+    ]
+
+    # Add canonical 2D k-point coordinates used by kpath_string_2d.
+    kpoint_coords = layer_result.get("kpath_kpoints_2d", {})
+    if isinstance(kpoint_coords, dict) and kpoint_coords:
+        summary_lines.extend(["", "[2D k-point coordinates]"])
+        labels_in_path = str(layer_result.get("kpath_string_2d", "")).split()
+        seen_labels: set[str] = set()
+        for label in labels_in_path:
+            if label == "|":
+                continue
+            if label in seen_labels:
+                continue
+            seen_labels.add(label)
+            coord = kpoint_coords.get(label)
+            if isinstance(coord, list) and len(coord) == 2:
+                summary_lines.append(f"{label}: [{coord[0]}, {coord[1]}]")
+
+    (step4_dir / "summary.txt").write_text("\n".join(summary_lines) + "\n", encoding="utf-8")
+    return layer_result, seekpath_result
+
+
+def write_band_kpoints_from_2d_path(
+    kpoints_file: Path,
+    kpath_string_2d: str,
+    kpoints_2d: dict[str, list[float]],
+    aperiodic_dir: int,
+    points_per_segment: int,
+) -> None:
+    labels = [tok for tok in kpath_string_2d.split() if tok != "|"]
+    if len(labels) < 2:
+        raise ValueError(f"Invalid 2D k-path string: {kpath_string_2d!r}")
+
+    def to_3d(coord2d: list[float]) -> list[float]:
+        if len(coord2d) != 2:
+            raise ValueError(f"Invalid 2D k-point coordinate: {coord2d}")
+        out = [0.0, 0.0, 0.0]
+        in_plane_idx = [i for i in range(3) if i != aperiodic_dir]
+        out[in_plane_idx[0]] = float(coord2d[0])
+        out[in_plane_idx[1]] = float(coord2d[1])
+        return out
+
+    lines = [
+        "KPOINTS",
+        str(max(2, int(points_per_segment))),
+        "Line-mode",
+        "Reciprocal",
+    ]
+    for i in range(len(labels) - 1):
+        a = labels[i]
+        b = labels[i + 1]
+        if a not in kpoints_2d or b not in kpoints_2d:
+            raise KeyError(f"K-point label missing coordinates: {a if a not in kpoints_2d else b}")
+        ka = to_3d(kpoints_2d[a])
+        kb = to_3d(kpoints_2d[b])
+        lines.append(f"{ka[0]:.8f} {ka[1]:.8f} {ka[2]:.8f} ! {a}")
+        lines.append(f"{kb[0]:.8f} {kb[1]:.8f} {kb[2]:.8f} ! {b}")
+        lines.append("")
+
+    kpoints_file.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
+
+
 def submit_step1(
     step_dir: Path,
     job_name: str,
@@ -440,7 +761,7 @@ def submit_step1(
         if job_id is None:
             raise RuntimeError(f"Submission failed or run_id.txt has no job id in {abs_step_dir}")
 
-        log_message(log_file, f"Submitted step1 relaxation: {job_name} (job_id={job_id})")
+        log_message(log_file, f"Submitted job: {job_name} (job_id={job_id})")
         return {"job_id": job_id, "step_dir": abs_step_dir, "job_name": job_name}
 
 
@@ -501,9 +822,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--start-step",
         type=int,
-        choices=[1, 2, 3],
+        choices=[1, 2, 3, 4],
         default=1,
-        help="Step to execute: 1=relax, 2=scf (from 01_relax/CONTCAR), 3=dos (from 02_scf)",
+        help="Step to execute: 1=relax, 2=scf, 3=dos, 4=2D band (analysis + run prep + submit)",
     )
     parser.add_argument("--poll-seconds", type=int, default=20)
     parser.add_argument("--max-wait-hours", type=float, default=240.0)
@@ -581,7 +902,7 @@ def main() -> None:
             job_name = f"{job_prefix}_id{rid}_s2"
             run_dir = step2_dir
             step_label = "step2_scf"
-        else:
+        elif args.start_step == 3:
             step2_contcar = step2_dir / "CONTCAR"
             step2_poscar = step2_dir / "POSCAR"
             if step2_contcar.exists():
@@ -612,6 +933,53 @@ def main() -> None:
             job_name = f"{job_prefix}_id{rid}_s3"
             run_dir = step3_dir
             step_label = "step3_dos"
+        else:
+            source_structure = select_structure_file_for_step4(step1_dir, step2_dir, step3_dir)
+            log_message(
+                log_file,
+                f"Preparing step4 2D band for ID={rid}, material={material} from {source_structure.name}",
+            )
+            atoms = read(source_structure)
+            layer_result, _seekpath_result = run_step4_symmetry_analysis(step4_dir, atoms, workflow_cfg, rec)
+
+            # Step4 INCAR defaults: same as DOS-like static run but without NEDOS.
+            # Users can override via configs/dos_calc_pbe.yaml: step4_band.vasp_tags
+            step4_cfg = workflow_cfg.get("step4_band", {})
+            if not isinstance(step4_cfg, dict):
+                step4_cfg = {}
+            if "vasp_tags" not in step4_cfg:
+                step4_cfg["vasp_tags"] = {}
+            if isinstance(step4_cfg.get("vasp_tags"), dict):
+                step4_cfg["vasp_tags"].setdefault("kpts", [18, 18, 1])
+                step4_cfg["vasp_tags"].setdefault("icharge", 11)
+                step4_cfg["vasp_tags"].setdefault("lorbit", 11)
+                step4_cfg["vasp_tags"].setdefault("nsw", 0)
+                step4_cfg["vasp_tags"].setdefault("ibrion", -1)
+                step4_cfg["vasp_tags"].setdefault("lwave", False)
+                step4_cfg["vasp_tags"].setdefault("lcharg", False)
+                step4_cfg["vasp_tags"].pop("nedos", None)
+            workflow_cfg["step4_band"] = step4_cfg
+
+            prepare_step_input(step4_dir, atoms, workflow_cfg, step_key="step4_band")
+            copy_restart_files(step2_dir, step4_dir, ["CHGCAR", "WAVECAR"])
+
+            kpath_string_2d = str(layer_result.get("kpath_string_2d", "")).strip()
+            kpoints_2d = layer_result.get("kpath_kpoints_2d", {})
+            aperiodic_dir = int(layer_result.get("aperiodic_dir", 2))
+            points_per_segment = int(coerce_scalar_for_vasp(step4_cfg.get("band_points_per_segment", 40)))
+            if not isinstance(kpoints_2d, dict) or not kpoints_2d:
+                raise ValueError("Step 4 failed to produce canonical 2D k-point coordinates")
+            write_band_kpoints_from_2d_path(
+                step4_dir / "KPOINTS",
+                kpath_string_2d=kpath_string_2d,
+                kpoints_2d={str(k): v for k, v in kpoints_2d.items()},
+                aperiodic_dir=aperiodic_dir,
+                points_per_segment=points_per_segment,
+            )
+
+            job_name = f"{job_prefix}_id{rid}_s4"
+            run_dir = step4_dir
+            step_label = "step4_band"
 
         write_myrun(run_dir / "myrun.sh", slurm_cfg, job_name=job_name, workdir=run_dir)
 
@@ -632,7 +1000,7 @@ def main() -> None:
                 log_file,
                 f"ID={job.get('rid', '?')}: {job.get('step_label', 'step')} completed",
             )
-    else:
+    elif submitted_jobs:
         log_message(log_file, f"Submitted {len(submitted_jobs)} jobs. Start monitoring...")
         monitor_submitted_jobs(
             jobs=submitted_jobs,

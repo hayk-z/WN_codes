@@ -37,3 +37,21 @@ step3_dos:
     ibrion: -1
     lwave: false
     lcharg: false
+
+step4_band:
+  # Tolerances used for 2D layer-group symmetry (spglib) and seekpath.
+  symmetry_tolerance: 0.1
+  angle_tolerance: 1.0
+  # 0=a, 1=b, 2=c is non-periodic direction; "auto" chooses longest lattice vector.
+  aperiodic_dir: auto
+  # Number of points per line segment in line-mode KPOINTS.
+  band_points_per_segment: 40
+  # Same static setup as DOS step, but intentionally without NEDOS.
+  vasp_tags:
+    kpts: [18, 18, 1]
+    icharge: 11
+    lorbit: 11
+    nsw: 0
+    ibrion: -1
+    lwave: false
+    lcharg: false
