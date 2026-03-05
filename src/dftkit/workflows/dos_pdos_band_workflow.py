@@ -8,6 +8,7 @@ import datetime as dt
 import json
 import os
 import re
+import shutil
 import sys
 import time
 from contextlib import contextmanager
@@ -403,6 +404,14 @@ def prepare_step_input(
         set_vasp(atoms, calc)
 
 
+def copy_restart_files(src_dir: Path, dst_dir: Path, names: list[str]) -> None:
+    for name in names:
+        src = src_dir / name
+        if not src.exists():
+            raise FileNotFoundError(f"Required restart file not found: {src}")
+        shutil.copy2(src, dst_dir / name)
+
+
 def submit_step1(
     step_dir: Path,
     job_name: str,
@@ -492,9 +501,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--start-step",
         type=int,
-        choices=[1, 2],
+        choices=[1, 2, 3],
         default=1,
-        help="Step to execute: 1=relax, 2=scf (from 01_relax/CONTCAR)",
+        help="Step to execute: 1=relax, 2=scf (from 01_relax/CONTCAR), 3=dos (from 02_scf)",
     )
     parser.add_argument("--poll-seconds", type=int, default=20)
     parser.add_argument("--max-wait-hours", type=float, default=240.0)
@@ -538,7 +547,7 @@ def main() -> None:
         mat_dir = calc_root / f"id_{rid}_{material}"
         step1_dir = mat_dir / "01_relax"
         step2_dir = mat_dir / "02_scf"
-        step3_dir = mat_dir / "03_pdos"
+        step3_dir = mat_dir / "03_dos"
         step4_dir = mat_dir / "04_band"
 
         # Create full step tree now; only step1 is populated/submitted in this stage.
@@ -549,7 +558,9 @@ def main() -> None:
             log_message(log_file, f"Preparing step1 relaxation for ID={rid}, material={material}")
             prepare_step_input(step1_dir, rec["atoms"], workflow_cfg, step_key="step1_relax")
             job_name = f"{job_prefix}_id{rid}_r1"
-        else:
+            run_dir = step1_dir
+            step_label = "step1_relax"
+        elif args.start_step == 2:
             contcar = step1_dir / "CONTCAR"
             if not contcar.exists():
                 raise FileNotFoundError(
@@ -568,8 +579,40 @@ def main() -> None:
                 base_kpts=base_kpts,
             )
             job_name = f"{job_prefix}_id{rid}_s2"
+            run_dir = step2_dir
+            step_label = "step2_scf"
+        else:
+            step2_contcar = step2_dir / "CONTCAR"
+            step2_poscar = step2_dir / "POSCAR"
+            if step2_contcar.exists():
+                source_structure = step2_contcar
+            elif step2_poscar.exists():
+                source_structure = step2_poscar
+            else:
+                raise FileNotFoundError(
+                    f"Step 3 requested but neither CONTCAR nor POSCAR found in {step2_dir}"
+                )
 
-        run_dir = step1_dir if args.start_step == 1 else step2_dir
+            log_message(
+                log_file,
+                f"Preparing step3 DOS for ID={rid}, material={material} from {source_structure.name}",
+            )
+            scf_atoms = read(source_structure)
+            base_kpts = normalize_kpts(
+                workflow_cfg.get("step2_scf", {}).get("vasp_tags", {}).get("kpts")
+            ) or normalize_kpts(workflow_cfg.get("step1_relax", {}).get("vasp_tags", {}).get("kpts"))
+            prepare_step_input(
+                step3_dir,
+                scf_atoms,
+                workflow_cfg,
+                step_key="step3_dos",
+                base_kpts=base_kpts,
+            )
+            copy_restart_files(step2_dir, step3_dir, ["CHGCAR", "WAVECAR"])
+            job_name = f"{job_prefix}_id{rid}_s3"
+            run_dir = step3_dir
+            step_label = "step3_dos"
+
         write_myrun(run_dir / "myrun.sh", slurm_cfg, job_name=job_name, workdir=run_dir)
 
         job_info = submit_step1(
@@ -579,7 +622,7 @@ def main() -> None:
             dry_run=args.dry_run,
         )
         job_info["rid"] = rid
-        job_info["step_label"] = "step1_relax" if args.start_step == 1 else "step2_scf"
+        job_info["step_label"] = step_label
         submitted_jobs.append(job_info)
 
     if args.dry_run:

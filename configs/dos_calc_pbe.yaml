@@ -26,3 +26,14 @@ step2_scf:
     ibrion: -1
     ismear: -5
     ivdw: 11
+
+step3_dos:
+  vasp_tags:
+    kpts: [18, 18, 1]
+    icharge: 11 # Use charge density from previous SCF step
+    lorbit: 11
+    nedos: 1000
+    nsw: 0
+    ibrion: -1
+    lwave: false
+    lcharg: false
