@@ -7,12 +7,22 @@ step1_relax:
   vasp_tags:
     xc: PBE
     encut: 520
-    kpts: [4, 4, 1]
+    kpts: [9, 9, 1]
     ediff: 1e-5
     ismear: 0
     sigma: 0.05
     ibrion: 2
     nsw: 120
     isif: 2
-    lwave: False
-    lcharge: False
+    lwave: false
+    lcharg: false
+
+step2_scf:
+  vasp_tags:
+    kpts: [18, 18, 1]
+    lwave: true
+    lcharg: true
+    nsw: 0
+    ibrion: -1
+    ismear: -5
+    ivdw: 11

@@ -17,6 +17,7 @@ from typing import Any
 from ase import Atoms
 from ase.calculators.vasp import Vasp
 from ase.db import connect
+from ase.io import read
 
 # Allow running as a script from repository root.
 try:
@@ -136,6 +137,28 @@ def parse_yaml_value(text: str) -> Any:
         return value
 
 
+def coerce_scalar_for_vasp(value: Any) -> Any:
+    """Convert numeric-looking strings from YAML into int/float for ASE VASP tags."""
+    if not isinstance(value, str):
+        return value
+    raw = value.strip()
+    low = raw.lower()
+    if low in {"true", "false"}:
+        return low == "true"
+    if low in {"none", "null"}:
+        return None
+    try:
+        if re.fullmatch(r"[+-]?\d+", raw):
+            return int(raw)
+        if re.fullmatch(r"[+-]?(?:\d+\.?\d*|\.\d+)(?:[eE][+-]?\d+)?", raw) or re.fullmatch(
+            r"[+-]?\d+[eE][+-]?\d+", raw
+        ):
+            return float(raw)
+    except ValueError:
+        return value
+    return value
+
+
 def parse_yaml_fallback(text: str) -> dict[str, Any]:
     """Minimal YAML parser for nested mappings + inline lists."""
     root: dict[str, Any] = {}
@@ -186,7 +209,7 @@ def sanitize_name(name: str) -> str:
 def parse_kpoint_mesh(value: str) -> tuple[int, int, int]:
     tokens = [t for t in re.split(r"[xX, ]+", value.strip()) if t]
     if len(tokens) != 3:
-        raise ValueError(f"RELAX_KPOINTS must have 3 integers, got: {value!r}")
+        raise ValueError(f"KPOINTS must have 3 integers, got: {value!r}")
     return int(tokens[0]), int(tokens[1]), int(tokens[2])
 
 
@@ -247,27 +270,65 @@ def select_records(records: list[dict[str, Any]], ids_filter: set[str]) -> list[
     return selected
 
 
-def build_relax_vasp_kwargs(workflow_cfg: dict[str, Any]) -> dict[str, Any]:
-    step1 = workflow_cfg.get("step1_relax", {})
-    if not isinstance(step1, dict):
-        raise ValueError("workflow config key 'step1_relax' must be a mapping")
+def normalize_kpts(value: Any) -> tuple[int, int, int] | None:
+    if value is None:
+        return None
+    if isinstance(value, str):
+        return parse_kpoint_mesh(value)
+    if isinstance(value, (list, tuple)) and len(value) == 3:
+        return int(value[0]), int(value[1]), int(value[2])
+    return None
 
-    tags = step1.get("vasp_tags", {})
-    if not isinstance(tags, dict):
-        raise ValueError("workflow config key 'step1_relax.vasp_tags' must be a mapping")
 
-    kwargs = dict(tags)
+def build_step_vasp_kwargs(
+    workflow_cfg: dict[str, Any],
+    step_key: str,
+    base_kpts: tuple[int, int, int] | None = None,
+) -> dict[str, Any]:
+    step_cfg = workflow_cfg.get(step_key, {})
+    if not isinstance(step_cfg, dict):
+        raise ValueError(f"workflow config key '{step_key}' must be a mapping")
+
+    step_tags = step_cfg.get("vasp_tags", {})
+    if not isinstance(step_tags, dict):
+        raise ValueError(f"workflow config key '{step_key}.vasp_tags' must be a mapping")
+
+    base_tags: dict[str, Any] = {}
+    if step_key != "step1_relax":
+        inherited = workflow_cfg.get("step1_relax", {}).get("vasp_tags", {})
+        if isinstance(inherited, dict):
+            base_tags = dict(inherited)
+
+    merged = dict(base_tags)
+    merged.update(step_tags)
+
+    # If k-point scaling is requested and step-specific kpts is not set, use scaled base kpts.
+    if "kpts_scale" in step_cfg and "kpts" not in step_tags:
+        merged.pop("kpts", None)
+        merged.pop("kpoints", None)
+
+    kwargs = {key: coerce_scalar_for_vasp(value) for key, value in merged.items()}
     alias_map = {"encut_ev": "encut", "kpoints": "kpts"}
     for old_key, new_key in alias_map.items():
         if old_key in kwargs and new_key not in kwargs:
             kwargs[new_key] = kwargs.pop(old_key)
 
-    if "kpts" in kwargs:
-        kpts_val = kwargs["kpts"]
-        if isinstance(kpts_val, str):
-            kwargs["kpts"] = parse_kpoint_mesh(kpts_val)
-        elif isinstance(kpts_val, (list, tuple)) and len(kpts_val) == 3:
-            kwargs["kpts"] = (int(kpts_val[0]), int(kpts_val[1]), int(kpts_val[2]))
+    kpts = normalize_kpts(kwargs.get("kpts"))
+    if kpts is None and base_kpts is not None:
+        scale = int(coerce_scalar_for_vasp(step_cfg.get("kpts_scale", 1)) or 1)
+        if scale < 1:
+            scale = 1
+        scale_z = bool(coerce_scalar_for_vasp(step_cfg.get("kpts_scale_z", False)))
+        if scale_z:
+            kpts = tuple(max(1, int(scale * v)) for v in base_kpts)
+        else:
+            kpts = (
+                max(1, int(scale * base_kpts[0])),
+                max(1, int(scale * base_kpts[1])),
+                int(base_kpts[2]),
+            )
+    if kpts is not None:
+        kwargs["kpts"] = kpts
 
     return kwargs
 
@@ -322,7 +383,13 @@ def write_myrun(path: Path, cfg: dict[str, object], job_name: str, workdir: Path
     os.chmod(path, 0o755)
 
 
-def prepare_step1_relax(step_dir: Path, atoms: Atoms, workflow_cfg: dict[str, Any]) -> None:
+def prepare_step_input(
+    step_dir: Path,
+    atoms: Atoms,
+    workflow_cfg: dict[str, Any],
+    step_key: str,
+    base_kpts: tuple[int, int, int] | None = None,
+) -> None:
     potcar_root = Path(str(workflow_cfg.get("potcar_root", ""))).expanduser()
     if not potcar_root.exists():
         raise FileNotFoundError(f"POTCAR_ROOT does not exist: {potcar_root}")
@@ -330,7 +397,7 @@ def prepare_step1_relax(step_dir: Path, atoms: Atoms, workflow_cfg: dict[str, An
     # ASE VASP expects VASP_PP_PATH to point to parent of potpaw_PBE.
     os.environ["VASP_PP_PATH"] = str(potcar_root.parent)
 
-    vasp_kwargs = build_relax_vasp_kwargs(workflow_cfg)
+    vasp_kwargs = build_step_vasp_kwargs(workflow_cfg, step_key=step_key, base_kpts=base_kpts)
     calc = Vasp(**vasp_kwargs)
     with pushd(step_dir):
         set_vasp(atoms, calc)
@@ -394,7 +461,8 @@ def monitor_submitted_jobs(
 
             if status == "Finished":
                 rid = job.get("rid", "?")
-                log_message(log_file, f"ID={rid}: 1st step completed")
+                step_label = str(job.get("step_label", "step"))
+                log_message(log_file, f"ID={rid}: {step_label} completed")
                 finished.add(job_name)
 
         elapsed_h = (time.time() - start) / 3600.0
@@ -421,6 +489,13 @@ def parse_args() -> argparse.Namespace:
         help="Cluster SLURM config file",
     )
     parser.add_argument("--output-root", type=Path, default=DEFAULT_OUTPUT_ROOT)
+    parser.add_argument(
+        "--start-step",
+        type=int,
+        choices=[1, 2],
+        default=1,
+        help="Step to execute: 1=relax, 2=scf (from 01_relax/CONTCAR)",
+    )
     parser.add_argument("--poll-seconds", type=int, default=20)
     parser.add_argument("--max-wait-hours", type=float, default=240.0)
     parser.add_argument("--dry-run", action="store_true", help="Create files but do not submit")
@@ -452,6 +527,7 @@ def main() -> None:
     log_message(log_file, f"Starting workflow: calc_name={args.calc_name}")
     log_message(log_file, f"Selected records: {len(records)}")
     log_message(log_file, f"SLURM config: {args.slurm_config}")
+    log_message(log_file, f"Start step: {args.start_step}")
 
     job_prefix = str(workflow_cfg.get("job_name_prefix", "dos"))
     submitted_jobs: list[dict[str, Any]] = []
@@ -461,7 +537,7 @@ def main() -> None:
         material = sanitize_name(str(rec.get("material", f"id_{rid}")))
         mat_dir = calc_root / f"id_{rid}_{material}"
         step1_dir = mat_dir / "01_relax"
-        step2_dir = mat_dir / "02_dos"
+        step2_dir = mat_dir / "02_scf"
         step3_dir = mat_dir / "03_pdos"
         step4_dir = mat_dir / "04_band"
 
@@ -469,25 +545,50 @@ def main() -> None:
         for d in (step1_dir, step2_dir, step3_dir, step4_dir):
             d.mkdir(parents=True, exist_ok=True)
 
-        log_message(log_file, f"Preparing step1 relaxation for ID={rid}, material={material}")
-        prepare_step1_relax(step1_dir, rec["atoms"], workflow_cfg)
+        if args.start_step == 1:
+            log_message(log_file, f"Preparing step1 relaxation for ID={rid}, material={material}")
+            prepare_step_input(step1_dir, rec["atoms"], workflow_cfg, step_key="step1_relax")
+            job_name = f"{job_prefix}_id{rid}_r1"
+        else:
+            contcar = step1_dir / "CONTCAR"
+            if not contcar.exists():
+                raise FileNotFoundError(
+                    f"Step 2 requested but CONTCAR not found for ID={rid}: {contcar}"
+                )
+            log_message(log_file, f"Preparing step2 SCF for ID={rid}, material={material} from CONTCAR")
+            relaxed_atoms = read(contcar)
+            base_kpts = normalize_kpts(
+                workflow_cfg.get("step1_relax", {}).get("vasp_tags", {}).get("kpts")
+            )
+            prepare_step_input(
+                step2_dir,
+                relaxed_atoms,
+                workflow_cfg,
+                step_key="step2_scf",
+                base_kpts=base_kpts,
+            )
+            job_name = f"{job_prefix}_id{rid}_s2"
 
-        job_name = f"{job_prefix}_id{rid}_r1"
-        write_myrun(step1_dir / "myrun.sh", slurm_cfg, job_name=job_name, workdir=step1_dir)
+        run_dir = step1_dir if args.start_step == 1 else step2_dir
+        write_myrun(run_dir / "myrun.sh", slurm_cfg, job_name=job_name, workdir=run_dir)
 
         job_info = submit_step1(
-            step_dir=step1_dir,
+            step_dir=run_dir,
             job_name=job_name,
             log_file=log_file,
             dry_run=args.dry_run,
         )
         job_info["rid"] = rid
+        job_info["step_label"] = "step1_relax" if args.start_step == 1 else "step2_scf"
         submitted_jobs.append(job_info)
 
     if args.dry_run:
         for job in submitted_jobs:
             log_message(log_file, f"[DRY-RUN] Would wait for completion: {job['job_name']}")
-            log_message(log_file, f"ID={job.get('rid', '?')}: 1st step completed")
+            log_message(
+                log_file,
+                f"ID={job.get('rid', '?')}: {job.get('step_label', 'step')} completed",
+            )
     else:
         log_message(log_file, f"Submitted {len(submitted_jobs)} jobs. Start monitoring...")
         monitor_submitted_jobs(
