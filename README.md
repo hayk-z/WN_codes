@@ -8,6 +8,7 @@ This repository stores W-N 2D materials data and Python workflows for database b
 .
 ├── configs/
 │   ├── dft_defaults.yaml
+│   ├── dos_calc_hse.yaml
 │   ├── dos_calc_pbe.conf
 │   ├── dos_calc_pbe.yaml
 │   ├── myrun.sh
@@ -22,6 +23,8 @@ This repository stores W-N 2D materials data and Python workflows for database b
 ├── scripts/
 ├── src/
 │   └── dftkit/
+│       ├── analysis/
+│       │   └── plot_dos_pdos_band.py
 │       ├── db/
 │       │   └── query_wn_db.py
 │       ├── io/
@@ -31,6 +34,7 @@ This repository stores W-N 2D materials data and Python workflows for database b
 │       │   ├── calc_funcs_vasp.py
 │       │   └── create_myrun_from_config.py
 │       └── workflows/
+│           ├── dos_pdos_band_hse_workflow.py
 │           ├── dos_pdos_band_workflow.py
 │           ├── prepare_vasp_inputs.py
 │           └── submit_prepared_jobs.py
@@ -180,6 +184,7 @@ Purpose:
     - writes summary/JSON outputs,
     - generates canonical 2D band path KPOINTS,
     - prepares/submits band run.
+- Runs sequentially from `--start-step` to step 4.
 
 Inputs:
 - Structure source via `--input-db` (`.db` or `.json`)
@@ -236,6 +241,93 @@ python src/dftkit/workflows/dos_pdos_band_workflow.py \
   --config configs/dos_calc_pbe.yaml \
   --start-step 4 \
   --dry-run
+```
+
+### `src/dftkit/workflows/dos_pdos_band_hse_workflow.py`
+
+Purpose:
+- HSE version of DOS/PDOS/Band workflow with the same step logic and sequential execution from `--start-step` to step 4.
+- Uses the same SLURM config (`configs/slurm_ysu2.conf`) and HSE settings from `configs/dos_calc_hse.yaml`.
+
+HSE step logic:
+- `01_relax`: same as relax, but `LWAVE=.TRUE.`, `LCHARG=.TRUE.`
+- `02_scf`: HSE SCF (`LHFCALC`, `HFSCREEN`, `AEXX`, `ALGO=D`, `TIME`) with restart from step 1 (`CHGCAR`, `WAVECAR`)
+- `03_dos`: HSE DOS/PDOS (`ISMEAR=-5`, `NEDOS=2000`, `LORBIT=11`) with restart from step 2
+- `04_band`: HSE band (no `NEDOS`) with 2D k-path generation as in PBE workflow
+
+Inputs:
+- Structure source via `--input-db` (`.db` or `.json`)
+- Workflow YAML config (default: `configs/dos_calc_hse.yaml`)
+- SLURM config (default: `configs/slurm_ysu2.conf`)
+- Optional ID subset
+
+Options:
+- `--input-db` (required)
+- `--calc-name` (default: `DOS_HSE_calc`)
+- `--ids`
+- `--config` (workflow YAML)
+- `--slurm-config`
+- `--output-root`
+- `--start-step` (`1|2|3|4`)
+- `--poll-seconds`
+- `--max-wait-hours`
+- `--dry-run`
+
+Examples:
+```bash
+python src/dftkit/workflows/dos_pdos_band_hse_workflow.py \
+  --input-db data/processed/wn_materials.db \
+  --ids 2 \
+  --config configs/dos_calc_hse.yaml \
+  --slurm-config configs/slurm_ysu2.conf \
+  --calc-name DOS_HSE_calc \
+  --start-step 1
+```
+```bash
+python src/dftkit/workflows/dos_pdos_band_hse_workflow.py \
+  --input-db data/processed/wn_materials.db \
+  --ids 2 \
+  --config configs/dos_calc_hse.yaml \
+  --start-step 2 \
+  --dry-run
+```
+
+### `src/dftkit/analysis/plot_dos_pdos_band.py`
+
+Purpose:
+- Plot DOS, PDOS, and band-structure figures from completed workflow folders.
+
+Expected folders per ID:
+- DOS files in `03_dos/vasprun.xml`
+- Band files in `04_band/vasprun.xml` and `04_band/KPOINTS`
+
+Generated plots (`<id_dir>/plots/`):
+- `dos_total.png`
+- `pdos_element.png`
+- `band_structure.png`
+- `band_structure_projected.png` (partial/projected band)
+- `band_dos_combined.png` (band on left + vertical DOS panel with total DOS and element PDOS)
+
+Options:
+- `--input-db` (required)
+- `--calc-name` (default: `DOS_calc`)
+- `--ids` (optional subset)
+- `--output-root` (default: `data/calculations`)
+- `--dos-step` (default: `03_dos`)
+- `--band-step` (default: `04_band`)
+- `--plots-subdir` (default: `plots`)
+- `--emin` (default: `-6`)
+- `--emax` (default: `6`)
+
+Examples:
+```bash
+python src/dftkit/analysis/plot_dos_pdos_band.py \
+  --input-db data/processed/wn_materials.db \
+  --calc-name DOS_calc \
+  --ids 2 \
+  --output-root data/calculations \
+  --emin -6 \
+  --emax 6
 ```
 
 ### `src/dftkit/utils/create_myrun_from_config.py`

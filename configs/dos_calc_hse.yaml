@@ -1,0 +1,75 @@
+job_name_prefix: dos_hse
+potcar_root: /mnt/dftevn/opt/vasp/pseudo/potpaw_PBE
+
+step1_relax:
+  # Same as PBE relax, but keep charge/wave for HSE restart.
+  vasp_tags:
+    xc: PBE
+    encut: 520
+    kpts: [9, 9, 1]
+    ediff: 1e-5
+    ismear: 0
+    sigma: 0.05
+    ibrion: 2
+    nsw: 120
+    isif: 2
+    lwave: true
+    lcharg: true
+
+step2_scf:
+  # HSE SCF from step1 CHGCAR/WAVECAR.
+  vasp_tags:
+    kpts: [9, 9, 1]
+    nsw: 0
+    ibrion: -1
+    ismear: 0
+    sigma: 0.05
+    ivdw: 11
+    lhfcalc: true
+    hfscreen: 0.2
+    aexx: 0.25
+    algo: D
+    time: 0.4
+    lcharg: true
+    lwave: true
+    vdw_s8: 0.109 
+    vdw_sr: 1.129
+
+step3_dos:
+  # HSE DOS/PDOS with denser mesh.
+  vasp_tags:
+    kpts: [15, 15, 1]
+    nsw: 0
+    ibrion: -1
+    ismear: -5
+    nedos: 2000
+    lorbit: 11
+    icharge: 11
+    lcharg: false
+    lwave: false
+    vdw_s8: 0.109 
+    vdw_sr: 1.129
+
+step4_band:
+  # HSE band step: no NEDOS; uses 2D k-path from symmetry analysis.
+  symmetry_tolerance: 0.1
+  angle_tolerance: 1.0
+  aperiodic_dir: auto
+  band_points_per_segment: 40
+  vasp_tags:
+    kpts: [15, 15, 1]
+    nsw: 0
+    ibrion: -1
+    ismear: 0
+    sigma: 0.05
+    lhfcalc: true
+    hfscreen: 0.2
+    aexx: 0.25
+    algo: D
+    time: 0.4
+    icharge: 11
+    lorbit: 11
+    lcharg: false
+    lwave: false
+    vdw_s8: 0.109 
+    vdw_sr: 1.129

@@ -423,6 +423,20 @@ def copy_restart_files(src_dir: Path, dst_dir: Path, names: list[str]) -> None:
         shutil.copy2(src, dst_dir / name)
 
 
+def read_first_valid_structure(candidates: list[Path]) -> tuple[Atoms, Path]:
+    errors: list[str] = []
+    for path in candidates:
+        if not path.exists():
+            continue
+        try:
+            return read(path), path
+        except Exception as exc:
+            errors.append(f"{path}: {type(exc).__name__}: {exc}")
+    raise FileNotFoundError(
+        "Could not read any candidate structure file.\n" + ("\n".join(errors) if errors else "No files found.")
+    )
+
+
 def select_structure_file_for_step4(step1_dir: Path, step2_dir: Path, step3_dir: Path) -> Path:
     candidates = [
         step3_dir / "CONTCAR",
@@ -824,7 +838,7 @@ def parse_args() -> argparse.Namespace:
         type=int,
         choices=[1, 2, 3, 4],
         default=1,
-        help="Step to execute: 1=relax, 2=scf, 3=dos, 4=2D band (analysis + run prep + submit)",
+        help="Start step. Workflow runs sequentially from this step to 4.",
     )
     parser.add_argument("--poll-seconds", type=int, default=20)
     parser.add_argument("--max-wait-hours", type=float, default=240.0)
@@ -860,154 +874,154 @@ def main() -> None:
     log_message(log_file, f"Start step: {args.start_step}")
 
     job_prefix = str(workflow_cfg.get("job_name_prefix", "dos"))
-    submitted_jobs: list[dict[str, Any]] = []
 
-    for rec in records:
-        rid = rec["id"]
-        material = sanitize_name(str(rec.get("material", f"id_{rid}")))
-        mat_dir = calc_root / f"id_{rid}_{material}"
-        step1_dir = mat_dir / "01_relax"
-        step2_dir = mat_dir / "02_scf"
-        step3_dir = mat_dir / "03_dos"
-        step4_dir = mat_dir / "04_band"
+    for current_step in range(args.start_step, 5):
+        submitted_jobs: list[dict[str, Any]] = []
+        log_message(log_file, f"=== Starting step {current_step} for {len(records)} IDs ===")
 
-        # Create full step tree now; only step1 is populated/submitted in this stage.
-        for d in (step1_dir, step2_dir, step3_dir, step4_dir):
-            d.mkdir(parents=True, exist_ok=True)
+        for rec in records:
+            rid = rec["id"]
+            material = sanitize_name(str(rec.get("material", f"id_{rid}")))
+            mat_dir = calc_root / f"id_{rid}_{material}"
+            step1_dir = mat_dir / "01_relax"
+            step2_dir = mat_dir / "02_scf"
+            step3_dir = mat_dir / "03_dos"
+            step4_dir = mat_dir / "04_band"
+            for d in (step1_dir, step2_dir, step3_dir, step4_dir):
+                d.mkdir(parents=True, exist_ok=True)
 
-        if args.start_step == 1:
-            log_message(log_file, f"Preparing step1 relaxation for ID={rid}, material={material}")
-            prepare_step_input(step1_dir, rec["atoms"], workflow_cfg, step_key="step1_relax")
-            job_name = f"{job_prefix}_id{rid}_r1"
-            run_dir = step1_dir
-            step_label = "step1_relax"
-        elif args.start_step == 2:
-            contcar = step1_dir / "CONTCAR"
-            if not contcar.exists():
-                raise FileNotFoundError(
-                    f"Step 2 requested but CONTCAR not found for ID={rid}: {contcar}"
+            if current_step == 1:
+                log_message(log_file, f"Preparing step1 relaxation for ID={rid}, material={material}")
+                prepare_step_input(step1_dir, rec["atoms"], workflow_cfg, step_key="step1_relax")
+                job_name = f"{job_prefix}_id{rid}_r1"
+                run_dir = step1_dir
+                step_label = "step1_relax"
+
+            elif current_step == 2:
+                relaxed_atoms, source_structure = read_first_valid_structure(
+                    [step1_dir / "CONTCAR", step1_dir / "POSCAR"]
                 )
-            log_message(log_file, f"Preparing step2 SCF for ID={rid}, material={material} from CONTCAR")
-            relaxed_atoms = read(contcar)
-            base_kpts = normalize_kpts(
-                workflow_cfg.get("step1_relax", {}).get("vasp_tags", {}).get("kpts")
-            )
-            prepare_step_input(
-                step2_dir,
-                relaxed_atoms,
-                workflow_cfg,
-                step_key="step2_scf",
-                base_kpts=base_kpts,
-            )
-            job_name = f"{job_prefix}_id{rid}_s2"
-            run_dir = step2_dir
-            step_label = "step2_scf"
-        elif args.start_step == 3:
-            step2_contcar = step2_dir / "CONTCAR"
-            step2_poscar = step2_dir / "POSCAR"
-            if step2_contcar.exists():
-                source_structure = step2_contcar
-            elif step2_poscar.exists():
-                source_structure = step2_poscar
+                log_message(
+                    log_file,
+                    f"Preparing step2 SCF for ID={rid}, material={material} from {source_structure.name}",
+                )
+                base_kpts = normalize_kpts(
+                    workflow_cfg.get("step1_relax", {}).get("vasp_tags", {}).get("kpts")
+                )
+                prepare_step_input(
+                    step2_dir,
+                    relaxed_atoms,
+                    workflow_cfg,
+                    step_key="step2_scf",
+                    base_kpts=base_kpts,
+                )
+                job_name = f"{job_prefix}_id{rid}_s2"
+                run_dir = step2_dir
+                step_label = "step2_scf"
+
+            elif current_step == 3:
+                scf_atoms, source_structure = read_first_valid_structure(
+                    [step2_dir / "CONTCAR", step2_dir / "POSCAR"]
+                )
+                log_message(
+                    log_file,
+                    f"Preparing step3 DOS for ID={rid}, material={material} from {source_structure.name}",
+                )
+                base_kpts = normalize_kpts(
+                    workflow_cfg.get("step2_scf", {}).get("vasp_tags", {}).get("kpts")
+                ) or normalize_kpts(workflow_cfg.get("step1_relax", {}).get("vasp_tags", {}).get("kpts"))
+                prepare_step_input(
+                    step3_dir,
+                    scf_atoms,
+                    workflow_cfg,
+                    step_key="step3_dos",
+                    base_kpts=base_kpts,
+                )
+                copy_restart_files(step2_dir, step3_dir, ["CHGCAR", "WAVECAR"])
+                job_name = f"{job_prefix}_id{rid}_s3"
+                run_dir = step3_dir
+                step_label = "step3_dos"
+
             else:
-                raise FileNotFoundError(
-                    f"Step 3 requested but neither CONTCAR nor POSCAR found in {step2_dir}"
+                atoms, source_structure = read_first_valid_structure(
+                    [
+                        step3_dir / "CONTCAR",
+                        step3_dir / "POSCAR",
+                        step2_dir / "CONTCAR",
+                        step2_dir / "POSCAR",
+                        step1_dir / "CONTCAR",
+                        step1_dir / "POSCAR",
+                    ]
                 )
+                log_message(
+                    log_file,
+                    f"Preparing step4 2D band for ID={rid}, material={material} from {source_structure.name}",
+                )
+                layer_result, _seekpath_result = run_step4_symmetry_analysis(step4_dir, atoms, workflow_cfg, rec)
 
-            log_message(
-                log_file,
-                f"Preparing step3 DOS for ID={rid}, material={material} from {source_structure.name}",
+                step4_cfg = workflow_cfg.get("step4_band", {})
+                if not isinstance(step4_cfg, dict):
+                    step4_cfg = {}
+                if "vasp_tags" not in step4_cfg:
+                    step4_cfg["vasp_tags"] = {}
+                if isinstance(step4_cfg.get("vasp_tags"), dict):
+                    step4_cfg["vasp_tags"].setdefault("kpts", [18, 18, 1])
+                    step4_cfg["vasp_tags"].setdefault("icharge", 11)
+                    step4_cfg["vasp_tags"].setdefault("lorbit", 11)
+                    step4_cfg["vasp_tags"].setdefault("nsw", 0)
+                    step4_cfg["vasp_tags"].setdefault("ibrion", -1)
+                    step4_cfg["vasp_tags"].setdefault("lwave", False)
+                    step4_cfg["vasp_tags"].setdefault("lcharg", False)
+                    step4_cfg["vasp_tags"].pop("nedos", None)
+                workflow_cfg["step4_band"] = step4_cfg
+
+                prepare_step_input(step4_dir, atoms, workflow_cfg, step_key="step4_band")
+                copy_restart_files(step2_dir, step4_dir, ["CHGCAR", "WAVECAR"])
+
+                kpath_string_2d = str(layer_result.get("kpath_string_2d", "")).strip()
+                kpoints_2d = layer_result.get("kpath_kpoints_2d", {})
+                aperiodic_dir = int(layer_result.get("aperiodic_dir", 2))
+                points_per_segment = int(coerce_scalar_for_vasp(step4_cfg.get("band_points_per_segment", 40)))
+                if not isinstance(kpoints_2d, dict) or not kpoints_2d:
+                    raise ValueError("Step 4 failed to produce canonical 2D k-point coordinates")
+                write_band_kpoints_from_2d_path(
+                    step4_dir / "KPOINTS",
+                    kpath_string_2d=kpath_string_2d,
+                    kpoints_2d={str(k): v for k, v in kpoints_2d.items()},
+                    aperiodic_dir=aperiodic_dir,
+                    points_per_segment=points_per_segment,
+                )
+                job_name = f"{job_prefix}_id{rid}_s4"
+                run_dir = step4_dir
+                step_label = "step4_band"
+
+            write_myrun(run_dir / "myrun.sh", slurm_cfg, job_name=job_name, workdir=run_dir)
+            job_info = submit_step1(
+                step_dir=run_dir,
+                job_name=job_name,
+                log_file=log_file,
+                dry_run=args.dry_run,
             )
-            scf_atoms = read(source_structure)
-            base_kpts = normalize_kpts(
-                workflow_cfg.get("step2_scf", {}).get("vasp_tags", {}).get("kpts")
-            ) or normalize_kpts(workflow_cfg.get("step1_relax", {}).get("vasp_tags", {}).get("kpts"))
-            prepare_step_input(
-                step3_dir,
-                scf_atoms,
-                workflow_cfg,
-                step_key="step3_dos",
-                base_kpts=base_kpts,
+            job_info["rid"] = rid
+            job_info["step_label"] = step_label
+            submitted_jobs.append(job_info)
+
+        if args.dry_run:
+            for job in submitted_jobs:
+                log_message(log_file, f"[DRY-RUN] Would wait for completion: {job['job_name']}")
+                log_message(
+                    log_file,
+                    f"ID={job.get('rid', '?')}: {job.get('step_label', 'step')} completed",
+                )
+        elif submitted_jobs:
+            log_message(log_file, f"Submitted {len(submitted_jobs)} jobs for step {current_step}. Start monitoring...")
+            monitor_submitted_jobs(
+                jobs=submitted_jobs,
+                log_file=log_file,
+                poll_seconds=args.poll_seconds,
+                max_wait_hours=args.max_wait_hours,
             )
-            copy_restart_files(step2_dir, step3_dir, ["CHGCAR", "WAVECAR"])
-            job_name = f"{job_prefix}_id{rid}_s3"
-            run_dir = step3_dir
-            step_label = "step3_dos"
-        else:
-            source_structure = select_structure_file_for_step4(step1_dir, step2_dir, step3_dir)
-            log_message(
-                log_file,
-                f"Preparing step4 2D band for ID={rid}, material={material} from {source_structure.name}",
-            )
-            atoms = read(source_structure)
-            layer_result, _seekpath_result = run_step4_symmetry_analysis(step4_dir, atoms, workflow_cfg, rec)
-
-            # Step4 INCAR defaults: same as DOS-like static run but without NEDOS.
-            # Users can override via configs/dos_calc_pbe.yaml: step4_band.vasp_tags
-            step4_cfg = workflow_cfg.get("step4_band", {})
-            if not isinstance(step4_cfg, dict):
-                step4_cfg = {}
-            if "vasp_tags" not in step4_cfg:
-                step4_cfg["vasp_tags"] = {}
-            if isinstance(step4_cfg.get("vasp_tags"), dict):
-                step4_cfg["vasp_tags"].setdefault("kpts", [18, 18, 1])
-                step4_cfg["vasp_tags"].setdefault("icharge", 11)
-                step4_cfg["vasp_tags"].setdefault("lorbit", 11)
-                step4_cfg["vasp_tags"].setdefault("nsw", 0)
-                step4_cfg["vasp_tags"].setdefault("ibrion", -1)
-                step4_cfg["vasp_tags"].setdefault("lwave", False)
-                step4_cfg["vasp_tags"].setdefault("lcharg", False)
-                step4_cfg["vasp_tags"].pop("nedos", None)
-            workflow_cfg["step4_band"] = step4_cfg
-
-            prepare_step_input(step4_dir, atoms, workflow_cfg, step_key="step4_band")
-            copy_restart_files(step2_dir, step4_dir, ["CHGCAR", "WAVECAR"])
-
-            kpath_string_2d = str(layer_result.get("kpath_string_2d", "")).strip()
-            kpoints_2d = layer_result.get("kpath_kpoints_2d", {})
-            aperiodic_dir = int(layer_result.get("aperiodic_dir", 2))
-            points_per_segment = int(coerce_scalar_for_vasp(step4_cfg.get("band_points_per_segment", 40)))
-            if not isinstance(kpoints_2d, dict) or not kpoints_2d:
-                raise ValueError("Step 4 failed to produce canonical 2D k-point coordinates")
-            write_band_kpoints_from_2d_path(
-                step4_dir / "KPOINTS",
-                kpath_string_2d=kpath_string_2d,
-                kpoints_2d={str(k): v for k, v in kpoints_2d.items()},
-                aperiodic_dir=aperiodic_dir,
-                points_per_segment=points_per_segment,
-            )
-
-            job_name = f"{job_prefix}_id{rid}_s4"
-            run_dir = step4_dir
-            step_label = "step4_band"
-
-        write_myrun(run_dir / "myrun.sh", slurm_cfg, job_name=job_name, workdir=run_dir)
-
-        job_info = submit_step1(
-            step_dir=run_dir,
-            job_name=job_name,
-            log_file=log_file,
-            dry_run=args.dry_run,
-        )
-        job_info["rid"] = rid
-        job_info["step_label"] = step_label
-        submitted_jobs.append(job_info)
-
-    if args.dry_run:
-        for job in submitted_jobs:
-            log_message(log_file, f"[DRY-RUN] Would wait for completion: {job['job_name']}")
-            log_message(
-                log_file,
-                f"ID={job.get('rid', '?')}: {job.get('step_label', 'step')} completed",
-            )
-    elif submitted_jobs:
-        log_message(log_file, f"Submitted {len(submitted_jobs)} jobs. Start monitoring...")
-        monitor_submitted_jobs(
-            jobs=submitted_jobs,
-            log_file=log_file,
-            poll_seconds=args.poll_seconds,
-            max_wait_hours=args.max_wait_hours,
-        )
+        log_message(log_file, f"=== Step {current_step} finished ===")
 
     log_message(log_file, "Workflow finished")
 
