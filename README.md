@@ -170,9 +170,16 @@ python src/dftkit/workflows/submit_prepared_jobs.py \
 ### `src/dftkit/workflows/dos_pdos_band_workflow.py`
 
 Purpose:
-- DOS/PDOS/Band workflow driver.
-- Current implemented stage: `01_relax` (prepare + submit + monitor).
-- Creates step folders: `01_relax`, `02_dos`, `03_pdos`, `04_band`.
+- Multi-step VASP workflow driver with SLURM submission and monitoring.
+- Step layout:
+  - `01_relax`: geometry relaxation
+  - `02_scf`: static SCF from `01_relax/CONTCAR`
+  - `03_dos`: DOS run from step 2 with restart files (`CHGCAR`, `WAVECAR`)
+  - `04_band`: 2D band workflow:
+    - identifies 2D symmetry/layer-group,
+    - writes summary/JSON outputs,
+    - generates canonical 2D band path KPOINTS,
+    - prepares/submits band run.
 
 Inputs:
 - Structure source via `--input-db` (`.db` or `.json`)
@@ -187,9 +194,17 @@ Options:
 - `--config` (workflow YAML)
 - `--slurm-config`
 - `--output-root`
+- `--start-step` (`1|2|3|4`)
 - `--poll-seconds`
 - `--max-wait-hours`
 - `--dry-run`
+
+Key `step4_band` YAML parameters:
+- `symmetry_tolerance`
+- `angle_tolerance`
+- `aperiodic_dir` (`auto`, `0`, `1`, `2`)
+- `band_points_per_segment`
+- `vasp_tags` (same static tags as DOS style, without `nedos`)
 
 Examples:
 ```bash
@@ -203,8 +218,23 @@ python src/dftkit/workflows/dos_pdos_band_workflow.py \
 ```bash
 python src/dftkit/workflows/dos_pdos_band_workflow.py \
   --input-db data/processed/wn_materials.db \
-  --ids 1,2 \
+  --ids 2 \
   --config configs/dos_calc_pbe.yaml \
+  --start-step 3
+```
+```bash
+python src/dftkit/workflows/dos_pdos_band_workflow.py \
+  --input-db data/processed/wn_materials.db \
+  --ids 2 \
+  --config configs/dos_calc_pbe.yaml \
+  --start-step 4
+```
+```bash
+python src/dftkit/workflows/dos_pdos_band_workflow.py \
+  --input-db data/processed/wn_materials.db \
+  --ids 2 \
+  --config configs/dos_calc_pbe.yaml \
+  --start-step 4 \
   --dry-run
 ```
 
