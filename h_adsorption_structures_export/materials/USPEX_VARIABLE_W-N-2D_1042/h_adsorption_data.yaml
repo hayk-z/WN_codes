@@ -1,0 +1,3256 @@
+material: "USPEX_VARIABLE_W-N-2D_1042"
+csv_row:
+  Material: "USPEX_VARIABLE_W-N-2D_1042"
+  Composition: "W3N4"
+  Energy Above Hull (eV/atom): "0.0"
+  Surface Area (A^2): "66.2676407181155"
+  Surface Area (cm^2): "6.62676407181155e-15"
+  Site: "bridge_1"
+  Adsorption Energy (eV): "-1.9936229950001247"
+  Gibbs free energy (eV): "-1.62862"
+  i0: "-29.6752"
+material_record:
+  adsorption_sites_data: null
+  composition:
+    N: 4.0
+    W: 3.0
+  e_above_hull: 0.0
+  full_name: "USPEX_VARIABLE_W-N-2D_1042"
+  hybrid_bs_data: null
+  is_magnetic: false
+  is_most_stable_in_composition: true
+  is_pd_element: false
+  pbe_bs_data: null
+  soc_bs_data: null
+  struct_id: "USPEX_VARIABLE_W-N-2D_1042_Relaxed_Relax_Positions"
+  symmetry:
+    bz_is_2d: true
+    crystal_system: "triclinic"
+    high_symmetry_path:
+      kpts:
+        B:
+          - 0.8324749493892565
+          - 0.5
+          - 0.16752505061074352
+        B1:
+          - 0.5
+          - 0.16752505061074352
+          - -0.16752505061074352
+        F:
+          - 0.5
+          - 0.5
+          - 0.0
+        G:
+          - 0.0
+          - 0.0
+          - 0.0
+        L:
+          - 0.5
+          - 0.0
+          - 0.0
+        L1:
+          - 0.0
+          - 0.0
+          - -0.5
+        P:
+          - 0.8324749493892565
+          - 0.33376252530537176
+          - 0.33376252530537176
+        P1:
+          - 0.6662374746946282
+          - 0.6662374746946282
+          - 0.16752505061074352
+        P2:
+          - 0.33376252530537176
+          - 0.33376252530537176
+          - -0.16752505061074352
+        Q:
+          - 0.6662374746946282
+          - 0.33376252530537176
+          - 0.0
+        X:
+          - 0.33376252530537176
+          - 0.0
+          - -0.33376252530537176
+        Z:
+          - 0.5
+          - 0.5
+          - 0.5
+      path: "GLB1,BZGX,QFP1Z,LP"
+    lattice_name: "primitive rhombohedral"
+    lattice_type: "triclinic"
+    space_group_number: 1
+    space_group_symbol: "P1"
+    symprec: 0.1
+  tags:
+[]
+existing_material_export_record:
+  all_stored_struct_records:
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_1.0_layers_1_vacuum_1_FullRelax_1_Positions:
+      calc_stage: "FullRelax_1_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -71.95305408
+        total_energy_per_atom_eV: -10.279007725714285
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 1.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/1042_dist_1.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_1.0_layers_1_vacuum_1_FullRelax_2_Full:
+      calc_stage: "FullRelax_2_Full"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -73.79336282
+        total_energy_per_atom_eV: -10.541908974285715
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 1.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_2_Full/1042_dist_1.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_1.0_layers_1_vacuum_1_FullRelax_3_Full:
+      calc_stage: "FullRelax_3_Full"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -73.81357913
+        total_energy_per_atom_eV: -10.544797018571428
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 1.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_3_Full/1042_dist_1.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_1.0_layers_1_vacuum_1_FullRelax_4_Positions:
+      calc_stage: "FullRelax_4_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -73.81386586
+        total_energy_per_atom_eV: -10.54483798
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 1.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/1042_dist_1.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_1.0_layers_1_vacuum_1_Initial:
+      calc_stage: "Initial"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data: null
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 1.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/1042_dist_1.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_1.0_layers_2_vacuum_10_FullRelax_1_Positions:
+      calc_stage: "FullRelax_1_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -145.12942714
+        total_energy_per_atom_eV: -10.366387652857142
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 1.0
+        layers: 2
+        vacuum: 10
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/1042_dist_1.0_layers_2_vacuum_10.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_1.0_layers_2_vacuum_10_FullRelax_4_Positions:
+      calc_stage: "FullRelax_4_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -145.21946143
+        total_energy_per_atom_eV: -10.372818673571429
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 1.0
+        layers: 2
+        vacuum: 10
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/1042_dist_1.0_layers_2_vacuum_10.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_1.0_layers_2_vacuum_10_Initial:
+      calc_stage: "Initial"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data: null
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 1.0
+        layers: 2
+        vacuum: 10
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/1042_dist_1.0_layers_2_vacuum_10.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_1.0_layers_2_vacuum_10_Selected:
+      calc_stage: "Selected"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -145.21946143
+        total_energy_per_atom_eV: -10.372818673571429
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 1.0
+        layers: 2
+        vacuum: 10
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Selected/1042_dist_1.0_layers_2_vacuum_10.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_2.0_layers_1_vacuum_1_FullRelax_1_Positions:
+      calc_stage: "FullRelax_1_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -73.14055222
+        total_energy_per_atom_eV: -10.448650317142858
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 2.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/1042_dist_2.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_2.0_layers_1_vacuum_1_FullRelax_2_Full:
+      calc_stage: "FullRelax_2_Full"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -73.80652547
+        total_energy_per_atom_eV: -10.543789352857143
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 2.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_2_Full/1042_dist_2.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_2.0_layers_1_vacuum_1_FullRelax_3_Full:
+      calc_stage: "FullRelax_3_Full"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -73.81334237
+        total_energy_per_atom_eV: -10.544763195714285
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 2.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_3_Full/1042_dist_2.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_2.0_layers_1_vacuum_1_FullRelax_4_Positions:
+      calc_stage: "FullRelax_4_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -73.81356949
+        total_energy_per_atom_eV: -10.544795641428573
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 2.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/1042_dist_2.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_2.0_layers_1_vacuum_1_Initial:
+      calc_stage: "Initial"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data: null
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 2.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/1042_dist_2.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_2.0_layers_2_vacuum_10_FullRelax_1_Positions:
+      calc_stage: "FullRelax_1_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -144.33406861
+        total_energy_per_atom_eV: -10.309576329285715
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 2.0
+        layers: 2
+        vacuum: 10
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/1042_dist_2.0_layers_2_vacuum_10.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_2.0_layers_2_vacuum_10_FullRelax_4_Positions:
+      calc_stage: "FullRelax_4_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -144.43409701
+        total_energy_per_atom_eV: -10.316721215
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 2.0
+        layers: 2
+        vacuum: 10
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/1042_dist_2.0_layers_2_vacuum_10.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_2.0_layers_2_vacuum_10_Initial:
+      calc_stage: "Initial"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data: null
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 2.0
+        layers: 2
+        vacuum: 10
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/1042_dist_2.0_layers_2_vacuum_10.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_3.0_layers_1_vacuum_1_FullRelax_1_Positions:
+      calc_stage: "FullRelax_1_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -72.33224984
+        total_energy_per_atom_eV: -10.333178548571428
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 3.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/1042_dist_3.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_3.0_layers_1_vacuum_1_FullRelax_2_Full:
+      calc_stage: "FullRelax_2_Full"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -72.47244817
+        total_energy_per_atom_eV: -10.353206881428573
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 3.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_2_Full/1042_dist_3.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_3.0_layers_1_vacuum_1_FullRelax_3_Full:
+      calc_stage: "FullRelax_3_Full"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -73.81672869
+        total_energy_per_atom_eV: -10.545246955714287
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 3.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_3_Full/1042_dist_3.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_3.0_layers_1_vacuum_1_FullRelax_4_Positions:
+      calc_stage: "FullRelax_4_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -73.81440211
+        total_energy_per_atom_eV: -10.544914587142857
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 3.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/1042_dist_3.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_3.0_layers_1_vacuum_1_Initial:
+      calc_stage: "Initial"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data: null
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 3.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/1042_dist_3.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_3.0_layers_1_vacuum_1_Selected:
+      calc_stage: "Selected"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -73.81440211
+        total_energy_per_atom_eV: -10.544914587142857
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 3.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Selected/1042_dist_3.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_3.0_layers_2_vacuum_10_FullRelax_1_Positions:
+      calc_stage: "FullRelax_1_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -144.28365525
+        total_energy_per_atom_eV: -10.305975375000001
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 3.0
+        layers: 2
+        vacuum: 10
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/1042_dist_3.0_layers_2_vacuum_10.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_3.0_layers_2_vacuum_10_FullRelax_4_Positions:
+      calc_stage: "FullRelax_4_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -144.31024131
+        total_energy_per_atom_eV: -10.307874379285716
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 3.0
+        layers: 2
+        vacuum: 10
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/1042_dist_3.0_layers_2_vacuum_10.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_3.0_layers_2_vacuum_10_Initial:
+      calc_stage: "Initial"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data: null
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 3.0
+        layers: 2
+        vacuum: 10
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/1042_dist_3.0_layers_2_vacuum_10.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_4.0_layers_1_vacuum_1_FullRelax_1_Positions:
+      calc_stage: "FullRelax_1_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -72.16404535
+        total_energy_per_atom_eV: -10.309149335714284
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 4.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/1042_dist_4.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_4.0_layers_1_vacuum_1_FullRelax_2_Full:
+      calc_stage: "FullRelax_2_Full"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -72.22876819
+        total_energy_per_atom_eV: -10.318395455714285
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 4.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_2_Full/1042_dist_4.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_4.0_layers_1_vacuum_1_FullRelax_3_Full:
+      calc_stage: "FullRelax_3_Full"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -73.50860795
+        total_energy_per_atom_eV: -10.501229707142857
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 4.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_3_Full/1042_dist_4.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_4.0_layers_1_vacuum_1_FullRelax_4_Positions:
+      calc_stage: "FullRelax_4_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -73.78906609
+        total_energy_per_atom_eV: -10.541295155714286
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 4.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/1042_dist_4.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_4.0_layers_1_vacuum_1_Initial:
+      calc_stage: "Initial"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data: null
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 4.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/1042_dist_4.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_4.0_layers_2_vacuum_10_FullRelax_1_Positions:
+      calc_stage: "FullRelax_1_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -144.14665966
+        total_energy_per_atom_eV: -10.296189975714286
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 4.0
+        layers: 2
+        vacuum: 10
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/1042_dist_4.0_layers_2_vacuum_10.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_4.0_layers_2_vacuum_10_FullRelax_4_Positions:
+      calc_stage: "FullRelax_4_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -144.17016813
+        total_energy_per_atom_eV: -10.297869152142857
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 4.0
+        layers: 2
+        vacuum: 10
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/1042_dist_4.0_layers_2_vacuum_10.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_4.0_layers_2_vacuum_10_Initial:
+      calc_stage: "Initial"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data: null
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 4.0
+        layers: 2
+        vacuum: 10
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/1042_dist_4.0_layers_2_vacuum_10.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_5.0_layers_1_vacuum_1_FullRelax_1_Positions:
+      calc_stage: "FullRelax_1_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -72.07973582
+        total_energy_per_atom_eV: -10.297105117142857
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 5.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/1042_dist_5.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_5.0_layers_1_vacuum_1_FullRelax_2_Full:
+      calc_stage: "FullRelax_2_Full"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -72.13355469
+        total_energy_per_atom_eV: -10.304793527142857
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 5.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_2_Full/1042_dist_5.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_5.0_layers_1_vacuum_1_FullRelax_3_Full:
+      calc_stage: "FullRelax_3_Full"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -72.14760686
+        total_energy_per_atom_eV: -10.30680098
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 5.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_3_Full/1042_dist_5.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_5.0_layers_1_vacuum_1_FullRelax_4_Positions:
+      calc_stage: "FullRelax_4_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -72.14840756
+        total_energy_per_atom_eV: -10.306915365714286
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 5.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/1042_dist_5.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_5.0_layers_1_vacuum_1_Initial:
+      calc_stage: "Initial"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data: null
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 5.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/1042_dist_5.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_5.0_layers_2_vacuum_10_FullRelax_1_Positions:
+      calc_stage: "FullRelax_1_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -144.07063675
+        total_energy_per_atom_eV: -10.290759767857143
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 5.0
+        layers: 2
+        vacuum: 10
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/1042_dist_5.0_layers_2_vacuum_10.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_5.0_layers_2_vacuum_10_FullRelax_4_Positions:
+      calc_stage: "FullRelax_4_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -144.09337412
+        total_energy_per_atom_eV: -10.292383865714285
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 5.0
+        layers: 2
+        vacuum: 10
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/1042_dist_5.0_layers_2_vacuum_10.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_5.0_layers_2_vacuum_10_Initial:
+      calc_stage: "Initial"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data: null
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 5.0
+        layers: 2
+        vacuum: 10
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/1042_dist_5.0_layers_2_vacuum_10.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_6.0_layers_1_vacuum_1_FullRelax_1_Positions:
+      calc_stage: "FullRelax_1_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -72.04056112
+        total_energy_per_atom_eV: -10.291508731428573
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 6.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/1042_dist_6.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_6.0_layers_1_vacuum_1_FullRelax_2_Full:
+      calc_stage: "FullRelax_2_Full"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -72.08779801
+        total_energy_per_atom_eV: -10.29825685857143
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 6.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_2_Full/1042_dist_6.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_6.0_layers_1_vacuum_1_FullRelax_3_Full:
+      calc_stage: "FullRelax_3_Full"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -72.10224207
+        total_energy_per_atom_eV: -10.300320295714286
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 6.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_3_Full/1042_dist_6.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_6.0_layers_1_vacuum_1_FullRelax_4_Positions:
+      calc_stage: "FullRelax_4_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -72.10224841
+        total_energy_per_atom_eV: -10.300321201428572
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 6.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/1042_dist_6.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_6.0_layers_1_vacuum_1_Initial:
+      calc_stage: "Initial"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data: null
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 6.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/1042_dist_6.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_6.0_layers_2_vacuum_10_FullRelax_1_Positions:
+      calc_stage: "FullRelax_1_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -144.03528602
+        total_energy_per_atom_eV: -10.288234715714285
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 6.0
+        layers: 2
+        vacuum: 10
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/1042_dist_6.0_layers_2_vacuum_10.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_6.0_layers_2_vacuum_10_FullRelax_4_Positions:
+      calc_stage: "FullRelax_4_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -144.05715869
+        total_energy_per_atom_eV: -10.289797049285713
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 6.0
+        layers: 2
+        vacuum: 10
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/1042_dist_6.0_layers_2_vacuum_10.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_6.0_layers_2_vacuum_10_Initial:
+      calc_stage: "Initial"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data: null
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 6.0
+        layers: 2
+        vacuum: 10
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/1042_dist_6.0_layers_2_vacuum_10.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_7.0_layers_1_vacuum_1_FullRelax_1_Positions:
+      calc_stage: "FullRelax_1_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -72.02101852
+        total_energy_per_atom_eV: -10.28871693142857
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 7.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/1042_dist_7.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_7.0_layers_1_vacuum_1_FullRelax_2_Full:
+      calc_stage: "FullRelax_2_Full"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -72.07362465
+        total_energy_per_atom_eV: -10.296232092857142
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 7.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_2_Full/1042_dist_7.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_7.0_layers_1_vacuum_1_FullRelax_3_Full:
+      calc_stage: "FullRelax_3_Full"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -72.08170174
+        total_energy_per_atom_eV: -10.297385962857144
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 7.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_3_Full/1042_dist_7.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_7.0_layers_1_vacuum_1_FullRelax_4_Positions:
+      calc_stage: "FullRelax_4_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -72.08191643
+        total_energy_per_atom_eV: -10.297416632857145
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 7.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/1042_dist_7.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_7.0_layers_1_vacuum_1_Initial:
+      calc_stage: "Initial"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data: null
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 7.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/1042_dist_7.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_7.0_layers_2_vacuum_10_FullRelax_1_Positions:
+      calc_stage: "FullRelax_1_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -144.01704345
+        total_energy_per_atom_eV: -10.286931675
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 7.0
+        layers: 2
+        vacuum: 10
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/1042_dist_7.0_layers_2_vacuum_10.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_7.0_layers_2_vacuum_10_FullRelax_4_Positions:
+      calc_stage: "FullRelax_4_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -144.03811162
+        total_energy_per_atom_eV: -10.288436544285714
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 7.0
+        layers: 2
+        vacuum: 10
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/1042_dist_7.0_layers_2_vacuum_10.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_7.0_layers_2_vacuum_10_Initial:
+      calc_stage: "Initial"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data: null
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 7.0
+        layers: 2
+        vacuum: 10
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/1042_dist_7.0_layers_2_vacuum_10.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_8.0_layers_1_vacuum_1_FullRelax_1_Positions:
+      calc_stage: "FullRelax_1_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -72.01013161
+        total_energy_per_atom_eV: -10.28716165857143
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 8.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/1042_dist_8.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_8.0_layers_1_vacuum_1_FullRelax_2_Full:
+      calc_stage: "FullRelax_2_Full"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -72.06290602
+        total_energy_per_atom_eV: -10.29470086
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 8.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_2_Full/1042_dist_8.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_8.0_layers_1_vacuum_1_FullRelax_3_Full:
+      calc_stage: "FullRelax_3_Full"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -72.07057527
+        total_energy_per_atom_eV: -10.295796467142859
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 8.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_3_Full/1042_dist_8.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_8.0_layers_1_vacuum_1_FullRelax_4_Positions:
+      calc_stage: "FullRelax_4_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -72.07086397
+        total_energy_per_atom_eV: -10.29583771
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 8.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/1042_dist_8.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_8.0_layers_1_vacuum_1_Initial:
+      calc_stage: "Initial"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data: null
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 8.0
+        layers: 1
+        vacuum: 1
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/1042_dist_8.0_layers_1_vacuum_1.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_8.0_layers_2_vacuum_10_FullRelax_1_Positions:
+      calc_stage: "FullRelax_1_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -144.02478712
+        total_energy_per_atom_eV: -10.287484794285715
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 8.0
+        layers: 2
+        vacuum: 10
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/1042_dist_8.0_layers_2_vacuum_10.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_8.0_layers_2_vacuum_10_FullRelax_4_Positions:
+      calc_stage: "FullRelax_4_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data:
+        total_energy_eV: -144.04053537
+        total_energy_per_atom_eV: -10.288609669285714
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 8.0
+        layers: 2
+        vacuum: 10
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/1042_dist_8.0_layers_2_vacuum_10.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Bulked_dist_8.0_layers_2_vacuum_10_Initial:
+      calc_stage: "Initial"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+        symprec: 1e-06
+      relax_data: null
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Bulked"
+      stage_params:
+        dist: 8.0
+        layers: 2
+        vacuum: 10
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/1042_dist_8.0_layers_2_vacuum_10.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Initial_Initial:
+      bolztrap_data: null
+      brillouin_zone_plot_path: null
+      calc_stage: "Initial"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      enthalpy_per_atom: -10.4144
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      hiphive_data: null
+      hybrid_bs_data: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      interlayer_distance: null
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      md_override_params:
+{}
+      md_params: null
+      override_params:
+{}
+      pbe_bs_data: null
+      phonon_data: null
+      relax_data:
+        total_energy_eV: -72.9008
+        total_energy_per_atom_eV: -10.4144
+      relaxed_struct:
+        path: "data/stored_structs/relaxed_struct/USPEX_VARIABLE_W-N-2D_1042_Initial.vasp"
+      soc_bs_data: null
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Initial"
+      stage_params: null
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Initial/Initial/1042.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+      volume_relax_data: null
+      work_function: null
+    USPEX_VARIABLE_W-N-2D_1042_Normalized_Initial:
+      bolztrap_data: null
+      brillouin_zone_plot_path: null
+      calc_stage: "Initial"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      enthalpy_per_atom: -10.4144
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      hiphive_data: null
+      hybrid_bs_data: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      md_override_params:
+{}
+      md_params: null
+      override_params:
+{}
+      pbe_bs_data: null
+      phonon_data: null
+      relax_data: null
+      relaxed_struct:
+        path: "data/stored_structs/relaxed_struct/USPEX_VARIABLE_W-N-2D_1042_Initial.vasp"
+      soc_bs_data: null
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Normalized"
+      stage_params: null
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Normalized/Initial/1042.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+      volume_relax_data: null
+      work_function: null
+    USPEX_VARIABLE_W-N-2D_1042_Normalized_NSCF:
+      calc_stage: "NSCF"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      hybrid_bs_data: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+{}
+      pbe_bs_data: null
+      relax_data:
+        total_energy_eV: -72.05217025
+        total_energy_per_atom_eV: -10.293167178571428
+      soc_bs_data: null
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Normalized"
+      stage_params: null
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Normalized/NSCF/1042.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Normalized_Relax_Positions:
+      bolztrap_data: null
+      brillouin_zone_plot_path: null
+      calc_stage: "Relax_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      enthalpy_per_atom: -10.4144
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      hiphive_data: null
+      hybrid_bs_data: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      md_override_params:
+{}
+      md_params: null
+      override_params:
+{}
+      pbe_bs_data: null
+      phonon_data: null
+      relax_data:
+        total_energy_eV: -72.00691985
+        total_energy_per_atom_eV: -10.286702835714285
+      soc_bs_data: null
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Normalized"
+      stage_params: null
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Normalized/Relax_Positions/1042.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+      volume_relax_data: null
+      work_function: null
+    USPEX_VARIABLE_W-N-2D_1042_Normalized_SCF:
+      calc_stage: "SCF"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: 0.2621827000000003
+      exfoliation_energy_per_area: 0.24925453692038083
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      interlayer_distance: 1.4012403819406156
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+{}
+      relax_data:
+        total_energy_eV: -71.97912321
+        total_energy_per_atom_eV: -10.282731887142857
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Normalized"
+      stage_params: null
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Normalized/SCF/1042.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+    USPEX_VARIABLE_W-N-2D_1042_Relaxed_Initial:
+      bolztrap_data: null
+      brillouin_zone_plot_path: null
+      calc_stage: "Initial"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      enthalpy_per_atom: -10.4144
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      hiphive_data: null
+      hybrid_bs_data: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      md_override_params:
+{}
+      md_params: null
+      override_params:
+{}
+      pbe_bs_data: null
+      phonon_data: null
+      relax_data:
+        total_energy_eV: -72.00691985
+        total_energy_per_atom_eV: -10.286702835714285
+      soc_bs_data: null
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Relaxed"
+      stage_params: null
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Relaxed/Initial/1042.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+      volume_relax_data: null
+      work_function: null
+    USPEX_VARIABLE_W-N-2D_1042_Relaxed_Relax_Positions:
+      calc_stage: "Relax_Positions"
+      composition:
+        N: 4.0
+        W: 3.0
+      composition_text: "W3N4"
+      composition_text_pretty: "W3N4"
+      conex_hull_id: "W-N-2D"
+      convergence: null
+      exfoliation_energy: null
+      exfoliation_energy_per_area: null
+      id: "W-N-2D_1042"
+      ignored_warnings:
+[]
+      interlayer_distance: null
+      is_magnetic: false
+      layered_data:
+        initial_vacuum: 10.0
+        number_of_layers: 1
+      override_params:
+{}
+      relax_data:
+        total_energy_eV: -72.00724586
+        total_energy_per_atom_eV: -10.286749408571428
+      source:
+        src_id: "W-N-2D"
+        struct_id: "1042"
+        type: "USPEX_VARIABLE"
+      stage: "Relaxed"
+      stage_params: null
+      stored_struct:
+        path: "data/structures/USPEX_VARIABLE/W-N-2D/Relaxed/Relax_Positions/1042.vasp"
+      symmetry: null
+      tags:
+[]
+      u_correction_data: null
+  available_calculation_inputs:
+[]
+  convergence_data_by_struct:
+{}
+  csv_row:
+    Adsorption Energy (eV): "-1.9936229950001247"
+    Composition: "W3N4"
+    Energy Above Hull (eV/atom): "0.0"
+    Gibbs free energy (eV): "-1.62862"
+    Material: "USPEX_VARIABLE_W-N-2D_1042"
+    Site: "bridge_1"
+    Surface Area (A^2): "66.2676407181155"
+    Surface Area (cm^2): "6.62676407181155e-15"
+    i0: "-29.6752"
+  final_struct_record:
+    calc_stage: "Relax_Positions"
+    composition:
+      N: 4.0
+      W: 3.0
+    composition_text: "W3N4"
+    composition_text_pretty: "W3N4"
+    conex_hull_id: "W-N-2D"
+    convergence: null
+    exfoliation_energy: null
+    exfoliation_energy_per_area: null
+    id: "W-N-2D_1042"
+    ignored_warnings:
+[]
+    interlayer_distance: null
+    is_magnetic: false
+    layered_data:
+      initial_vacuum: 10.0
+      number_of_layers: 1
+    override_params:
+{}
+    relax_data:
+      total_energy_eV: -72.00724586
+      total_energy_per_atom_eV: -10.286749408571428
+    source:
+      src_id: "W-N-2D"
+      struct_id: "1042"
+      type: "USPEX_VARIABLE"
+    stage: "Relaxed"
+    stage_params: null
+    stored_struct:
+      path: "data/structures/USPEX_VARIABLE/W-N-2D/Relaxed/Relax_Positions/1042.vasp"
+    symmetry: null
+    tags:
+[]
+    u_correction_data: null
+  final_struct_record_id: "USPEX_VARIABLE_W-N-2D_1042_Relaxed_Relax_Positions"
+  final_structure_exported_to: "report/adsorption_materials_export/materials/USPEX_VARIABLE_W-N-2D_1042/FINAL_STRUCTURE.vasp"
+  final_structure_source: "data/structures/USPEX_VARIABLE/W-N-2D/Relaxed/Relax_Positions/1042.vasp"
+  kpath_data:
+    kpts:
+      B:
+        - 0.8324749493892565
+        - 0.5
+        - 0.16752505061074352
+      B1:
+        - 0.5
+        - 0.16752505061074352
+        - -0.16752505061074352
+      F:
+        - 0.5
+        - 0.5
+        - 0.0
+      G:
+        - 0.0
+        - 0.0
+        - 0.0
+      L:
+        - 0.5
+        - 0.0
+        - 0.0
+      L1:
+        - 0.0
+        - 0.0
+        - -0.5
+      P:
+        - 0.8324749493892565
+        - 0.33376252530537176
+        - 0.33376252530537176
+      P1:
+        - 0.6662374746946282
+        - 0.6662374746946282
+        - 0.16752505061074352
+      P2:
+        - 0.33376252530537176
+        - 0.33376252530537176
+        - -0.16752505061074352
+      Q:
+        - 0.6662374746946282
+        - 0.33376252530537176
+        - 0.0
+      X:
+        - 0.33376252530537176
+        - 0.0
+        - -0.33376252530537176
+      Z:
+        - 0.5
+        - 0.5
+        - 0.5
+    path: "GLB1,BZGX,QFP1Z,LP"
+  material: "USPEX_VARIABLE_W-N-2D_1042"
+  material_record:
+    adsorption_sites_data: null
+    composition:
+      N: 4.0
+      W: 3.0
+    e_above_hull: 0.0
+    full_name: "USPEX_VARIABLE_W-N-2D_1042"
+    hybrid_bs_data: null
+    is_magnetic: false
+    is_most_stable_in_composition: true
+    is_pd_element: false
+    pbe_bs_data: null
+    soc_bs_data: null
+    struct_id: "USPEX_VARIABLE_W-N-2D_1042_Relaxed_Relax_Positions"
+    symmetry:
+      bz_is_2d: true
+      crystal_system: "triclinic"
+      high_symmetry_path:
+        kpts:
+          B:
+            - 0.8324749493892565
+            - 0.5
+            - 0.16752505061074352
+          B1:
+            - 0.5
+            - 0.16752505061074352
+            - -0.16752505061074352
+          F:
+            - 0.5
+            - 0.5
+            - 0.0
+          G:
+            - 0.0
+            - 0.0
+            - 0.0
+          L:
+            - 0.5
+            - 0.0
+            - 0.0
+          L1:
+            - 0.0
+            - 0.0
+            - -0.5
+          P:
+            - 0.8324749493892565
+            - 0.33376252530537176
+            - 0.33376252530537176
+          P1:
+            - 0.6662374746946282
+            - 0.6662374746946282
+            - 0.16752505061074352
+          P2:
+            - 0.33376252530537176
+            - 0.33376252530537176
+            - -0.16752505061074352
+          Q:
+            - 0.6662374746946282
+            - 0.33376252530537176
+            - 0.0
+          X:
+            - 0.33376252530537176
+            - 0.0
+            - -0.33376252530537176
+          Z:
+            - 0.5
+            - 0.5
+            - 0.5
+        path: "GLB1,BZGX,QFP1Z,LP"
+      lattice_name: "primitive rhombohedral"
+      lattice_type: "triclinic"
+      space_group_number: 1
+      space_group_symbol: "P1"
+      symprec: 0.1
+    tags:
+[]
+h_adsorption_structures_count: 6
+sites:
+  - "bridge_0"
+  - "bridge_1"
+  - "bridge_2"
+  - "hollow_0"
+  - "hollow_1"
+  - "ontop_0"
+adsorption_complexes:
+  -
+    analysis_data: null
+    bader_analysis_data: null
+    bolztrap_data: null
+    charge_difference_path: null
+    full_name: "USPEX_VARIABLE_W-N-2D_1042_H_bridge_0_along_z"
+    geometry_params: null
+    ignored_warnings:
+[]
+    initial_struct:
+      path: "data/adsorption_complexes/initial_struct/USPEX_VARIABLE_W-N-2D_1042_H_bridge_0_along_z.vasp"
+    material_name: "USPEX_VARIABLE_W-N-2D_1042"
+    molecule_name: "H"
+    orientation: "ALONG_Z"
+    relax_data:
+      total_energy_eV: -653.47824931
+      total_energy_per_area_eV_A_sq: -9.861196840999947
+    relax_steps: null
+    relaxed_struct:
+      path: "data/adsorption_complexes/relaxed_struct/USPEX_VARIABLE_W-N-2D_1042_H_bridge_0_along_z.vasp"
+    site:
+      name: "bridge_0"
+      x: 1.5263599300787065
+      y: 3.7508492936581925
+      z: 16.393187011999338
+    supercell_size:
+      - 3
+      - 3
+    work_function: null
+    copied_files:
+      initial_struct: "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_1042/initial_structures/USPEX_VARIABLE_W-N-2D_1042_H_bridge_0_along_z.vasp"
+      relaxed_struct: "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_1042/relaxed_structures/USPEX_VARIABLE_W-N-2D_1042_H_bridge_0_along_z.vasp"
+      charge_difference: null
+  -
+    analysis_data: null
+    bader_analysis_data: null
+    bolztrap_data: null
+    charge_difference_path: null
+    full_name: "USPEX_VARIABLE_W-N-2D_1042_H_bridge_1_along_z"
+    geometry_params: null
+    ignored_warnings:
+[]
+    initial_struct:
+      path: "data/adsorption_complexes/initial_struct/USPEX_VARIABLE_W-N-2D_1042_H_bridge_1_along_z.vasp"
+    material_name: "USPEX_VARIABLE_W-N-2D_1042"
+    molecule_name: "H"
+    orientation: "ALONG_Z"
+    relax_data:
+      total_energy_eV: -653.54788177
+      total_energy_per_area_eV_A_sq: -9.862247617204522
+    relax_steps: null
+    relaxed_struct:
+      path: "data/adsorption_complexes/relaxed_struct/USPEX_VARIABLE_W-N-2D_1042_H_bridge_1_along_z.vasp"
+    site:
+      name: "bridge_1"
+      x: 0.8229369650787055
+      y: 2.4615645886581925
+      z: 16.285007116999342
+    supercell_size:
+      - 3
+      - 3
+    work_function: null
+    copied_files:
+      initial_struct: "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_1042/initial_structures/USPEX_VARIABLE_W-N-2D_1042_H_bridge_1_along_z.vasp"
+      relaxed_struct: "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_1042/relaxed_structures/USPEX_VARIABLE_W-N-2D_1042_H_bridge_1_along_z.vasp"
+      charge_difference: null
+  -
+    analysis_data: null
+    bader_analysis_data: null
+    bolztrap_data: null
+    charge_difference_path: null
+    full_name: "USPEX_VARIABLE_W-N-2D_1042_H_bridge_2_along_z"
+    geometry_params: null
+    ignored_warnings:
+[]
+    initial_struct:
+      path: "data/adsorption_complexes/initial_struct/USPEX_VARIABLE_W-N-2D_1042_H_bridge_2_along_z.vasp"
+    material_name: "USPEX_VARIABLE_W-N-2D_1042"
+    molecule_name: "H"
+    orientation: "ALONG_Z"
+    relax_data:
+      total_energy_eV: -653.4779203
+      total_energy_per_area_eV_A_sq: -9.861191876133288
+    relax_steps: null
+    relaxed_struct:
+      path: "data/adsorption_complexes/relaxed_struct/USPEX_VARIABLE_W-N-2D_1042_H_bridge_2_along_z.vasp"
+    site:
+      name: "bridge_2"
+      x: 1.5102361100787074
+      y: 3.7508492936581925
+      z: 16.39842807699935
+    supercell_size:
+      - 3
+      - 3
+    work_function: null
+    copied_files:
+      initial_struct: "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_1042/initial_structures/USPEX_VARIABLE_W-N-2D_1042_H_bridge_2_along_z.vasp"
+      relaxed_struct: "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_1042/relaxed_structures/USPEX_VARIABLE_W-N-2D_1042_H_bridge_2_along_z.vasp"
+      charge_difference: null
+  -
+    analysis_data: null
+    bader_analysis_data: null
+    bolztrap_data: null
+    charge_difference_path: null
+    full_name: "USPEX_VARIABLE_W-N-2D_1042_H_hollow_0_along_z"
+    geometry_params: null
+    ignored_warnings:
+[]
+    initial_struct:
+      path: "data/adsorption_complexes/initial_struct/USPEX_VARIABLE_W-N-2D_1042_H_hollow_0_along_z.vasp"
+    material_name: "USPEX_VARIABLE_W-N-2D_1042"
+    molecule_name: "H"
+    orientation: "ALONG_Z"
+    relax_data:
+      total_energy_eV: -653.53679396
+      total_energy_per_area_eV_A_sq: -9.862080298587474
+    relax_steps: null
+    relaxed_struct:
+      path: "data/adsorption_complexes/relaxed_struct/USPEX_VARIABLE_W-N-2D_1042_H_hollow_0_along_z.vasp"
+    site:
+      name: "hollow_0"
+      x: 0.8175623584120386
+      y: 1.6020414519915267
+      z: 16.355380025332675
+    supercell_size:
+      - 3
+      - 3
+    work_function: null
+    copied_files:
+      initial_struct: "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_1042/initial_structures/USPEX_VARIABLE_W-N-2D_1042_H_hollow_0_along_z.vasp"
+      relaxed_struct: "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_1042/relaxed_structures/USPEX_VARIABLE_W-N-2D_1042_H_hollow_0_along_z.vasp"
+      charge_difference: null
+  -
+    analysis_data: null
+    bader_analysis_data: null
+    bolztrap_data: null
+    charge_difference_path: null
+    full_name: "USPEX_VARIABLE_W-N-2D_1042_H_hollow_1_along_z"
+    geometry_params: null
+    ignored_warnings:
+[]
+    initial_struct:
+      path: "data/adsorption_complexes/initial_struct/USPEX_VARIABLE_W-N-2D_1042_H_hollow_1_along_z.vasp"
+    material_name: "USPEX_VARIABLE_W-N-2D_1042"
+    molecule_name: "H"
+    orientation: "ALONG_Z"
+    relax_data:
+      total_energy_eV: -651.56242898
+      total_energy_per_area_eV_A_sq: -9.832286496384702
+    relax_steps: null
+    relaxed_struct:
+      path: "data/adsorption_complexes/relaxed_struct/USPEX_VARIABLE_W-N-2D_1042_H_hollow_1_along_z.vasp"
+    site:
+      name: "hollow_1"
+      x: 2.2351575017453715
+      y: 3.3210877253248596
+      z: 16.430993998666008
+    supercell_size:
+      - 3
+      - 3
+    work_function: null
+    copied_files:
+      initial_struct: "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_1042/initial_structures/USPEX_VARIABLE_W-N-2D_1042_H_hollow_1_along_z.vasp"
+      relaxed_struct: "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_1042/relaxed_structures/USPEX_VARIABLE_W-N-2D_1042_H_hollow_1_along_z.vasp"
+      charge_difference: null
+  -
+    analysis_data: null
+    bader_analysis_data: null
+    bolztrap_data: null
+    charge_difference_path: null
+    full_name: "USPEX_VARIABLE_W-N-2D_1042_H_ontop_0_along_z"
+    geometry_params: null
+    ignored_warnings:
+[]
+    initial_struct:
+      path: "data/adsorption_complexes/initial_struct/USPEX_VARIABLE_W-N-2D_1042_H_ontop_0_along_z.vasp"
+    material_name: "USPEX_VARIABLE_W-N-2D_1042"
+    molecule_name: "H"
+    orientation: "ALONG_Z"
+    relax_data:
+      total_energy_eV: -653.47245399
+      total_energy_per_area_eV_A_sq: -9.861109387758255
+    relax_steps: null
+    relaxed_struct:
+      path: "data/adsorption_complexes/relaxed_struct/USPEX_VARIABLE_W-N-2D_1042_H_ontop_0_along_z.vasp"
+    site:
+      name: "ontop_0"
+      x: 2.245906715078706
+      y: 2.4615645886581925
+      z: 16.290248181999342
+    supercell_size:
+      - 3
+      - 3
+    work_function: null
+    copied_files:
+      initial_struct: "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_1042/initial_structures/USPEX_VARIABLE_W-N-2D_1042_H_ontop_0_along_z.vasp"
+      relaxed_struct: "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_1042/relaxed_structures/USPEX_VARIABLE_W-N-2D_1042_H_ontop_0_along_z.vasp"
+      charge_difference: null
