@@ -28,7 +28,6 @@ step2_scf:
     lhfcalc: true
     hfscreen: 0.2
     aexx: 0.25
-    algo: D
     time: 0.4
     lcharg: true
     lwave: true
@@ -38,7 +37,7 @@ step2_scf:
 step3_dos:
   # HSE DOS/PDOS with denser mesh.
   vasp_tags:
-    kpts: [15, 15, 1]
+    kpts: [13, 13, 1]
     nsw: 0
     ibrion: -1
     ismear: -5
@@ -57,7 +56,7 @@ step4_band:
   aperiodic_dir: auto
   band_points_per_segment: 40
   vasp_tags:
-    kpts: [15, 15, 1]
+    kpts: [13, 13, 1]
     nsw: 0
     ibrion: -1
     ismear: 0
@@ -65,7 +64,6 @@ step4_band:
     lhfcalc: true
     hfscreen: 0.2
     aexx: 0.25
-    algo: D
     time: 0.4
     icharge: 11
     lorbit: 11

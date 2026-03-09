@@ -27,7 +27,6 @@ try:
         sanitize_name,
         select_records,
         submit_step1,
-        write_band_kpoints_from_2d_path,
         write_myrun,
     )
 except ModuleNotFoundError:
@@ -53,7 +52,6 @@ except ModuleNotFoundError:
         sanitize_name,
         select_records,
         submit_step1,
-        write_band_kpoints_from_2d_path,
         write_myrun,
     )
 
@@ -116,6 +114,89 @@ def copy_restart_files_maybe(
             return
         raise FileNotFoundError(f"Required restart file(s) missing in {src_dir}: {', '.join(missing)}")
     copy_restart_files(src_dir, dst_dir, names)
+
+
+def _k2d_to_k3d(coord2d: list[float], aperiodic_dir: int) -> list[float]:
+    if len(coord2d) != 2:
+        raise ValueError(f"Invalid 2D coordinate: {coord2d}")
+    out = [0.0, 0.0, 0.0]
+    in_plane = [i for i in range(3) if i != aperiodic_dir]
+    out[in_plane[0]] = float(coord2d[0])
+    out[in_plane[1]] = float(coord2d[1])
+    return out
+
+
+def _uniform_gamma_mesh_points(kmesh: tuple[int, int, int]) -> list[list[float]]:
+    nx, ny, nz = kmesh
+    if nx < 1 or ny < 1 or nz < 1:
+        raise ValueError(f"Invalid k-mesh: {kmesh}")
+    points: list[list[float]] = []
+    for i in range(nx):
+        for j in range(ny):
+            for k in range(nz):
+                points.append([i / nx, j / ny, k / nz])
+    return points
+
+
+def _band_path_points_zero_weight(
+    kpath_string_2d: str,
+    kpoints_2d: dict[str, list[float]],
+    aperiodic_dir: int,
+    points_per_segment: int,
+) -> list[list[float]]:
+    labels = [tok for tok in kpath_string_2d.split() if tok != "|"]
+    if len(labels) < 2:
+        raise ValueError(f"Invalid 2D k-path string: {kpath_string_2d!r}")
+    nseg = max(2, int(points_per_segment))
+    out: list[list[float]] = []
+    for iseg in range(len(labels) - 1):
+        a = labels[iseg]
+        b = labels[iseg + 1]
+        if a not in kpoints_2d or b not in kpoints_2d:
+            raise KeyError(f"K-point label missing coordinates: {a if a not in kpoints_2d else b}")
+        ka = _k2d_to_k3d(kpoints_2d[a], aperiodic_dir)
+        kb = _k2d_to_k3d(kpoints_2d[b], aperiodic_dir)
+        for t in range(nseg):
+            # Skip duplicated first point for all segments except the first.
+            if iseg > 0 and t == 0:
+                continue
+            f = t / (nseg - 1)
+            out.append(
+                [
+                    ka[0] + f * (kb[0] - ka[0]),
+                    ka[1] + f * (kb[1] - ka[1]),
+                    ka[2] + f * (kb[2] - ka[2]),
+                ]
+            )
+    return out
+
+
+def write_hse_combined_kpoints(
+    kpoints_file: Path,
+    regular_kmesh: tuple[int, int, int],
+    kpath_string_2d: str,
+    kpoints_2d: dict[str, list[float]],
+    aperiodic_dir: int,
+    points_per_segment: int,
+) -> None:
+    regular_points = _uniform_gamma_mesh_points(regular_kmesh)
+    path_points = _band_path_points_zero_weight(
+        kpath_string_2d=kpath_string_2d,
+        kpoints_2d=kpoints_2d,
+        aperiodic_dir=aperiodic_dir,
+        points_per_segment=points_per_segment,
+    )
+    total = len(regular_points) + len(path_points)
+    lines = [
+        "K-points for HSE band structure",
+        str(total),
+        "Reciprocal",
+    ]
+    for p in regular_points:
+        lines.append(f"{p[0]:.8f} {p[1]:.8f} {p[2]:.8f} 1.0")
+    for p in path_points:
+        lines.append(f"{p[0]:.8f} {p[1]:.8f} {p[2]:.8f} 0.0")
+    kpoints_file.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
 def main() -> None:
@@ -209,8 +290,13 @@ def main() -> None:
                 points_per_segment = int(coerce_scalar_for_vasp(step4_cfg.get("band_points_per_segment", 40)))
                 if not isinstance(kpoints_2d, dict) or not kpoints_2d:
                     raise ValueError("Step 4 failed to produce canonical 2D k-point coordinates")
-                write_band_kpoints_from_2d_path(
+                kpts_cfg = step4_cfg.get("vasp_tags", {}).get("kpts", [18, 18, 1])
+                if not isinstance(kpts_cfg, (list, tuple)) or len(kpts_cfg) != 3:
+                    raise ValueError(f"step4_band.vasp_tags.kpts must be length-3 list, got: {kpts_cfg}")
+                regular_kmesh = (int(kpts_cfg[0]), int(kpts_cfg[1]), int(kpts_cfg[2]))
+                write_hse_combined_kpoints(
                     step4_dir / "KPOINTS",
+                    regular_kmesh=regular_kmesh,
                     kpath_string_2d=kpath_string_2d,
                     kpoints_2d={str(k): v for k, v in kpoints_2d.items()},
                     aperiodic_dir=aperiodic_dir,

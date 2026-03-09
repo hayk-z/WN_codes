@@ -255,3 +255,54 @@ RuntimeError: The number of scaling factors must be 1 or 3.
   structure.set_calculator(calc)
 /mnt/dftevn/home/hayk/workdir/2D/W_N/WN_codes/src/dftkit/utils/calc_funcs_vasp.py:37: FutureWarning: Please use atoms.calc = calc
   structure.set_calculator(calc)
+/mnt/dftevn/home/hayk/workdir/2D/W_N/WN_codes/src/dftkit/utils/calc_funcs_vasp.py:37: FutureWarning: Please use atoms.calc = calc
+  structure.set_calculator(calc)
+[2026-03-06 12:36:32] Starting HSE workflow: calc_name=DOS_HSE_calc
+[2026-03-06 12:36:32] Selected records: 1
+[2026-03-06 12:36:32] SLURM config: configs/slurm_ysu2.conf
+[2026-03-06 12:36:32] Start step: 2
+[2026-03-06 12:36:32] === Starting step 2 for 1 IDs ===
+[2026-03-06 12:36:32] Preparing step2 HSE-SCF for ID=2, material=USPEX_FIXED_W-N-2D_287 from CONTCAR
+[2026-03-06 12:36:33] Submitted job: dos_hse_id2_s2 (job_id=30481)
+[2026-03-06 12:36:33] Submitted 1 jobs for step 2. Start monitoring...
+[2026-03-06 12:36:33] dos_hse_id2_s2 status: PD
+[2026-03-06 12:36:53] dos_hse_id2_s2 status: R
+[2026-03-06 13:07:56] dos_hse_id2_s2 status: Finished
+[2026-03-06 13:07:56] ID=2: step2_scf completed
+[2026-03-06 13:07:56] === Step 2 finished ===
+[2026-03-06 13:07:56] === Starting step 3 for 1 IDs ===
+[2026-03-06 13:07:56] Preparing step3 HSE-DOS for ID=2, material=USPEX_FIXED_W-N-2D_287 from CONTCAR
+[2026-03-06 13:07:56] Submitted job: dos_hse_id2_s3 (job_id=30482)
+[2026-03-06 13:07:56] Submitted 1 jobs for step 3. Start monitoring...
+[2026-03-06 13:07:56] dos_hse_id2_s3 status: PD
+[2026-03-06 13:08:16] dos_hse_id2_s3 status: R
+[2026-03-06 13:10:16] dos_hse_id2_s3 status: Finished
+[2026-03-06 13:10:16] ID=2: step3_dos completed
+[2026-03-06 13:10:16] === Step 3 finished ===
+[2026-03-06 13:10:16] === Starting step 4 for 1 IDs ===
+[2026-03-06 13:10:16] Preparing step4 HSE-band for ID=2, material=USPEX_FIXED_W-N-2D_287 from CONTCAR
+[2026-03-06 13:10:17] Submitted job: dos_hse_id2_s4 (job_id=30483)
+[2026-03-06 13:10:17] Submitted 1 jobs for step 4. Start monitoring...
+[2026-03-06 13:10:17] dos_hse_id2_s4 status: PD
+[2026-03-06 13:10:37] dos_hse_id2_s4 status: Finished
+[2026-03-06 13:10:37] ID=2: step4_band completed
+[2026-03-06 13:10:37] === Step 4 finished ===
+[2026-03-06 13:10:37] Workflow finished
+/mnt/dftevn/home/hayk/workdir/2D/W_N/WN_codes/src/dftkit/utils/calc_funcs_vasp.py:37: FutureWarning: Please use atoms.calc = calc
+  structure.set_calculator(calc)
+[2026-03-06 13:37:44] Starting HSE workflow: calc_name=DOS_HSE_calc
+[2026-03-06 13:37:44] Selected records: 1
+[2026-03-06 13:37:44] SLURM config: configs/slurm_ysu2.conf
+[2026-03-06 13:37:44] Start step: 4
+[2026-03-06 13:37:44] === Starting step 4 for 1 IDs ===
+[2026-03-06 13:37:44] Preparing step4 HSE-band for ID=2, material=USPEX_FIXED_W-N-2D_287 from CONTCAR
+[2026-03-06 13:37:44] Submitted job: dos_hse_id2_s4 (job_id=30484)
+[2026-03-06 13:37:44] Submitted 1 jobs for step 4. Start monitoring...
+[2026-03-06 13:37:44] dos_hse_id2_s4 status: PD
+[2026-03-06 13:38:04] dos_hse_id2_s4 status: R
+[2026-03-08 03:32:06] dos_hse_id2_s4 status: Finished
+[2026-03-08 03:32:06] ID=2: step4_band completed
+[2026-03-08 03:32:06] === Step 4 finished ===
+[2026-03-08 03:32:06] Workflow finished
+/mnt/dftevn/home/hayk/workdir/2D/W_N/WN_codes/src/dftkit/utils/calc_funcs_vasp.py:37: FutureWarning: Please use atoms.calc = calc
+  structure.set_calculator(calc)
