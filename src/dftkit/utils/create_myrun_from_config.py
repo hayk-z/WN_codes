@@ -91,10 +91,13 @@ def build_script(config: dict[str, object], workdir: Path) -> str:
             lines.append(f"module load {module}")
 
     # RUN_COMMAND is sourced from config.
-    # Recommended format in config: RUN_COMMAND="mpirun -np {NTASKS} vasp_std"
-    # If {NTASKS} is missing, append command after mpirun -np <NTASKS>.
+    # If it already includes srun, keep it as-is.
+    # If it uses {NTASKS}, expand it.
+    # Otherwise, append command after mpirun -np <NTASKS>.
     if "{NTASKS}" in run_command:
         final_command = run_command.replace("{NTASKS}", ntasks)
+    elif re.search(r"\bsrun\b", run_command):
+        final_command = run_command
     else:
         final_command = f"mpirun -np {ntasks} {run_command}"
 

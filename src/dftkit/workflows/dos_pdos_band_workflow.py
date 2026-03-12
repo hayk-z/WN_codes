@@ -40,6 +40,7 @@ DEFAULT_CONFIG = Path("configs/dos_calc_pbe.yaml")
 DEFAULT_SLURM_CONFIG = Path("configs/slurm_ysu2.conf")
 DEFAULT_OUTPUT_ROOT = Path("data/calculations")
 DEFAULT_CALC_NAME = "DOS_calc"
+DEFAULT_POTCAR_DIR = Path("data/potcars")
 
 
 @contextmanager
@@ -113,6 +114,26 @@ def load_workflow_yaml(path: Path) -> dict[str, Any]:
     if not isinstance(data, dict):
         raise ValueError(f"Workflow config must be a YAML mapping: {path}")
     return data
+
+
+def resolve_potpaw_pbe_root(potcar: Path) -> Path:
+    """Resolve a user path to the potpaw_PBE directory expected by ASE."""
+    base = potcar.expanduser().resolve()
+    if not base.exists():
+        raise FileNotFoundError(f"POTCAR path not found: {base}")
+    if base.is_file():
+        raise ValueError(f"POTCAR path must be a directory, got file: {base}")
+
+    if base.name == "potpaw_PBE":
+        return base
+
+    candidate = base / "potpaw_PBE"
+    if candidate.exists() and candidate.is_dir():
+        return candidate
+
+    raise FileNotFoundError(
+        f"POTCAR directory must be 'potpaw_PBE' or contain it as a subfolder: {base}"
+    )
 
 
 def parse_yaml_value(text: str) -> Any:
@@ -349,7 +370,11 @@ def render_run_command(cfg: dict[str, object]) -> str:
     ntasks = str(cfg.get("NTASKS", "1"))
     run_command = str(cfg.get("RUN_COMMAND", "vasp_std")).strip() or "vasp_std"
     if "{NTASKS}" in run_command:
-        return run_command.replace("{NTASKS}", ntasks)
+        run_command = run_command.replace("{NTASKS}", ntasks)
+    if re.fullmatch(r"srun\s+vasp_std", run_command):
+        return run_command
+    if re.search(r"\bmpirun\b", run_command):
+        return run_command
     return f"mpirun -np {ntasks} {run_command}"
 
 
@@ -402,9 +427,7 @@ def prepare_step_input(
     step_key: str,
     base_kpts: tuple[int, int, int] | None = None,
 ) -> None:
-    potcar_root = Path(str(workflow_cfg.get("potcar_root", ""))).expanduser()
-    if not potcar_root.exists():
-        raise FileNotFoundError(f"POTCAR_ROOT does not exist: {potcar_root}")
+    potcar_root = resolve_potpaw_pbe_root(Path(str(workflow_cfg.get("potcar_root", DEFAULT_POTCAR_DIR))))
 
     # ASE VASP expects VASP_PP_PATH to point to parent of potpaw_PBE.
     os.environ["VASP_PP_PATH"] = str(potcar_root.parent)
@@ -834,6 +857,17 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--output-root", type=Path, default=DEFAULT_OUTPUT_ROOT)
     parser.add_argument(
+        "--potcar",
+        "--potcar-root",
+        dest="potcar",
+        type=Path,
+        default=None,
+        help=(
+            "Path to POTCAR directory. Accepts either .../potpaw_PBE or its parent "
+            f"(default: {DEFAULT_POTCAR_DIR})"
+        ),
+    )
+    parser.add_argument(
         "--start-step",
         type=int,
         choices=[1, 2, 3, 4],
@@ -856,6 +890,9 @@ def main() -> None:
         raise FileNotFoundError(f"SLURM config not found: {args.slurm_config}")
 
     workflow_cfg = load_workflow_yaml(args.config)
+    # CLI --potcar overrides YAML; otherwise use YAML value or project default.
+    selected_potcar = args.potcar or Path(str(workflow_cfg.get("potcar_root", DEFAULT_POTCAR_DIR)))
+    workflow_cfg["potcar_root"] = str(selected_potcar)
     slurm_cfg = parse_shell_conf(args.slurm_config)
     ids_filter = parse_ids(args.ids)
 
@@ -871,6 +908,7 @@ def main() -> None:
     log_message(log_file, f"Starting workflow: calc_name={args.calc_name}")
     log_message(log_file, f"Selected records: {len(records)}")
     log_message(log_file, f"SLURM config: {args.slurm_config}")
+    log_message(log_file, f"POTCAR path: {selected_potcar}")
     log_message(log_file, f"Start step: {args.start_step}")
 
     job_prefix = str(workflow_cfg.get("job_name_prefix", "dos"))

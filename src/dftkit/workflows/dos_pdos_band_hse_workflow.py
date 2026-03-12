@@ -60,6 +60,7 @@ DEFAULT_CONFIG = Path("configs/dos_calc_hse.yaml")
 DEFAULT_SLURM_CONFIG = Path("configs/slurm_ysu2.conf")
 DEFAULT_OUTPUT_ROOT = Path("data/calculations")
 DEFAULT_CALC_NAME = "DOS_HSE_calc"
+DEFAULT_POTCAR_DIR = Path("data/potcars")
 
 
 def parse_args() -> argparse.Namespace:
@@ -70,6 +71,17 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG, help="Workflow YAML config")
     parser.add_argument("--slurm-config", type=Path, default=DEFAULT_SLURM_CONFIG, help="SLURM config")
     parser.add_argument("--output-root", type=Path, default=DEFAULT_OUTPUT_ROOT)
+    parser.add_argument(
+        "--potcar",
+        "--potcar-root",
+        dest="potcar",
+        type=Path,
+        default=None,
+        help=(
+            "Path to POTCAR directory. Accepts either .../potpaw_PBE or its parent "
+            f"(default: {DEFAULT_POTCAR_DIR})"
+        ),
+    )
     parser.add_argument("--start-step", type=int, choices=[1, 2, 3, 4], default=1)
     parser.add_argument("--poll-seconds", type=int, default=20)
     parser.add_argument("--max-wait-hours", type=float, default=240.0)
@@ -209,6 +221,8 @@ def main() -> None:
         raise FileNotFoundError(f"SLURM config not found: {args.slurm_config}")
 
     workflow_cfg = load_workflow_yaml(args.config)
+    selected_potcar = args.potcar or Path(str(workflow_cfg.get("potcar_root", DEFAULT_POTCAR_DIR)))
+    workflow_cfg["potcar_root"] = str(selected_potcar)
     slurm_cfg = parse_shell_conf(args.slurm_config)
     ids_filter = parse_ids(args.ids)
 
@@ -223,6 +237,7 @@ def main() -> None:
     log_message(log_file, f"Starting HSE workflow: calc_name={args.calc_name}")
     log_message(log_file, f"Selected records: {len(records)}")
     log_message(log_file, f"SLURM config: {args.slurm_config}")
+    log_message(log_file, f"POTCAR path: {selected_potcar}")
     log_message(log_file, f"Start step: {args.start_step}")
 
     job_prefix = str(workflow_cfg.get("job_name_prefix", "dos_hse"))

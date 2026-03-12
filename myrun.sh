@@ -1,14 +1,16 @@
 #!/bin/bash
-#SBATCH -J vasp_ysu2
+#SBATCH -J dos_test
 #SBATCH -p compute
 #SBATCH -t 240:00:00
 #SBATCH -N 1
-#SBATCH -n 32
-#SBATCH --mem 120G
+#SBATCH -n 1
+#SBATCH --mem 2G
 #SBATCH -o slurm-%j.out
 
 export OMP_NUM_THREADS=1
-cd /mnt/dftevn/home/hayk/workdir/2D/W_N/WN_codes
+cd /home/hayk_zakaryan/workdir/2D/WN/WN_codes 
 module purge
-module load vasp/6.5.1_gnu_ompi_mkl_omp
-mpirun -np 32 vasp_std
+conda init
+conda activate wn_env
+python src/dftkit/workflows/dos_pdos_band_workflow.py   --input-db data/processed/wn_materials.db   --ids 2   --config configs/dos_calc_pbe.yaml   --slurm-config configs/slurm_aznavour.conf   --calc-name DOS_calc_test
+

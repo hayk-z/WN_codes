@@ -30,7 +30,7 @@ except ModuleNotFoundError:
 DEFAULT_DFT_CONFIG = Path("configs/dft_defaults.yaml")
 DEFAULT_SLURM_CONFIG = Path("configs/slurm_ysu2.conf")
 DEFAULT_OUTPUT_ROOT = Path("data/calculations")
-DEFAULT_POTCAR_ROOT = Path("/mnt/dftevn/opt/vasp/pseudo/potpaw_PBE")
+DEFAULT_POTCAR_DIR = Path("data/potcars")
 
 
 def parse_simple_yaml(path: Path) -> dict[str, Any]:
@@ -241,13 +241,34 @@ def dft_config_to_vasp_kwargs(dft_cfg: dict[str, Any]) -> dict[str, Any]:
     return kwargs
 
 
+def resolve_potpaw_pbe_root(potcar: Path) -> Path:
+    """Resolve a user path to the potpaw_PBE directory expected by ASE."""
+    base = potcar.expanduser().resolve()
+    if not base.exists():
+        raise FileNotFoundError(f"POTCAR path not found: {base}")
+    if base.is_file():
+        raise ValueError(f"POTCAR path must be a directory, got file: {base}")
+
+    if base.name == "potpaw_PBE":
+        return base
+
+    candidate = base / "potpaw_PBE"
+    if candidate.exists() and candidate.is_dir():
+        return candidate
+
+    raise FileNotFoundError(
+        f"POTCAR directory must be 'potpaw_PBE' or contain it as a subfolder: {base}"
+    )
+
+
 def write_vasp_inputs_with_ase(
     job_dir: Path,
     atoms: Atoms,
     dft_cfg: dict[str, Any],
-    potcar_root: Path,
+    potcar: Path,
 ) -> None:
     """Write INCAR/KPOINTS/POTCAR/POSCAR via ASE Vasp + calc_funcs_vasp.set_vasp."""
+    potcar_root = resolve_potpaw_pbe_root(potcar)
     potcar_parent = potcar_root.parent
     if not potcar_parent.exists():
         raise FileNotFoundError(f"POTCAR parent directory not found: {potcar_parent}")
@@ -267,8 +288,12 @@ def render_run_command(slurm_cfg: dict[str, object]) -> str:
     if not run_command:
         run_command = "vasp_std"
     if "{NTASKS}" in run_command:
-        return run_command.replace("{NTASKS}", ntasks)
-    return f"mpirun -np {ntasks} {run_command}"
+        run_command = run_command.replace("{NTASKS}", ntasks)
+    if re.search(r"\bsrun\b", run_command):
+        return run_command
+    if re.search(r"\bmpirun\b", run_command):
+        return f"srun {run_command}"
+    return f"srun -n {ntasks} {run_command}"
 
 
 def write_myrun(path: Path, slurm_cfg: dict[str, object], workdir: Path) -> None:
@@ -333,7 +358,7 @@ def prepare(
     dft_config: Path,
     slurm_config: Path,
     output_root: Path,
-    potcar_root: Path,
+    potcar: Path,
     ids_filter: set[str],
 ) -> tuple[Path, int]:
     # 1) Load structures from DB/JSON/YAML and apply optional ID filter.
@@ -358,7 +383,7 @@ def prepare(
         job_dir.mkdir(parents=True, exist_ok=True)
 
         # 3) Build VASP inputs with ASE calculator + shared calc_funcs utility.
-        write_vasp_inputs_with_ase(job_dir=job_dir, atoms=atoms, dft_cfg=dft_cfg, potcar_root=potcar_root)
+        write_vasp_inputs_with_ase(job_dir=job_dir, atoms=atoms, dft_cfg=dft_cfg, potcar=potcar)
         # 4) Add cluster-specific run script beside the VASP inputs.
         write_myrun(job_dir / "myrun.sh", slurm_cfg, job_dir)
         count += 1
@@ -374,7 +399,17 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--dft-config", type=Path, default=DEFAULT_DFT_CONFIG)
     parser.add_argument("--slurm-config", type=Path, default=DEFAULT_SLURM_CONFIG)
     parser.add_argument("--output-root", type=Path, default=DEFAULT_OUTPUT_ROOT)
-    parser.add_argument("--potcar-root", type=Path, default=DEFAULT_POTCAR_ROOT)
+    parser.add_argument(
+        "--potcar",
+        "--potcar-root",
+        dest="potcar",
+        type=Path,
+        default=DEFAULT_POTCAR_DIR,
+        help=(
+            "Path to POTCAR directory. Accepts either .../potpaw_PBE or its parent "
+            f"(default: {DEFAULT_POTCAR_DIR})"
+        ),
+    )
     return parser.parse_args()
 
 
@@ -387,7 +422,7 @@ def main() -> None:
         dft_config=args.dft_config,
         slurm_config=args.slurm_config,
         output_root=args.output_root,
-        potcar_root=args.potcar_root,
+        potcar=args.potcar,
         ids_filter=ids_filter,
     )
     print(f"Prepared {count} VASP job directories")

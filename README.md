@@ -129,7 +129,7 @@ Options:
 - `--dft-config` (default: `configs/dft_defaults.yaml`)
 - `--slurm-config` (default: `configs/slurm_ysu2.conf`)
 - `--output-root` (default: `data/calculations`)
-- `--potcar-root` (default: `/mnt/dftevn/opt/vasp/pseudo/potpaw_PBE`)
+- `--potcar` / `--potcar-root` (default: `data/potcars`; path to `potpaw_PBE` or its parent)
 
 Examples:
 ```bash
@@ -199,6 +199,7 @@ Options:
 - `--config` (workflow YAML)
 - `--slurm-config`
 - `--output-root`
+- `--potcar` / `--potcar-root` (default: `data/potcars`)
 - `--start-step` (`1|2|3|4`)
 - `--poll-seconds`
 - `--max-wait-hours`
@@ -268,6 +269,7 @@ Options:
 - `--config` (workflow YAML)
 - `--slurm-config`
 - `--output-root`
+- `--potcar` / `--potcar-root` (default: `data/potcars`)
 - `--start-step` (`1|2|3|4`)
 - `--poll-seconds`
 - `--max-wait-hours`

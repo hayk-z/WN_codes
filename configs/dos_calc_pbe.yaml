@@ -1,5 +1,5 @@
 job_name_prefix: dos_pbe
-potcar_root: /mnt/dftevn/opt/vasp/pseudo/potpaw_PBE
+potcar_root: data/potcars
 
 step1_relax:
   # Add or remove any ASE Vasp keyword here without code edits.

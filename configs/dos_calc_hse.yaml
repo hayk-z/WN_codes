@@ -1,5 +1,5 @@
 job_name_prefix: dos_hse
-potcar_root: /mnt/dftevn/opt/vasp/pseudo/potpaw_PBE
+potcar_root: data/potcars
 
 step1_relax:
   # Same as PBE relax, but keep charge/wave for HSE restart.
