@@ -1,0 +1,45 @@
+job_name_prefix: zpe
+potcar_root: data/potcars
+
+general_inputs:
+  t_delta_s_ev: -0.2
+  zpe_h2_ev: null
+
+h2_reference:
+  bond_length_angstrom: 0.74
+  box_length_angstrom: 15.0
+  vasp_tags:
+    xc: PBE
+    encut: 520
+    kpts: [1, 1, 1]
+    gamma: true
+    ibrion: 5
+    nfree: 2
+    nsw: 1
+    isif: 2
+    isym: 0
+    ediff: 1e-8
+    ismear: 0
+    sigma: 0.05
+    potim: 0.015
+    lwave: false
+    lcharg: false
+
+h_star_vib:
+  vasp_tags:
+    xc: PBE
+    encut: 520
+    kpts: [5, 5, 1]
+    gamma: true
+    ibrion: 5
+    potim: 0.015
+    nfree: 2
+    nsw: 1
+    isif: 2
+    isym: 0
+    ediff: 1e-8
+    ismear: 0
+    sigma: 0.05
+    lwave: false
+    lcharg: false
+    lreal: false

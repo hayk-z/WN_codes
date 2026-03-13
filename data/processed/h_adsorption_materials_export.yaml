@@ -1,4 +1,5 @@
 -
+  id: 1
   material: "C2DB_W-N-2D_W4N3_C2DB-11836_H_bridge_0_along_z"
   parent_material: "C2DB_W-N-2D_W4N3_C2DB-11836"
   h_adsorption_type: "bridge_0"
@@ -11,8 +12,9 @@
     W: 4.0
   surface_area_a2: 68.88135184207259
   surface_area_cm2: 6.888135184207259e-15
-  i0: -5.49514
-  gibbs_free_energy_ev: -0.188251
+  i0: null
+  adsorption_energy_ev: 1.428980515
+  gibbs_free_energy_ev: 1.793980515
   e_above_hull: 0.0
   crystal_system: "trigonal"
   space_group_symbol: "P-3m1"
@@ -378,8 +380,8 @@
         - 2.2569369539536885
         - 3.0193843590646856
         - 17.30855985080509
-  id: 1
 -
+  id: 2
   material: "C2DB_W-N-2D_W4N3_C2DB-11836_H_hollow_0_along_z"
   parent_material: "C2DB_W-N-2D_W4N3_C2DB-11836"
   h_adsorption_type: "hollow_0"
@@ -392,8 +394,9 @@
     W: 4.0
   surface_area_a2: 68.88135184207259
   surface_area_cm2: 6.888135184207259e-15
-  i0: -5.49514
-  gibbs_free_energy_ev: -0.188251
+  i0: null
+  adsorption_energy_ev: -0.553251055
+  gibbs_free_energy_ev: -0.188251055
   e_above_hull: 0.0
   crystal_system: "trigonal"
   space_group_symbol: "P-3m1"
@@ -759,8 +762,8 @@
         - 2.9727901256802447
         - 1.7463643616993803
         - 17.866267421532125
-  id: 2
 -
+  id: 3
   material: "C2DB_W-N-2D_W4N3_C2DB-11836_H_hollow_1_along_z"
   parent_material: "C2DB_W-N-2D_W4N3_C2DB-11836"
   h_adsorption_type: "hollow_1"
@@ -773,8 +776,9 @@
     W: 4.0
   surface_area_a2: 68.88135184207259
   surface_area_cm2: 6.888135184207259e-15
-  i0: -5.49514
-  gibbs_free_energy_ev: -0.188251
+  i0: null
+  adsorption_energy_ev: 2.374771965
+  gibbs_free_energy_ev: 2.739771965
   e_above_hull: 0.0
   crystal_system: "trigonal"
   space_group_symbol: "P-3m1"
@@ -1140,8 +1144,8 @@
         - 2.9727901256802447
         - 3.4326824829085303
         - 18.53825188778983
-  id: 3
 -
+  id: 4
   material: "C2DB_W-N-2D_W4N3_C2DB-11836_H_ontop_0_along_z"
   parent_material: "C2DB_W-N-2D_W4N3_C2DB-11836"
   h_adsorption_type: "ontop_0"
@@ -1154,8 +1158,9 @@
     W: 4.0
   surface_area_a2: 68.88135184207259
   surface_area_cm2: 6.888135184207259e-15
-  i0: -5.49514
-  gibbs_free_energy_ev: -0.188251
+  i0: null
+  adsorption_energy_ev: 1.428890375
+  gibbs_free_energy_ev: 1.793890375
   e_above_hull: 0.0
   crystal_system: "trigonal"
   space_group_symbol: "P-3m1"
@@ -1521,8 +1526,8 @@
         - 1.4863951297279017
         - 1.6852788422736156
         - 17.30864975552469
-  id: 4
 -
+  id: 5
   material: "USPEX_FIXED_W-N-2D_287_H_bridge_0_along_z"
   parent_material: "USPEX_FIXED_W-N-2D_287"
   h_adsorption_type: "bridge_0"
@@ -1535,8 +1540,9 @@
     W: 2.0
   surface_area_a2: 69.8460537649265
   surface_area_cm2: 6.984605376492649e-15
-  i0: -2.68442
-  gibbs_free_energy_ev: 0.00510483
+  i0: null
+  adsorption_energy_ev: -0.358393515
+  gibbs_free_energy_ev: 0.006606485
   e_above_hull: 0.0
   crystal_system: "monoclinic"
   space_group_symbol: "Cm"
@@ -1812,8 +1818,8 @@
         - 1.6141512136239766
         - 1.4689743660969985
         - 12.944744293959445
-  id: 5
 -
+  id: 6
   material: "USPEX_FIXED_W-N-2D_287_H_bridge_1_along_z"
   parent_material: "USPEX_FIXED_W-N-2D_287"
   h_adsorption_type: "bridge_1"
@@ -1826,8 +1832,9 @@
     W: 2.0
   surface_area_a2: 69.8460537649265
   surface_area_cm2: 6.984605376492649e-15
-  i0: -2.68442
-  gibbs_free_energy_ev: 0.00510483
+  i0: null
+  adsorption_energy_ev: -0.358748735
+  gibbs_free_energy_ev: 0.006251265
   e_above_hull: 0.0
   crystal_system: "monoclinic"
   space_group_symbol: "Cm"
@@ -2103,8 +2110,8 @@
         - 1.599906916959071
         - 1.483343640244397
         - 12.947193271908253
-  id: 6
 -
+  id: 7
   material: "USPEX_FIXED_W-N-2D_287_H_bridge_2_along_z"
   parent_material: "USPEX_FIXED_W-N-2D_287"
   h_adsorption_type: "bridge_2"
@@ -2117,8 +2124,9 @@
     W: 2.0
   surface_area_a2: 69.8460537649265
   surface_area_cm2: 6.984605376492649e-15
-  i0: -2.68442
-  gibbs_free_energy_ev: 0.00510483
+  i0: null
+  adsorption_energy_ev: -0.359604185
+  gibbs_free_energy_ev: 0.005395815
   e_above_hull: 0.0
   crystal_system: "monoclinic"
   space_group_symbol: "Cm"
@@ -2394,8 +2402,8 @@
         - 1.5834907179582631
         - 4.245813368479527
         - 12.851001234121984
-  id: 7
 -
+  id: 8
   material: "USPEX_FIXED_W-N-2D_287_H_bridge_3_along_z"
   parent_material: "USPEX_FIXED_W-N-2D_287"
   h_adsorption_type: "bridge_3"
@@ -2408,8 +2416,9 @@
     W: 2.0
   surface_area_a2: 69.8460537649265
   surface_area_cm2: 6.984605376492649e-15
-  i0: -2.68442
-  gibbs_free_energy_ev: 0.00510483
+  i0: null
+  adsorption_energy_ev: -0.359169365
+  gibbs_free_energy_ev: 0.005830635
   e_above_hull: 0.0
   crystal_system: "monoclinic"
   space_group_symbol: "Cm"
@@ -2685,8 +2694,8 @@
         - 1.5699074779908433
         - 1.5161166472567105
         - 12.96514218111738
-  id: 8
 -
+  id: 9
   material: "USPEX_FIXED_W-N-2D_287_H_hollow_0_along_z"
   parent_material: "USPEX_FIXED_W-N-2D_287"
   h_adsorption_type: "hollow_0"
@@ -2699,8 +2708,9 @@
     W: 2.0
   surface_area_a2: 69.8460537649265
   surface_area_cm2: 6.984605376492649e-15
-  i0: -2.68442
-  gibbs_free_energy_ev: 0.00510483
+  i0: null
+  adsorption_energy_ev: -0.359137475
+  gibbs_free_energy_ev: 0.005862525
   e_above_hull: 0.0
   crystal_system: "monoclinic"
   space_group_symbol: "Cm"
@@ -2976,8 +2986,8 @@
         - 1.6107035063410793
         - 1.4693237042111424
         - 12.945377365403333
-  id: 9
 -
+  id: 10
   material: "USPEX_FIXED_W-N-2D_287_H_hollow_1_along_z"
   parent_material: "USPEX_FIXED_W-N-2D_287"
   h_adsorption_type: "hollow_1"
@@ -2990,8 +3000,9 @@
     W: 2.0
   surface_area_a2: 69.8460537649265
   surface_area_cm2: 6.984605376492649e-15
-  i0: -2.68442
-  gibbs_free_energy_ev: 0.00510483
+  i0: null
+  adsorption_energy_ev: 0.765948425
+  gibbs_free_energy_ev: 1.130948425
   e_above_hull: 0.0
   crystal_system: "monoclinic"
   space_group_symbol: "Cm"
@@ -3267,8 +3278,8 @@
         - 2.980295739850909
         - 2.853033943981248
         - 12.740020169982364
-  id: 10
 -
+  id: 11
   material: "USPEX_FIXED_W-N-2D_287_H_ontop_0_along_z"
   parent_material: "USPEX_FIXED_W-N-2D_287"
   h_adsorption_type: "ontop_0"
@@ -3281,8 +3292,9 @@
     W: 2.0
   surface_area_a2: 69.8460537649265
   surface_area_cm2: 6.984605376492649e-15
-  i0: -2.68442
-  gibbs_free_energy_ev: 0.00510483
+  i0: null
+  adsorption_energy_ev: 0.766624725
+  gibbs_free_energy_ev: 1.131624725
   e_above_hull: 0.0
   crystal_system: "monoclinic"
   space_group_symbol: "Cm"
@@ -3558,8 +3570,8 @@
         - 2.9518888600157656
         - 2.855997433044173
         - 12.724251045089723
-  id: 11
 -
+  id: 12
   material: "USPEX_FIXED_W-N-2D_287_H_ontop_1_along_z"
   parent_material: "USPEX_FIXED_W-N-2D_287"
   h_adsorption_type: "ontop_1"
@@ -3572,8 +3584,9 @@
     W: 2.0
   surface_area_a2: 69.8460537649265
   surface_area_cm2: 6.984605376492649e-15
-  i0: -2.68442
-  gibbs_free_energy_ev: 0.00510483
+  i0: null
+  adsorption_energy_ev: -0.359895165
+  gibbs_free_energy_ev: 0.005104835
   e_above_hull: 0.0
   crystal_system: "monoclinic"
   space_group_symbol: "Cm"
@@ -3849,8 +3862,8 @@
         - 1.5714619602507822
         - 1.4694466612104577
         - 12.959853367681026
-  id: 12
 -
+  id: 13
   material: "USPEX_VARIABLE_W-N-2D_1042_H_bridge_0_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_1042"
   h_adsorption_type: "bridge_0"
@@ -3863,8 +3876,9 @@
     W: 3.0
   surface_area_a2: 66.2676407181155
   surface_area_cm2: 6.62676407181155e-15
-  i0: -29.6752
-  gibbs_free_energy_ev: -1.62862
+  i0: null
+  adsorption_energy_ev: -1.923990535
+  gibbs_free_energy_ev: -1.558990535
   e_above_hull: 0.0
   crystal_system: "triclinic"
   space_group_symbol: "P1"
@@ -4230,8 +4244,8 @@
         - 0.8506499340516331
         - 2.477064515103538
         - 16.510328171194747
-  id: 13
 -
+  id: 14
   material: "USPEX_VARIABLE_W-N-2D_1042_H_bridge_1_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_1042"
   h_adsorption_type: "bridge_1"
@@ -4244,8 +4258,9 @@
     W: 3.0
   surface_area_a2: 66.2676407181155
   surface_area_cm2: 6.62676407181155e-15
-  i0: -29.6752
-  gibbs_free_energy_ev: -1.62862
+  i0: null
+  adsorption_energy_ev: -1.993622995
+  gibbs_free_energy_ev: -1.628622995
   e_above_hull: 0.0
   crystal_system: "triclinic"
   space_group_symbol: "P1"
@@ -4611,8 +4626,8 @@
         - 0.789885640196359
         - 2.5711948562015645
         - 16.423761918763727
-  id: 14
 -
+  id: 15
   material: "USPEX_VARIABLE_W-N-2D_1042_H_bridge_2_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_1042"
   h_adsorption_type: "bridge_2"
@@ -4625,8 +4640,9 @@
     W: 3.0
   surface_area_a2: 66.2676407181155
   surface_area_cm2: 6.62676407181155e-15
-  i0: -29.6752
-  gibbs_free_energy_ev: -1.62862
+  i0: null
+  adsorption_energy_ev: -1.923661525
+  gibbs_free_energy_ev: -1.558661525
   e_above_hull: 0.0
   crystal_system: "triclinic"
   space_group_symbol: "P1"
@@ -4992,8 +5008,8 @@
         - 0.8659804986912238
         - 2.481927722796492
         - 16.506198130052802
-  id: 15
 -
+  id: 16
   material: "USPEX_VARIABLE_W-N-2D_1042_H_hollow_0_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_1042"
   h_adsorption_type: "hollow_0"
@@ -5006,8 +5022,9 @@
     W: 3.0
   surface_area_a2: 66.2676407181155
   surface_area_cm2: 6.62676407181155e-15
-  i0: -29.6752
-  gibbs_free_energy_ev: -1.62862
+  i0: null
+  adsorption_energy_ev: -1.982535185
+  gibbs_free_energy_ev: -1.617535185
   e_above_hull: 0.0
   crystal_system: "triclinic"
   space_group_symbol: "P1"
@@ -5373,8 +5390,8 @@
         - 0.7935241760400347
         - 2.4157679234452525
         - 16.497349372571225
-  id: 16
 -
+  id: 17
   material: "USPEX_VARIABLE_W-N-2D_1042_H_hollow_1_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_1042"
   h_adsorption_type: "hollow_1"
@@ -5387,8 +5404,9 @@
     W: 3.0
   surface_area_a2: 66.2676407181155
   surface_area_cm2: 6.62676407181155e-15
-  i0: -29.6752
-  gibbs_free_energy_ev: -1.62862
+  i0: null
+  adsorption_energy_ev: -0.008170205
+  gibbs_free_energy_ev: 0.356829795
   e_above_hull: 0.0
   crystal_system: "triclinic"
   space_group_symbol: "P1"
@@ -5754,8 +5772,8 @@
         - 2.507502499527916
         - 2.940678118531853
         - 15.931761779207541
-  id: 17
 -
+  id: 18
   material: "USPEX_VARIABLE_W-N-2D_1042_H_ontop_0_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_1042"
   h_adsorption_type: "ontop_0"
@@ -5768,8 +5786,9 @@
     W: 3.0
   surface_area_a2: 66.2676407181155
   surface_area_cm2: 6.62676407181155e-15
-  i0: -29.6752
-  gibbs_free_energy_ev: -1.62862
+  i0: null
+  adsorption_energy_ev: -1.918195215
+  gibbs_free_energy_ev: -1.553195215
   e_above_hull: 0.0
   crystal_system: "triclinic"
   space_group_symbol: "P1"
@@ -6135,8 +6154,8 @@
         - 3.462704987969113
         - 2.4953719969148205
         - 16.504062873330277
-  id: 18
 -
+  id: 19
   material: "USPEX_VARIABLE_W-N-2D_2175_H_bridge_0_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_2175"
   h_adsorption_type: "bridge_0"
@@ -6149,8 +6168,9 @@
     W: 1.0
   surface_area_a2: 68.20446525716704
   surface_area_cm2: 6.820446525716704e-15
-  i0: -24.0498
-  gibbs_free_energy_ev: -1.29301
+  i0: null
+  adsorption_energy_ev: -1.658014815
+  gibbs_free_energy_ev: -1.293014815
   e_above_hull: 0.04852249083333504
   crystal_system: "hexagonal"
   space_group_symbol: "P-6m2"
@@ -6471,8 +6491,8 @@
         - 1.0972119552422206
         - 3.46483111683515
         - 14.712909669664485
-  id: 19
 -
+  id: 20
   material: "USPEX_VARIABLE_W-N-2D_2175_H_hollow_0_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_2175"
   h_adsorption_type: "hollow_0"
@@ -6485,8 +6505,9 @@
     W: 1.0
   surface_area_a2: 68.20446525716704
   surface_area_cm2: 6.820446525716704e-15
-  i0: -24.0498
-  gibbs_free_energy_ev: -1.29301
+  i0: null
+  adsorption_energy_ev: -1.656053465
+  gibbs_free_energy_ev: -1.291053465
   e_above_hull: 0.04852249083333504
   crystal_system: "hexagonal"
   space_group_symbol: "P-6m2"
@@ -6807,8 +6828,8 @@
         - 2.585018037284922
         - 0.9835398997894701
         - 14.712785761947508
-  id: 20
 -
+  id: 21
   material: "USPEX_VARIABLE_W-N-2D_2175_H_hollow_1_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_2175"
   h_adsorption_type: "hollow_1"
@@ -6821,8 +6842,9 @@
     W: 1.0
   surface_area_a2: 68.20446525716704
   surface_area_cm2: 6.820446525716704e-15
-  i0: -24.0498
-  gibbs_free_energy_ev: -1.29301
+  i0: null
+  adsorption_energy_ev: 0.823749505
+  gibbs_free_energy_ev: 1.188749505
   e_above_hull: 0.04852249083333504
   crystal_system: "hexagonal"
   space_group_symbol: "P-6m2"
@@ -7143,8 +7165,8 @@
         - 2.5720872174304765
         - 2.652103153957069
         - 14.202541378462914
-  id: 21
 -
+  id: 22
   material: "USPEX_VARIABLE_W-N-2D_2175_H_ontop_0_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_2175"
   h_adsorption_type: "ontop_0"
@@ -7157,8 +7179,9 @@
     W: 1.0
   surface_area_a2: 68.20446525716704
   surface_area_cm2: 6.820446525716704e-15
-  i0: -24.0498
-  gibbs_free_energy_ev: -1.29301
+  i0: null
+  adsorption_energy_ev: -1.656915345
+  gibbs_free_energy_ev: -1.291915345
   e_above_hull: 0.04852249083333504
   crystal_system: "hexagonal"
   space_group_symbol: "P-6m2"
@@ -7479,8 +7502,8 @@
         - 1.109075128844642
         - 3.504298232215108
         - 14.7117320920254
-  id: 22
 -
+  id: 23
   material: "USPEX_VARIABLE_W-N-2D_2403_H_bridge_0_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_2403"
   h_adsorption_type: "bridge_0"
@@ -7493,8 +7516,9 @@
     W: 3.0
   surface_area_a2: 72.71102373657446
   surface_area_cm2: 7.271102373657445e-15
-  i0: -8.98244
-  gibbs_free_energy_ev: -0.394456
+  i0: null
+  adsorption_energy_ev: -0.752345605
+  gibbs_free_energy_ev: -0.387345605
   e_above_hull: 0.02319263166666552
   crystal_system: "monoclinic"
   space_group_symbol: "P2_1/m"
@@ -7845,8 +7869,8 @@
         - 3.915927799565378
         - 4.192812630801043
         - 16.075091311569683
-  id: 23
 -
+  id: 24
   material: "USPEX_VARIABLE_W-N-2D_2403_H_bridge_1_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_2403"
   h_adsorption_type: "bridge_1"
@@ -7859,8 +7883,9 @@
     W: 3.0
   surface_area_a2: 72.71102373657446
   surface_area_cm2: 7.271102373657445e-15
-  i0: -8.98244
-  gibbs_free_energy_ev: -0.394456
+  i0: null
+  adsorption_energy_ev: 0.330581835
+  gibbs_free_energy_ev: 0.695581835
   e_above_hull: 0.02319263166666552
   crystal_system: "monoclinic"
   space_group_symbol: "P2_1/m"
@@ -8211,8 +8236,8 @@
         - 5.933453363377791
         - 2.796135446790423
         - 16.287194223840324
-  id: 24
 -
+  id: 25
   material: "USPEX_VARIABLE_W-N-2D_2403_H_bridge_2_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_2403"
   h_adsorption_type: "bridge_2"
@@ -8225,8 +8250,9 @@
     W: 3.0
   surface_area_a2: 72.71102373657446
   surface_area_cm2: 7.271102373657445e-15
-  i0: -8.98244
-  gibbs_free_energy_ev: -0.394456
+  i0: null
+  adsorption_energy_ev: 0.470432695
+  gibbs_free_energy_ev: 0.835432695
   e_above_hull: 0.02319263166666552
   crystal_system: "monoclinic"
   space_group_symbol: "P2_1/m"
@@ -8577,8 +8603,8 @@
         - 5.899037570217212
         - 2.7075383761856378
         - 16.266480991770223
-  id: 25
 -
+  id: 26
   material: "USPEX_VARIABLE_W-N-2D_2403_H_bridge_3_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_2403"
   h_adsorption_type: "bridge_3"
@@ -8591,8 +8617,9 @@
     W: 3.0
   surface_area_a2: 72.71102373657446
   surface_area_cm2: 7.271102373657445e-15
-  i0: -8.98244
-  gibbs_free_energy_ev: -0.394456
+  i0: null
+  adsorption_energy_ev: null
+  gibbs_free_energy_ev: null
   e_above_hull: 0.02319263166666552
   crystal_system: "monoclinic"
   space_group_symbol: "P2_1/m"
@@ -8943,8 +8970,8 @@
         - 3.897628027711689
         - 4.185066907360285
         - 15.94103753059827
-  id: 26
 -
+  id: 27
   material: "USPEX_VARIABLE_W-N-2D_2403_H_hollow_0_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_2403"
   h_adsorption_type: "hollow_0"
@@ -8957,8 +8984,9 @@
     W: 3.0
   surface_area_a2: 72.71102373657446
   surface_area_cm2: 7.271102373657445e-15
-  i0: -8.98244
-  gibbs_free_energy_ev: -0.394456
+  i0: null
+  adsorption_energy_ev: -0.752779515
+  gibbs_free_energy_ev: -0.387779515
   e_above_hull: 0.02319263166666552
   crystal_system: "monoclinic"
   space_group_symbol: "P2_1/m"
@@ -9309,8 +9337,8 @@
         - 3.910283837008774
         - 1.2278818078385123
         - 16.17596395271643
-  id: 27
 -
+  id: 28
   material: "USPEX_VARIABLE_W-N-2D_2403_H_hollow_1_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_2403"
   h_adsorption_type: "hollow_1"
@@ -9323,8 +9351,9 @@
     W: 3.0
   surface_area_a2: 72.71102373657446
   surface_area_cm2: 7.271102373657445e-15
-  i0: -8.98244
-  gibbs_free_energy_ev: -0.394456
+  i0: null
+  adsorption_energy_ev: -0.742335695
+  gibbs_free_energy_ev: -0.377335695
   e_above_hull: 0.02319263166666552
   crystal_system: "monoclinic"
   space_group_symbol: "P2_1/m"
@@ -9675,8 +9704,8 @@
         - 3.851420830985016
         - 4.1942002241276155
         - 16.062708126691895
-  id: 28
 -
+  id: 29
   material: "USPEX_VARIABLE_W-N-2D_2403_H_ontop_0_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_2403"
   h_adsorption_type: "ontop_0"
@@ -9689,8 +9718,9 @@
     W: 3.0
   surface_area_a2: 72.71102373657446
   surface_area_cm2: 7.271102373657445e-15
-  i0: -8.98244
-  gibbs_free_energy_ev: -0.394456
+  i0: null
+  adsorption_energy_ev: -0.759456365
+  gibbs_free_energy_ev: -0.394456365
   e_above_hull: 0.02319263166666552
   crystal_system: "monoclinic"
   space_group_symbol: "P2_1/m"
@@ -10041,8 +10071,8 @@
         - 3.897953413240608
         - 1.2158281453687754
         - 16.195543819407074
-  id: 29
 -
+  id: 30
   material: "USPEX_VARIABLE_W-N-2D_2403_H_ontop_1_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_2403"
   h_adsorption_type: "ontop_1"
@@ -10055,8 +10085,9 @@
     W: 3.0
   surface_area_a2: 72.71102373657446
   surface_area_cm2: 7.271102373657445e-15
-  i0: -8.98244
-  gibbs_free_energy_ev: -0.394456
+  i0: null
+  adsorption_energy_ev: 0.470856055
+  gibbs_free_energy_ev: 0.835856055
   e_above_hull: 0.02319263166666552
   crystal_system: "monoclinic"
   space_group_symbol: "P2_1/m"
@@ -10407,8 +10438,8 @@
         - 5.933402355587095
         - 2.7081410682365727
         - 16.271549140211842
-  id: 30
 -
+  id: 31
   material: "USPEX_VARIABLE_W-N-2D_2971_H_bridge_0_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_2971"
   h_adsorption_type: "bridge_0"
@@ -10421,8 +10452,9 @@
     W: 5.0
   surface_area_a2: 77.61469037111182
   surface_area_cm2: 7.761469037111182e-15
-  i0: -31.1474
-  gibbs_free_energy_ev: -1.71217
+  i0: null
+  adsorption_energy_ev: -2.022134635
+  gibbs_free_energy_ev: -1.657134635
   e_above_hull: 0.0
   crystal_system: "tetragonal"
   space_group_symbol: "P4/mmm"
@@ -10833,8 +10865,8 @@
         - 3.856891549692273
         - 2.114604991033565
         - 17.702923721414383
-  id: 31
 -
+  id: 32
   material: "USPEX_VARIABLE_W-N-2D_2971_H_bridge_1_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_2971"
   h_adsorption_type: "bridge_1"
@@ -10847,8 +10879,9 @@
     W: 5.0
   surface_area_a2: 77.61469037111182
   surface_area_cm2: 7.761469037111182e-15
-  i0: -31.1474
-  gibbs_free_energy_ev: -1.71217
+  i0: null
+  adsorption_energy_ev: -2.014053745
+  gibbs_free_energy_ev: -1.649053745
   e_above_hull: 0.0
   crystal_system: "tetragonal"
   space_group_symbol: "P4/mmm"
@@ -11259,8 +11292,8 @@
         - 1.0724069617194762
         - 2.1236128514523243
         - 17.67787892470884
-  id: 32
 -
+  id: 33
   material: "USPEX_VARIABLE_W-N-2D_2971_H_bridge_2_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_2971"
   h_adsorption_type: "bridge_2"
@@ -11273,8 +11306,9 @@
     W: 5.0
   surface_area_a2: 77.61469037111182
   surface_area_cm2: 7.761469037111182e-15
-  i0: -31.1474
-  gibbs_free_energy_ev: -1.71217
+  i0: null
+  adsorption_energy_ev: -2.047802055
+  gibbs_free_energy_ev: -1.682802055
   e_above_hull: 0.0
   crystal_system: "tetragonal"
   space_group_symbol: "P4/mmm"
@@ -11685,8 +11719,8 @@
         - 3.8832477076283713
         - 5.05427119453927
         - 17.694528046724525
-  id: 33
 -
+  id: 34
   material: "USPEX_VARIABLE_W-N-2D_2971_H_hollow_0_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_2971"
   h_adsorption_type: "hollow_0"
@@ -11699,8 +11733,9 @@
     W: 5.0
   surface_area_a2: 77.61469037111182
   surface_area_cm2: 7.761469037111182e-15
-  i0: -31.1474
-  gibbs_free_energy_ev: -1.71217
+  i0: null
+  adsorption_energy_ev: -1.550948665
+  gibbs_free_energy_ev: -1.185948665
   e_above_hull: 0.0
   crystal_system: "tetragonal"
   space_group_symbol: "P4/mmm"
@@ -12111,8 +12146,8 @@
         - 2.3995728142491255
         - 3.5568303252753193
         - 18.028329013438686
-  id: 34
 -
+  id: 35
   material: "USPEX_VARIABLE_W-N-2D_2971_H_hollow_1_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_2971"
   h_adsorption_type: "hollow_1"
@@ -12125,8 +12160,9 @@
     W: 5.0
   surface_area_a2: 77.61469037111182
   surface_area_cm2: 7.761469037111182e-15
-  i0: -31.1474
-  gibbs_free_energy_ev: -1.71217
+  i0: null
+  adsorption_energy_ev: -2.018630415
+  gibbs_free_energy_ev: -1.653630415
   e_above_hull: 0.0
   crystal_system: "tetragonal"
   space_group_symbol: "P4/mmm"
@@ -12537,8 +12573,8 @@
         - 3.874756766812277
         - 5.016417986905267
         - 17.70659695541528
-  id: 35
 -
+  id: 36
   material: "USPEX_VARIABLE_W-N-2D_2971_H_ontop_0_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_2971"
   h_adsorption_type: "ontop_0"
@@ -12551,8 +12587,9 @@
     W: 5.0
   surface_area_a2: 77.61469037111182
   surface_area_cm2: 7.761469037111182e-15
-  i0: -31.1474
-  gibbs_free_energy_ev: -1.71217
+  i0: null
+  adsorption_energy_ev: -2.077168995
+  gibbs_free_energy_ev: -1.712168995
   e_above_hull: 0.0
   crystal_system: "tetragonal"
   space_group_symbol: "P4/mmm"
@@ -12963,8 +13000,8 @@
         - 3.8824019339362064
         - 2.1103954667318066
         - 17.704550435449814
-  id: 36
 -
+  id: 37
   material: "USPEX_VARIABLE_W-N-2D_2971_H_ontop_1_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_2971"
   h_adsorption_type: "ontop_1"
@@ -12977,8 +13014,9 @@
     W: 5.0
   surface_area_a2: 77.61469037111182
   surface_area_cm2: 7.761469037111182e-15
-  i0: -31.1474
-  gibbs_free_energy_ev: -1.71217
+  i0: null
+  adsorption_energy_ev: -1.601697065
+  gibbs_free_energy_ev: -1.236697065
   e_above_hull: 0.0
   crystal_system: "tetragonal"
   space_group_symbol: "P4/mmm"
@@ -13389,8 +13427,8 @@
         - 2.413905406128555
         - 3.5965415985043614
         - 18.0233842274537
-  id: 37
 -
+  id: 38
   material: "USPEX_VARIABLE_W-N-2D_3035_H_bridge_0_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_3035"
   h_adsorption_type: "bridge_0"
@@ -13403,8 +13441,9 @@
     W: 2.0
   surface_area_a2: 75.83137618868581
   surface_area_cm2: 7.58313761886858e-15
-  i0: -18.021
-  gibbs_free_energy_ev: 0.931402
+  i0: null
+  adsorption_energy_ev: 1.674884105
+  gibbs_free_energy_ev: 2.039884105
   e_above_hull: 0.0034949928571439415
   crystal_system: "monoclinic"
   space_group_symbol: "Pm"
@@ -13770,8 +13809,8 @@
         - 2.3154549876601593
         - 3.7402498369291557
         - 16.474367857164562
-  id: 38
 -
+  id: 39
   material: "USPEX_VARIABLE_W-N-2D_3035_H_bridge_1_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_3035"
   h_adsorption_type: "bridge_1"
@@ -13784,8 +13823,9 @@
     W: 2.0
   surface_area_a2: 75.83137618868581
   surface_area_cm2: 7.58313761886858e-15
-  i0: -18.021
-  gibbs_free_energy_ev: 0.931402
+  i0: null
+  adsorption_energy_ev: 0.798032805
+  gibbs_free_energy_ev: 1.163032805
   e_above_hull: 0.0034949928571439415
   crystal_system: "monoclinic"
   space_group_symbol: "Pm"
@@ -14151,8 +14191,8 @@
         - 2.247524678788309
         - 2.381390561362107
         - 16.25150526321763
-  id: 39
 -
+  id: 40
   material: "USPEX_VARIABLE_W-N-2D_3035_H_bridge_2_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_3035"
   h_adsorption_type: "bridge_2"
@@ -14165,8 +14205,9 @@
     W: 2.0
   surface_area_a2: 75.83137618868581
   surface_area_cm2: 7.58313761886858e-15
-  i0: -18.021
-  gibbs_free_energy_ev: 0.931402
+  i0: null
+  adsorption_energy_ev: 0.566402335
+  gibbs_free_energy_ev: 0.931402335
   e_above_hull: 0.0034949928571439415
   crystal_system: "monoclinic"
   space_group_symbol: "Pm"
@@ -14532,8 +14573,8 @@
         - 3.799402438769238
         - 1.015694696901471
         - 16.689234703085532
-  id: 40
 -
+  id: 41
   material: "USPEX_VARIABLE_W-N-2D_3035_H_bridge_3_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_3035"
   h_adsorption_type: "bridge_3"
@@ -14546,8 +14587,9 @@
     W: 2.0
   surface_area_a2: 75.83137618868581
   surface_area_cm2: 7.58313761886858e-15
-  i0: -18.021
-  gibbs_free_energy_ev: 0.931402
+  i0: null
+  adsorption_energy_ev: 0.820772075
+  gibbs_free_energy_ev: 1.185772075
   e_above_hull: 0.0034949928571439415
   crystal_system: "monoclinic"
   space_group_symbol: "Pm"
@@ -14913,8 +14955,8 @@
         - 2.444754246070085
         - 2.415243098255795
         - 16.254456745838734
-  id: 41
 -
+  id: 42
   material: "USPEX_VARIABLE_W-N-2D_3035_H_hollow_0_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_3035"
   h_adsorption_type: "hollow_0"
@@ -14927,8 +14969,9 @@
     W: 2.0
   surface_area_a2: 75.83137618868581
   surface_area_cm2: 7.58313761886858e-15
-  i0: -18.021
-  gibbs_free_energy_ev: 0.931402
+  i0: null
+  adsorption_energy_ev: 0.584855445
+  gibbs_free_energy_ev: 0.949855445
   e_above_hull: 0.0034949928571439415
   crystal_system: "monoclinic"
   space_group_symbol: "Pm"
@@ -15294,8 +15337,8 @@
         - 3.6176898236747115
         - 3.74227902591412
         - 16.642235667767526
-  id: 42
 -
+  id: 43
   material: "USPEX_VARIABLE_W-N-2D_3035_H_hollow_1_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_3035"
   h_adsorption_type: "hollow_1"
@@ -15308,8 +15351,9 @@
     W: 2.0
   surface_area_a2: 75.83137618868581
   surface_area_cm2: 7.58313761886858e-15
-  i0: -18.021
-  gibbs_free_energy_ev: 0.931402
+  i0: null
+  adsorption_energy_ev: 0.586906225
+  gibbs_free_energy_ev: 0.951906225
   e_above_hull: 0.0034949928571439415
   crystal_system: "monoclinic"
   space_group_symbol: "Pm"
@@ -15675,8 +15719,8 @@
         - 1.0226946508650492
         - 3.7371724673529907
         - 16.566197474737763
-  id: 43
 -
+  id: 44
   material: "USPEX_VARIABLE_W-N-2D_3035_H_hollow_2_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_3035"
   h_adsorption_type: "hollow_2"
@@ -15689,8 +15733,9 @@
     W: 2.0
   surface_area_a2: 75.83137618868581
   surface_area_cm2: 7.58313761886858e-15
-  i0: -18.021
-  gibbs_free_energy_ev: 0.931402
+  i0: null
+  adsorption_energy_ev: 0.794293215
+  gibbs_free_energy_ev: 1.159293215
   e_above_hull: 0.0034949928571439415
   crystal_system: "monoclinic"
   space_group_symbol: "Pm"
@@ -16056,8 +16101,8 @@
         - 5.181279124202455
         - 2.2989482883302066
         - 16.336385826201305
-  id: 44
 -
+  id: 45
   material: "USPEX_VARIABLE_W-N-2D_3035_H_hollow_3_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_3035"
   h_adsorption_type: "hollow_3"
@@ -16070,8 +16115,9 @@
     W: 2.0
   surface_area_a2: 75.83137618868581
   surface_area_cm2: 7.58313761886858e-15
-  i0: -18.021
-  gibbs_free_energy_ev: 0.931402
+  i0: null
+  adsorption_energy_ev: 0.804836595
+  gibbs_free_energy_ev: 1.169836595
   e_above_hull: 0.0034949928571439415
   crystal_system: "monoclinic"
   space_group_symbol: "Pm"
@@ -16437,8 +16483,8 @@
         - 2.441204193217237
         - 2.298214414760779
         - 16.242378417306682
-  id: 45
 -
+  id: 46
   material: "USPEX_VARIABLE_W-N-2D_3035_H_ontop_0_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_3035"
   h_adsorption_type: "ontop_0"
@@ -16451,8 +16497,9 @@
     W: 2.0
   surface_area_a2: 75.83137618868581
   surface_area_cm2: 7.58313761886858e-15
-  i0: -18.021
-  gibbs_free_energy_ev: 0.931402
+  i0: null
+  adsorption_energy_ev: 0.590081845
+  gibbs_free_energy_ev: 0.955081845
   e_above_hull: 0.0034949928571439415
   crystal_system: "monoclinic"
   space_group_symbol: "Pm"
@@ -16818,8 +16865,8 @@
         - 3.7882352501597607
         - 3.741073302282537
         - 16.633054145910226
-  id: 46
 -
+  id: 47
   material: "USPEX_VARIABLE_W-N-2D_3035_H_ontop_1_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_3035"
   h_adsorption_type: "ontop_1"
@@ -16832,8 +16879,9 @@
     W: 2.0
   surface_area_a2: 75.83137618868581
   surface_area_cm2: 7.58313761886858e-15
-  i0: -18.021
-  gibbs_free_energy_ev: 0.931402
+  i0: null
+  adsorption_energy_ev: 0.828575915
+  gibbs_free_energy_ev: 1.193575915
   e_above_hull: 0.0034949928571439415
   crystal_system: "monoclinic"
   space_group_symbol: "Pm"
@@ -17199,8 +17247,8 @@
         - 2.329951567898564
         - 2.298425885995753
         - 16.19904814236454
-  id: 47
 -
+  id: 48
   material: "USPEX_VARIABLE_W-N-2D_3596_H_bridge_0_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_3596"
   h_adsorption_type: "bridge_0"
@@ -17213,8 +17261,9 @@
     W: 2.0
   surface_area_a2: 78.15452824217245
   surface_area_cm2: 7.815452824217244e-15
-  i0: -8.55586
-  gibbs_free_energy_ev: -0.367198
+  i0: null
+  adsorption_energy_ev: -0.730955115
+  gibbs_free_energy_ev: -0.365955115
   e_above_hull: 0.018809172666667706
   crystal_system: "monoclinic"
   space_group_symbol: "C2/m"
@@ -17535,8 +17584,8 @@
         - 1.6826811846811727
         - 1.628894664474809
         - 14.996681461284592
-  id: 48
 -
+  id: 49
   material: "USPEX_VARIABLE_W-N-2D_3596_H_bridge_1_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_3596"
   h_adsorption_type: "bridge_1"
@@ -17549,8 +17598,9 @@
     W: 2.0
   surface_area_a2: 78.15452824217245
   surface_area_cm2: 7.815452824217244e-15
-  i0: -8.55586
-  gibbs_free_energy_ev: -0.367198
+  i0: null
+  adsorption_energy_ev: -0.732039585
+  gibbs_free_energy_ev: -0.367039585
   e_above_hull: 0.018809172666667706
   crystal_system: "monoclinic"
   space_group_symbol: "C2/m"
@@ -17871,8 +17921,8 @@
         - 4.582328307779749
         - 1.6287022243639728
         - 14.772084372286285
-  id: 49
 -
+  id: 50
   material: "USPEX_VARIABLE_W-N-2D_3596_H_bridge_2_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_3596"
   h_adsorption_type: "bridge_2"
@@ -17885,8 +17935,9 @@
     W: 2.0
   surface_area_a2: 78.15452824217245
   surface_area_cm2: 7.815452824217244e-15
-  i0: -8.55586
-  gibbs_free_energy_ev: -0.367198
+  i0: null
+  adsorption_energy_ev: -0.730851715
+  gibbs_free_energy_ev: -0.365851715
   e_above_hull: 0.018809172666667706
   crystal_system: "monoclinic"
   space_group_symbol: "C2/m"
@@ -18207,8 +18258,8 @@
         - 1.6669157630992328
         - 1.6565302119695011
         - 14.996051279141502
-  id: 50
 -
+  id: 51
   material: "USPEX_VARIABLE_W-N-2D_3596_H_bridge_3_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_3596"
   h_adsorption_type: "bridge_3"
@@ -18221,8 +18272,9 @@
     W: 2.0
   surface_area_a2: 78.15452824217245
   surface_area_cm2: 7.815452824217244e-15
-  i0: -8.55586
-  gibbs_free_energy_ev: -0.367198
+  i0: null
+  adsorption_energy_ev: -0.731577225
+  gibbs_free_energy_ev: -0.366577225
   e_above_hull: 0.018809172666667706
   crystal_system: "monoclinic"
   space_group_symbol: "C2/m"
@@ -18543,8 +18595,8 @@
         - 1.6764327582816594
         - 4.537809934416804
         - 14.840324256367168
-  id: 51
 -
+  id: 52
   material: "USPEX_VARIABLE_W-N-2D_3596_H_bridge_4_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_3596"
   h_adsorption_type: "bridge_4"
@@ -18557,8 +18609,9 @@
     W: 2.0
   surface_area_a2: 78.15452824217245
   surface_area_cm2: 7.815452824217244e-15
-  i0: -8.55586
-  gibbs_free_energy_ev: -0.367198
+  i0: null
+  adsorption_energy_ev: -0.731188025
+  gibbs_free_energy_ev: -0.366188025
   e_above_hull: 0.018809172666667706
   crystal_system: "monoclinic"
   space_group_symbol: "C2/m"
@@ -18879,8 +18932,8 @@
         - 4.581134575375611
         - 4.534568024751459
         - 14.617090502430488
-  id: 52
 -
+  id: 53
   material: "USPEX_VARIABLE_W-N-2D_3596_H_bridge_5_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_3596"
   h_adsorption_type: "bridge_5"
@@ -18893,8 +18946,9 @@
     W: 2.0
   surface_area_a2: 78.15452824217245
   surface_area_cm2: 7.815452824217244e-15
-  i0: -8.55586
-  gibbs_free_energy_ev: -0.367198
+  i0: null
+  adsorption_energy_ev: -0.730875205
+  gibbs_free_energy_ev: -0.365875205
   e_above_hull: 0.018809172666667706
   crystal_system: "monoclinic"
   space_group_symbol: "C2/m"
@@ -19215,8 +19269,8 @@
         - 1.6778491125789354
         - 1.6105816927714782
         - 14.990583225244642
-  id: 53
 -
+  id: 54
   material: "USPEX_VARIABLE_W-N-2D_3596_H_hollow_0_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_3596"
   h_adsorption_type: "hollow_0"
@@ -19229,8 +19283,9 @@
     W: 2.0
   surface_area_a2: 78.15452824217245
   surface_area_cm2: 7.815452824217244e-15
-  i0: -8.55586
-  gibbs_free_energy_ev: -0.367198
+  i0: null
+  adsorption_energy_ev: -0.732197535
+  gibbs_free_energy_ev: -0.367197535
   e_above_hull: 0.018809172666667706
   crystal_system: "monoclinic"
   space_group_symbol: "C2/m"
@@ -19551,8 +19606,8 @@
         - 1.6645717206717354
         - 1.6288944879242484
         - 15.000332568996887
-  id: 54
 -
+  id: 55
   material: "USPEX_VARIABLE_W-N-2D_3596_H_hollow_1_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_3596"
   h_adsorption_type: "hollow_1"
@@ -19565,8 +19620,9 @@
     W: 2.0
   surface_area_a2: 78.15452824217245
   surface_area_cm2: 7.815452824217244e-15
-  i0: -8.55586
-  gibbs_free_energy_ev: -0.367198
+  i0: null
+  adsorption_energy_ev: -0.731650435
+  gibbs_free_energy_ev: -0.366650435
   e_above_hull: 0.018809172666667706
   crystal_system: "monoclinic"
   space_group_symbol: "C2/m"
@@ -19887,8 +19943,8 @@
         - 1.6613725601865397
         - 4.53764044587882
         - 14.842684573611987
-  id: 55
 -
+  id: 56
   material: "USPEX_VARIABLE_W-N-2D_3596_H_hollow_2_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_3596"
   h_adsorption_type: "hollow_2"
@@ -19901,8 +19957,9 @@
     W: 2.0
   surface_area_a2: 78.15452824217245
   surface_area_cm2: 7.815452824217244e-15
-  i0: -8.55586
-  gibbs_free_energy_ev: -0.367198
+  i0: null
+  adsorption_energy_ev: -0.731324445
+  gibbs_free_energy_ev: -0.366324445
   e_above_hull: 0.018809172666667706
   crystal_system: "monoclinic"
   space_group_symbol: "C2/m"
@@ -20223,8 +20280,8 @@
         - 1.6821853491044065
         - 4.54426515255671
         - 14.836450088935209
-  id: 56
 -
+  id: 57
   material: "USPEX_VARIABLE_W-N-2D_3596_H_hollow_3_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_3596"
   h_adsorption_type: "hollow_3"
@@ -20237,8 +20294,9 @@
     W: 2.0
   surface_area_a2: 78.15452824217245
   surface_area_cm2: 7.815452824217244e-15
-  i0: -8.55586
-  gibbs_free_energy_ev: -0.367198
+  i0: null
+  adsorption_energy_ev: -0.731627425
+  gibbs_free_energy_ev: -0.366627425
   e_above_hull: 0.018809172666667706
   crystal_system: "monoclinic"
   space_group_symbol: "C2/m"
@@ -20559,8 +20617,8 @@
         - 1.685892542395999
         - 1.6241912692704727
         - 15.03666337219836
-  id: 57
 -
+  id: 58
   material: "USPEX_VARIABLE_W-N-2D_3596_H_ontop_0_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_3596"
   h_adsorption_type: "ontop_0"
@@ -20573,8 +20631,9 @@
     W: 2.0
   surface_area_a2: 78.15452824217245
   surface_area_cm2: 7.815452824217244e-15
-  i0: -8.55586
-  gibbs_free_energy_ev: -0.367198
+  i0: null
+  adsorption_energy_ev: -0.731862265
+  gibbs_free_energy_ev: -0.366862265
   e_above_hull: 0.018809172666667706
   crystal_system: "monoclinic"
   space_group_symbol: "C2/m"
@@ -20895,8 +20954,8 @@
         - 1.6524792614300052
         - 1.602358232493887
         - 15.011869419346402
-  id: 58
 -
+  id: 59
   material: "USPEX_VARIABLE_W-N-2D_3596_H_ontop_1_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_3596"
   h_adsorption_type: "ontop_1"
@@ -20909,8 +20968,9 @@
     W: 2.0
   surface_area_a2: 78.15452824217245
   surface_area_cm2: 7.815452824217244e-15
-  i0: -8.55586
-  gibbs_free_energy_ev: -0.367198
+  i0: null
+  adsorption_energy_ev: -0.321365805
+  gibbs_free_energy_ev: 0.043634195
   e_above_hull: 0.018809172666667706
   crystal_system: "monoclinic"
   space_group_symbol: "C2/m"
@@ -21231,8 +21291,8 @@
         - 3.1590699396688837
         - 3.1009695295282405
         - 15.274960752785367
-  id: 59
 -
+  id: 60
   material: "USPEX_VARIABLE_W-N-2D_4683_H_bridge_0_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_4683"
   h_adsorption_type: "bridge_0"
@@ -21245,8 +21305,9 @@
     W: 3.0
   surface_area_a2: 70.80091349089676
   surface_area_cm2: 7.080091349089676e-15
-  i0: -16.0509
-  gibbs_free_energy_ev: -0.815903
+  i0: null
+  adsorption_energy_ev: -1.180504155
+  gibbs_free_energy_ev: -0.815504155
   e_above_hull: 0.00948463175000036
   crystal_system: "monoclinic"
   space_group_symbol: "P2_1/m"
@@ -21537,8 +21598,8 @@
         - 5.121256870760063
         - 3.4383560035601604
         - 15.56499568778585
-  id: 60
 -
+  id: 61
   material: "USPEX_VARIABLE_W-N-2D_4683_H_bridge_1_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_4683"
   h_adsorption_type: "bridge_1"
@@ -21551,8 +21612,9 @@
     W: 3.0
   surface_area_a2: 70.80091349089676
   surface_area_cm2: 7.080091349089676e-15
-  i0: -16.0509
-  gibbs_free_energy_ev: -0.815903
+  i0: null
+  adsorption_energy_ev: -0.261809935
+  gibbs_free_energy_ev: 0.103190065
   e_above_hull: 0.00948463175000036
   crystal_system: "monoclinic"
   space_group_symbol: "P2_1/m"
@@ -21843,8 +21905,8 @@
         - 3.1121184836381794
         - 2.2128249026364863
         - 15.652346733505233
-  id: 61
 -
+  id: 62
   material: "USPEX_VARIABLE_W-N-2D_4683_H_bridge_2_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_4683"
   h_adsorption_type: "bridge_2"
@@ -21857,8 +21919,9 @@
     W: 3.0
   surface_area_a2: 70.80091349089676
   surface_area_cm2: 7.080091349089676e-15
-  i0: -16.0509
-  gibbs_free_energy_ev: -0.815903
+  i0: null
+  adsorption_energy_ev: -0.260509715
+  gibbs_free_energy_ev: 0.104490285
   e_above_hull: 0.00948463175000036
   crystal_system: "monoclinic"
   space_group_symbol: "P2_1/m"
@@ -22149,8 +22212,8 @@
         - 3.0711338179332603
         - 4.995383606195821
         - 15.638043026330642
-  id: 62
 -
+  id: 63
   material: "USPEX_VARIABLE_W-N-2D_4683_H_bridge_3_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_4683"
   h_adsorption_type: "bridge_3"
@@ -22163,8 +22226,9 @@
     W: 3.0
   surface_area_a2: 70.80091349089676
   surface_area_cm2: 7.080091349089676e-15
-  i0: -16.0509
-  gibbs_free_energy_ev: -0.815903
+  i0: null
+  adsorption_energy_ev: -1.180473735
+  gibbs_free_energy_ev: -0.815473735
   e_above_hull: 0.00948463175000036
   crystal_system: "monoclinic"
   space_group_symbol: "P2_1/m"
@@ -22455,8 +22519,8 @@
         - 5.145428361152183
         - 3.4323793942128673
         - 15.562162230565908
-  id: 63
 -
+  id: 64
   material: "USPEX_VARIABLE_W-N-2D_4683_H_bridge_4_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_4683"
   h_adsorption_type: "bridge_4"
@@ -22469,8 +22533,9 @@
     W: 3.0
   surface_area_a2: 70.80091349089676
   surface_area_cm2: 7.080091349089676e-15
-  i0: -16.0509
-  gibbs_free_energy_ev: -0.815903
+  i0: null
+  adsorption_energy_ev: -0.261318495
+  gibbs_free_energy_ev: 0.103681505
   e_above_hull: 0.00948463175000036
   crystal_system: "monoclinic"
   space_group_symbol: "P2_1/m"
@@ -22761,8 +22826,8 @@
         - 7.173177219508479
         - 2.206053068583132
         - 15.674640042982821
-  id: 64
 -
+  id: 65
   material: "USPEX_VARIABLE_W-N-2D_4683_H_bridge_5_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_4683"
   h_adsorption_type: "bridge_5"
@@ -22775,8 +22840,9 @@
     W: 3.0
   surface_area_a2: 70.80091349089676
   surface_area_cm2: 7.080091349089676e-15
-  i0: -16.0509
-  gibbs_free_energy_ev: -0.815903
+  i0: null
+  adsorption_energy_ev: -1.180902745
+  gibbs_free_energy_ev: -0.815902745
   e_above_hull: 0.00948463175000036
   crystal_system: "monoclinic"
   space_group_symbol: "P2_1/m"
@@ -23067,8 +23133,8 @@
         - 5.159599408753957
         - 3.438407065986256
         - 15.56449718778845
-  id: 65
 -
+  id: 66
   material: "USPEX_VARIABLE_W-N-2D_4683_H_hollow_0_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_4683"
   h_adsorption_type: "hollow_0"
@@ -23081,8 +23147,9 @@
     W: 3.0
   surface_area_a2: 70.80091349089676
   surface_area_cm2: 7.080091349089676e-15
-  i0: -16.0509
-  gibbs_free_energy_ev: -0.815903
+  i0: null
+  adsorption_energy_ev: -1.180541155
+  gibbs_free_energy_ev: -0.815541155
   e_above_hull: 0.00948463175000036
   crystal_system: "monoclinic"
   space_group_symbol: "P2_1/m"
@@ -23373,8 +23440,8 @@
         - 5.115386061009402
         - 3.4528964990284665
         - 15.559829101777018
-  id: 66
 -
+  id: 67
   material: "USPEX_VARIABLE_W-N-2D_4683_H_hollow_1_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_4683"
   h_adsorption_type: "hollow_1"
@@ -23387,8 +23454,9 @@
     W: 3.0
   surface_area_a2: 70.80091349089676
   surface_area_cm2: 7.080091349089676e-15
-  i0: -16.0509
-  gibbs_free_energy_ev: -0.815903
+  i0: null
+  adsorption_energy_ev: -1.179323675
+  gibbs_free_energy_ev: -0.814323675
   e_above_hull: 0.00948463175000036
   crystal_system: "monoclinic"
   space_group_symbol: "P2_1/m"
@@ -23679,8 +23747,8 @@
         - 5.129974359498854
         - 3.4226436339518362
         - 15.562830195117836
-  id: 67
 -
+  id: 68
   material: "USPEX_VARIABLE_W-N-2D_4683_H_hollow_2_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_4683"
   h_adsorption_type: "hollow_2"
@@ -23693,8 +23761,9 @@
     W: 3.0
   surface_area_a2: 70.80091349089676
   surface_area_cm2: 7.080091349089676e-15
-  i0: -16.0509
-  gibbs_free_energy_ev: -0.815903
+  i0: null
+  adsorption_energy_ev: -1.179418835
+  gibbs_free_energy_ev: -0.814418835
   e_above_hull: 0.00948463175000036
   crystal_system: "monoclinic"
   space_group_symbol: "P2_1/m"
@@ -23985,8 +24054,8 @@
         - 5.159576683058475
         - 3.422167079771172
         - 15.563216691292975
-  id: 68
 -
+  id: 69
   material: "USPEX_VARIABLE_W-N-2D_4683_H_hollow_3_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_4683"
   h_adsorption_type: "hollow_3"
@@ -23999,8 +24068,9 @@
     W: 3.0
   surface_area_a2: 70.80091349089676
   surface_area_cm2: 7.080091349089676e-15
-  i0: -16.0509
-  gibbs_free_energy_ev: -0.815903
+  i0: null
+  adsorption_energy_ev: -1.179294515
+  gibbs_free_energy_ev: -0.814294515
   e_above_hull: 0.00948463175000036
   crystal_system: "monoclinic"
   space_group_symbol: "P2_1/m"
@@ -24291,8 +24361,8 @@
         - 1.0382699207326733
         - 3.4534879863621817
         - 15.53957843000963
-  id: 69
 -
+  id: 70
   material: "USPEX_VARIABLE_W-N-2D_4683_H_ontop_0_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_4683"
   h_adsorption_type: "ontop_0"
@@ -24305,8 +24375,9 @@
     W: 3.0
   surface_area_a2: 70.80091349089676
   surface_area_cm2: 7.080091349089676e-15
-  i0: -16.0509
-  gibbs_free_energy_ev: -0.815903
+  i0: null
+  adsorption_energy_ev: -1.178800285
+  gibbs_free_energy_ev: -0.813800285
   e_above_hull: 0.00948463175000036
   crystal_system: "monoclinic"
   space_group_symbol: "P2_1/m"
@@ -24597,8 +24668,8 @@
         - 5.145152588306172
         - 3.405945793675344
         - 15.570319228367723
-  id: 70
 -
+  id: 71
   material: "USPEX_VARIABLE_W-N-2D_4683_H_ontop_1_along_z"
   parent_material: "USPEX_VARIABLE_W-N-2D_4683"
   h_adsorption_type: "ontop_1"
@@ -24611,8 +24682,9 @@
     W: 3.0
   surface_area_a2: 70.80091349089676
   surface_area_cm2: 7.080091349089676e-15
-  i0: -16.0509
-  gibbs_free_energy_ev: -0.815903
+  i0: null
+  adsorption_energy_ev: -0.257396715
+  gibbs_free_energy_ev: 0.107603285
   e_above_hull: 0.00948463175000036
   crystal_system: "monoclinic"
   space_group_symbol: "P2_1/m"
@@ -24903,4 +24975,3 @@
         - 3.0724915556836914
         - 2.1482174422158193
         - 15.66488113056953
-  id: 71

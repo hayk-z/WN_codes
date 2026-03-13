@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 from pathlib import Path
 from typing import Any
@@ -12,6 +13,7 @@ from ase.db import connect
 from ase.io import read
 
 DEFAULT_INPUT_ROOT = Path("data/raw/h_adsorption_structures_export")
+DEFAULT_CSV_IN = Path("Reports_gen/Adsorption_gibbs_with_i0_all_sites.csv")
 DEFAULT_DB_OUT = Path("data/processed/h_adsorption_materials.db")
 DEFAULT_JSON_OUT = Path("data/processed/h_adsorption_materials_export.json")
 DEFAULT_YAML_OUT = Path("data/processed/h_adsorption_materials_export.yaml")
@@ -88,6 +90,27 @@ def write_yaml(path: Path, data: Any) -> None:
     path.write_text("\n".join(to_yaml_lines(data)) + "\n", encoding="utf-8")
 
 
+def load_adsorption_csv(csv_path: Path) -> tuple[dict[str, dict[str, str]], dict[tuple[str, str, str], dict[str, str]]]:
+    by_complex: dict[str, dict[str, str]] = {}
+    by_key: dict[tuple[str, str, str], dict[str, str]] = {}
+    if not csv_path.exists():
+        return by_complex, by_key
+
+    with csv_path.open(encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            complex_name = str(row.get("Adsorption Complex", "")).strip()
+            material = str(row.get("Material", "")).strip()
+            site = str(row.get("Site", "")).strip()
+            orientation = str(row.get("Orientation", "")).strip().upper()
+
+            if complex_name:
+                by_complex[complex_name] = row
+            if material and site:
+                by_key[(material, site, orientation)] = row
+    return by_complex, by_key
+
+
 def resolve_structure(material_dir: Path, complex_record: dict[str, Any]) -> tuple[Path, str]:
     copied = complex_record.get("copied_files", {})
     if isinstance(copied, dict):
@@ -118,7 +141,11 @@ def resolve_structure(material_dir: Path, complex_record: dict[str, Any]) -> tup
     raise FileNotFoundError(f"No structure file found for material dir: {material_dir}")
 
 
-def build_records(input_root: Path) -> list[dict[str, Any]]:
+def build_records(
+    input_root: Path,
+    csv_by_complex: dict[str, dict[str, str]],
+    csv_by_key: dict[tuple[str, str, str], dict[str, str]],
+) -> list[dict[str, Any]]:
     materials_dir = input_root / "materials"
     if not materials_dir.exists():
         raise FileNotFoundError(f"Materials directory not found: {materials_dir}")
@@ -129,18 +156,29 @@ def build_records(input_root: Path) -> list[dict[str, Any]]:
         data = json.loads(material_json.read_text(encoding="utf-8"))
 
         parent_material = str(data.get("material", material_dir.name))
-        csv_row = data.get("csv_row", {}) if isinstance(data.get("csv_row"), dict) else {}
+        default_csv_row = data.get("csv_row", {}) if isinstance(data.get("csv_row"), dict) else {}
         material_record = data.get("material_record", {}) if isinstance(data.get("material_record"), dict) else {}
         symmetry = material_record.get("symmetry", {}) if isinstance(material_record.get("symmetry"), dict) else {}
         composition = material_record.get("composition", {}) if isinstance(material_record.get("composition"), dict) else {}
 
-        e_above_hull = to_float(csv_row.get("Energy Above Hull (eV/atom)"))
-        if e_above_hull is None:
-            e_above_hull = to_float(material_record.get("e_above_hull"))
-
         for complex_record in data.get("adsorption_complexes", []):
             if not isinstance(complex_record, dict):
                 continue
+
+            full_name = str(complex_record.get("full_name", "")).strip()
+            site = complex_record.get("site", {}) if isinstance(complex_record.get("site"), dict) else {}
+            site_name = str(site.get("name", "")).strip()
+            orientation = str(complex_record.get("orientation", "")).strip().upper()
+
+            csv_row = csv_by_complex.get(full_name)
+            if csv_row is None:
+                csv_row = csv_by_key.get((parent_material, site_name, orientation))
+            if csv_row is None:
+                csv_row = default_csv_row
+
+            e_above_hull = to_float(csv_row.get("Energy Above Hull (eV/atom)"))
+            if e_above_hull is None:
+                e_above_hull = to_float(material_record.get("e_above_hull"))
 
             try:
                 structure_path, structure_source = resolve_structure(material_dir, complex_record)
@@ -148,7 +186,6 @@ def build_records(input_root: Path) -> list[dict[str, Any]]:
                 print(f"[WARN] {exc}; skipping complex {complex_record.get('full_name')}")
                 continue
             atoms = read(structure_path)
-            site = complex_record.get("site", {}) if isinstance(complex_record.get("site"), dict) else {}
 
             x = to_float(site.get("x"))
             y = to_float(site.get("y"))
@@ -156,14 +193,15 @@ def build_records(input_root: Path) -> list[dict[str, Any]]:
             adsorption_coord = [x, y, z]
 
             row = {
-                "material": str(complex_record.get("full_name", "")),
+                "material": full_name,
                 "parent_material": parent_material,
-                "h_adsorption_type": site.get("name"),
+                "h_adsorption_type": site_name,
                 "h_adsorption_coordinate": adsorption_coord,
                 "composition": composition,
                 "surface_area_a2": to_float(csv_row.get("Surface Area (A^2)")),
                 "surface_area_cm2": to_float(csv_row.get("Surface Area (cm^2)")),
                 "i0": to_float(csv_row.get("i0")),
+                "adsorption_energy_ev": to_float(csv_row.get("Adsorption Energy (eV)")),
                 "gibbs_free_energy_ev": to_float(csv_row.get("Gibbs free energy (eV)")),
                 "e_above_hull": e_above_hull,
                 "crystal_system": symmetry.get("crystal_system"),
@@ -201,6 +239,7 @@ def write_ase_db(records: list[dict[str, Any]], db_out: Path) -> list[dict[str, 
                 "surface_area_a2": record["surface_area_a2"],
                 "surface_area_cm2": record["surface_area_cm2"],
                 "i0": record["i0"],
+                "adsorption_energy_ev": record["adsorption_energy_ev"],
                 "gibbs_free_energy_ev": record["gibbs_free_energy_ev"],
                 "e_above_hull": record["e_above_hull"],
                 "crystal_system": record["crystal_system"],
@@ -210,9 +249,12 @@ def write_ase_db(records: list[dict[str, Any]], db_out: Path) -> list[dict[str, 
                 "structure_source": record["structure_source"],
                 "structure_parameters": json.dumps(record["structure_parameters"]),
             }
+            kv = {k: v for k, v in kv.items() if v is not None}
             row_id = db.write(atoms, **kv)
-            out_rec = {k: v for k, v in record.items() if k != "_atoms_obj"}
-            out_rec["id"] = row_id
+            payload = {k: v for k, v in record.items() if k != "_atoms_obj"}
+            out_rec = {"id": row_id}
+            for key, value in payload.items():
+                out_rec[key] = value
             exported.append(out_rec)
     return exported
 
@@ -220,6 +262,7 @@ def write_ase_db(records: list[dict[str, Any]], db_out: Path) -> list[dict[str, 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build ASE/JSON/YAML database for H adsorption structures")
     parser.add_argument("--input-root", type=Path, default=DEFAULT_INPUT_ROOT)
+    parser.add_argument("--csv-in", type=Path, default=DEFAULT_CSV_IN)
     parser.add_argument("--db-out", type=Path, default=DEFAULT_DB_OUT)
     parser.add_argument("--json-out", type=Path, default=DEFAULT_JSON_OUT)
     parser.add_argument("--yaml-out", type=Path, default=DEFAULT_YAML_OUT)
@@ -228,7 +271,8 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> None:
     args = parse_args()
-    records = build_records(args.input_root)
+    csv_by_complex, csv_by_key = load_adsorption_csv(args.csv_in)
+    records = build_records(args.input_root, csv_by_complex=csv_by_complex, csv_by_key=csv_by_key)
     exported = write_ase_db(records, args.db_out)
 
     args.json_out.parent.mkdir(parents=True, exist_ok=True)
