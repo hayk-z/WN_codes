@@ -1,0 +1,44 @@
+/home/hayk_zakaryan/workdir/2D/WN/WN_codes/src/dftkit/utils/calc_funcs_vasp.py:37: FutureWarning: Please use atoms.calc = calc
+  structure.set_calculator(calc)
+[2026-03-12 10:46:47] Starting workflow: calc_name=DOS_calc_test
+[2026-03-12 10:46:47] Selected records: 1
+[2026-03-12 10:46:47] SLURM config: configs/slurm_aznavour.conf
+[2026-03-12 10:46:47] POTCAR path: data/potcars
+[2026-03-12 10:46:47] Start step: 1
+[2026-03-12 10:46:47] === Starting step 1 for 1 IDs ===
+[2026-03-12 10:46:47] Preparing step1 relaxation for ID=2, material=USPEX_FIXED_W-N-2D_287
+[2026-03-12 10:46:47] Submitted job: dos_pbe_id2_r1 (job_id=1616456)
+[2026-03-12 10:46:47] Submitted 1 jobs for step 1. Start monitoring...
+[2026-03-12 10:46:47] dos_pbe_id2_r1 status: PD
+[2026-03-12 12:20:22] dos_pbe_id2_r1 status: R
+[2026-03-12 12:21:22] dos_pbe_id2_r1 status: Finished
+[2026-03-12 12:21:22] ID=2: step1_relax completed
+[2026-03-12 12:21:22] === Step 1 finished ===
+[2026-03-12 12:21:22] === Starting step 2 for 1 IDs ===
+[2026-03-12 12:21:22] Preparing step2 SCF for ID=2, material=USPEX_FIXED_W-N-2D_287 from CONTCAR
+[2026-03-12 12:21:22] Submitted job: dos_pbe_id2_s2 (job_id=1616470)
+[2026-03-12 12:21:22] Submitted 1 jobs for step 2. Start monitoring...
+[2026-03-12 12:21:22] dos_pbe_id2_s2 status: PD
+[2026-03-12 12:56:47] dos_pbe_id2_s2 status: R
+[2026-03-12 12:57:07] dos_pbe_id2_s2 status: Finished
+[2026-03-12 12:57:07] ID=2: step2_scf completed
+[2026-03-12 12:57:07] === Step 2 finished ===
+[2026-03-12 12:57:07] === Starting step 3 for 1 IDs ===
+[2026-03-12 12:57:07] Preparing step3 DOS for ID=2, material=USPEX_FIXED_W-N-2D_287 from CONTCAR
+[2026-03-12 12:57:08] Submitted job: dos_pbe_id2_s3 (job_id=1616476)
+[2026-03-12 12:57:08] Submitted 1 jobs for step 3. Start monitoring...
+[2026-03-12 12:57:08] dos_pbe_id2_s3 status: PD
+[2026-03-12 12:57:28] dos_pbe_id2_s3 status: R
+[2026-03-12 12:57:48] dos_pbe_id2_s3 status: Finished
+[2026-03-12 12:57:48] ID=2: step3_dos completed
+[2026-03-12 12:57:48] === Step 3 finished ===
+[2026-03-12 12:57:48] === Starting step 4 for 1 IDs ===
+[2026-03-12 12:57:48] Preparing step4 2D band for ID=2, material=USPEX_FIXED_W-N-2D_287 from CONTCAR
+[2026-03-12 12:57:48] Submitted job: dos_pbe_id2_s4 (job_id=1616477)
+[2026-03-12 12:57:48] Submitted 1 jobs for step 4. Start monitoring...
+[2026-03-12 12:57:49] dos_pbe_id2_s4 status: PD
+[2026-03-12 12:58:09] dos_pbe_id2_s4 status: R
+[2026-03-12 12:59:09] dos_pbe_id2_s4 status: Finished
+[2026-03-12 12:59:09] ID=2: step4_band completed
+[2026-03-12 12:59:09] === Step 4 finished ===
+[2026-03-12 12:59:09] Workflow finished
