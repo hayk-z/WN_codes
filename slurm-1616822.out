@@ -1,0 +1,2 @@
+/home/hayk_zakaryan/workdir/2D/WN/WN_codes/src/dftkit/utils/calc_funcs_vasp.py:37: FutureWarning: Please use atoms.calc = calc
+  structure.set_calculator(calc)

@@ -294,6 +294,59 @@ python src/dftkit/workflows/dos_pdos_band_hse_workflow.py \
   --dry-run
 ```
 
+### `src/dftkit/workflows/zpe_gibbs_workflow.py`
+
+Purpose:
+- Run vibrational calculations for H adsorption systems and apply ZPE-based Gibbs correction.
+- Computes `ZPE(H2)` once (if missing), computes `ZPE(H*)` from 3 adsorbed-H modes, then updates DB/report.
+- For H* inputs, writes POSCAR with selective dynamics: slab atoms (non-H) fixed (`F F F`), H atoms movable (`T T T`).
+- If fewer than 3 positive real H* modes are found, the workflow uses the top-3 modes by `|frequency|` (with warning), so execution does not stop.
+
+Correction used:
+- `delta_zpe_ev = zpe_h_star_ev - 0.5 * zpe_h2_ev`
+- `delta_g_h_ev = adsorption_energy_ev + delta_zpe_ev - t_delta_s_ev`
+
+Inputs:
+- Structure source via `--input-db` (`.db` or `.json`; DB updates are applied only for `.db`)
+- Workflow YAML config (default: `configs/zpe_calc.yaml`)
+- SLURM config (default: `configs/slurm_ysu2.conf`)
+- Optional ID subset
+
+Options:
+- `--input-db` (required)
+- `--calc-name` (default: `ZPE_Gibbs_calc`)
+- `--ids` (optional subset; supports single IDs, comma lists, and ranges like `1-4 6-20` or `1,3,5-8`)
+- `--config` (workflow YAML)
+- `--slurm-config`
+- `--output-root`
+- `--potcar` / `--potcar-root` (default from config or `data/potcars`)
+- `--poll-seconds`
+- `--max-wait-hours`
+- `--dry-run`
+
+Main outputs:
+- `<calc_root>/general_inputs.json` (stores `zpe_h2_ev`, `t_delta_s_ev`)
+- `<calc_root>/zpe_results.json` (full per-ID frequency and correction details)
+- `<calc_root>/zpe_gibbs_report.csv` (summary table: `id`, `name`, `composition`, `adsorption_site_type`, `delta_zpe_ev`, `zpe_h_star_ev`, `half_zpe_h2_ev`, `delta_g_h_ev`)
+
+Examples:
+```bash
+python src/dftkit/workflows/zpe_gibbs_workflow.py \
+  --input-db data/processed/h_adsorption_materials.db \
+  --config configs/zpe_calc.yaml \
+  --slurm-config configs/slurm_aznavour.conf \
+  --calc-name ZPE_Gibbs_calc \
+  --ids 1-4 7-20
+```
+```bash
+python src/dftkit/workflows/zpe_gibbs_workflow.py \
+  --input-db data/processed/h_adsorption_materials.db \
+  --config configs/zpe_calc.yaml \
+  --calc-name ZPE_Gibbs_calc \
+  --ids 18,22-25 \
+  --dry-run
+```
+
 ### `src/dftkit/analysis/plot_dos_pdos_band.py`
 
 Purpose:

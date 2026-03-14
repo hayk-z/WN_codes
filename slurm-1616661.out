@@ -1,2 +1,111 @@
 /home/hayk_zakaryan/workdir/2D/WN/WN_codes/src/dftkit/utils/calc_funcs_vasp.py:37: FutureWarning: Please use atoms.calc = calc
   structure.set_calculator(calc)
+[2026-03-13 22:08:27] Starting ZPE/Gibbs workflow: calc_name=ZPE_Gibbs_calc
+[2026-03-13 22:08:27] Selected records: 18
+[2026-03-13 22:08:27] SLURM config: configs/slurm_aznavour.conf
+[2026-03-13 22:08:27] POTCAR path: data/potcars
+[2026-03-13 22:08:27] Using existing ZPE(H2) from general inputs: 0.27783027591273274 eV
+[2026-03-13 22:08:27] Preparing H* vibration step for ID=1, material=C2DB_W-N-2D_W4N3_C2DB-11836_H_bridge_0_along_z
+[2026-03-13 22:08:27] Submitted job: zpe_id1_vib (job_id=1616662)
+[2026-03-13 22:08:27] Preparing H* vibration step for ID=2, material=C2DB_W-N-2D_W4N3_C2DB-11836_H_hollow_0_along_z
+[2026-03-13 22:08:27] Submitted job: zpe_id2_vib (job_id=1616663)
+[2026-03-13 22:08:27] Preparing H* vibration step for ID=3, material=C2DB_W-N-2D_W4N3_C2DB-11836_H_hollow_1_along_z
+[2026-03-13 22:08:27] Submitted job: zpe_id3_vib (job_id=1616664)
+[2026-03-13 22:08:27] Preparing H* vibration step for ID=4, material=C2DB_W-N-2D_W4N3_C2DB-11836_H_ontop_0_along_z
+[2026-03-13 22:08:27] Submitted job: zpe_id4_vib (job_id=1616665)
+[2026-03-13 22:08:27] Preparing H* vibration step for ID=7, material=USPEX_FIXED_W-N-2D_287_H_bridge_2_along_z
+[2026-03-13 22:08:27] Submitted job: zpe_id7_vib (job_id=1616666)
+[2026-03-13 22:08:27] Preparing H* vibration step for ID=8, material=USPEX_FIXED_W-N-2D_287_H_bridge_3_along_z
+[2026-03-13 22:08:27] Submitted job: zpe_id8_vib (job_id=1616667)
+[2026-03-13 22:08:27] Preparing H* vibration step for ID=9, material=USPEX_FIXED_W-N-2D_287_H_hollow_0_along_z
+[2026-03-13 22:08:27] Submitted job: zpe_id9_vib (job_id=1616668)
+[2026-03-13 22:08:27] Preparing H* vibration step for ID=10, material=USPEX_FIXED_W-N-2D_287_H_hollow_1_along_z
+[2026-03-13 22:08:27] Submitted job: zpe_id10_vib (job_id=1616669)
+[2026-03-13 22:08:27] Preparing H* vibration step for ID=11, material=USPEX_FIXED_W-N-2D_287_H_ontop_0_along_z
+[2026-03-13 22:08:27] Submitted job: zpe_id11_vib (job_id=1616670)
+[2026-03-13 22:08:27] Preparing H* vibration step for ID=12, material=USPEX_FIXED_W-N-2D_287_H_ontop_1_along_z
+[2026-03-13 22:08:27] Submitted job: zpe_id12_vib (job_id=1616671)
+[2026-03-13 22:08:27] Preparing H* vibration step for ID=13, material=USPEX_VARIABLE_W-N-2D_1042_H_bridge_0_along_z
+[2026-03-13 22:08:27] Submitted job: zpe_id13_vib (job_id=1616672)
+[2026-03-13 22:08:27] Preparing H* vibration step for ID=14, material=USPEX_VARIABLE_W-N-2D_1042_H_bridge_1_along_z
+[2026-03-13 22:08:27] Submitted job: zpe_id14_vib (job_id=1616673)
+[2026-03-13 22:08:27] Preparing H* vibration step for ID=15, material=USPEX_VARIABLE_W-N-2D_1042_H_bridge_2_along_z
+[2026-03-13 22:08:27] Submitted job: zpe_id15_vib (job_id=1616674)
+[2026-03-13 22:08:27] Preparing H* vibration step for ID=16, material=USPEX_VARIABLE_W-N-2D_1042_H_hollow_0_along_z
+[2026-03-13 22:08:28] Submitted job: zpe_id16_vib (job_id=1616675)
+[2026-03-13 22:08:28] Preparing H* vibration step for ID=17, material=USPEX_VARIABLE_W-N-2D_1042_H_hollow_1_along_z
+[2026-03-13 22:08:28] Submitted job: zpe_id17_vib (job_id=1616676)
+[2026-03-13 22:08:28] Preparing H* vibration step for ID=18, material=USPEX_VARIABLE_W-N-2D_1042_H_ontop_0_along_z
+[2026-03-13 22:08:28] Submitted job: zpe_id18_vib (job_id=1616677)
+[2026-03-13 22:08:28] Preparing H* vibration step for ID=19, material=USPEX_VARIABLE_W-N-2D_2175_H_bridge_0_along_z
+[2026-03-13 22:08:28] Submitted job: zpe_id19_vib (job_id=1616678)
+[2026-03-13 22:08:28] Preparing H* vibration step for ID=20, material=USPEX_VARIABLE_W-N-2D_2175_H_hollow_0_along_z
+[2026-03-13 22:08:28] Submitted job: zpe_id20_vib (job_id=1616679)
+[2026-03-13 22:08:28] zpe_id1_vib status: PD
+[2026-03-13 22:08:28] zpe_id2_vib status: PD
+[2026-03-13 22:08:28] zpe_id3_vib status: PD
+[2026-03-13 22:08:28] zpe_id4_vib status: PD
+[2026-03-13 22:08:28] zpe_id7_vib status: PD
+[2026-03-13 22:08:28] zpe_id8_vib status: PD
+[2026-03-13 22:08:28] zpe_id9_vib status: R
+[2026-03-13 22:08:28] zpe_id10_vib status: R
+[2026-03-13 22:08:28] zpe_id11_vib status: R
+[2026-03-13 22:08:28] zpe_id12_vib status: R
+[2026-03-13 22:08:28] zpe_id13_vib status: R
+[2026-03-13 22:08:28] zpe_id14_vib status: R
+[2026-03-13 22:08:28] zpe_id15_vib status: R
+[2026-03-13 22:08:28] zpe_id16_vib status: R
+[2026-03-13 22:08:28] zpe_id17_vib status: R
+[2026-03-13 22:08:28] zpe_id18_vib status: R
+[2026-03-13 22:08:28] zpe_id19_vib status: R
+[2026-03-13 22:08:28] zpe_id20_vib status: R
+[2026-03-13 22:08:48] zpe_id1_vib status: R
+[2026-03-13 22:08:48] zpe_id2_vib status: R
+[2026-03-13 22:08:48] zpe_id3_vib status: R
+[2026-03-13 22:08:48] zpe_id4_vib status: R
+[2026-03-13 22:08:48] zpe_id7_vib status: R
+[2026-03-13 22:08:48] zpe_id8_vib status: R
+[2026-03-13 23:39:50] zpe_id11_vib status: Finished
+[2026-03-13 23:39:50] ID=11: hstar_vib completed
+[2026-03-13 23:40:11] zpe_id10_vib status: Finished
+[2026-03-13 23:40:11] ID=10: hstar_vib completed
+[2026-03-13 23:52:49] zpe_id7_vib status: Finished
+[2026-03-13 23:52:49] ID=7: hstar_vib completed
+[2026-03-13 23:53:10] zpe_id12_vib status: Finished
+[2026-03-13 23:53:10] ID=12: hstar_vib completed
+[2026-03-13 23:53:30] zpe_id9_vib status: Finished
+[2026-03-13 23:53:30] ID=9: hstar_vib completed
+[2026-03-13 23:53:51] zpe_id8_vib status: Finished
+[2026-03-13 23:53:51] ID=8: hstar_vib completed
+[2026-03-14 00:47:28] zpe_id19_vib status: Finished
+[2026-03-14 00:47:28] ID=19: hstar_vib completed
+[2026-03-14 00:47:28] zpe_id20_vib status: Finished
+[2026-03-14 00:47:28] ID=20: hstar_vib completed
+[2026-03-14 02:20:10] zpe_id16_vib status: Finished
+[2026-03-14 02:20:10] ID=16: hstar_vib completed
+[2026-03-14 02:21:51] zpe_id14_vib status: Finished
+[2026-03-14 02:21:51] ID=14: hstar_vib completed
+[2026-03-14 02:23:53] zpe_id18_vib status: Finished
+[2026-03-14 02:23:53] ID=18: hstar_vib completed
+[2026-03-14 02:24:13] zpe_id15_vib status: Finished
+[2026-03-14 02:24:13] ID=15: hstar_vib completed
+[2026-03-14 02:24:53] zpe_id13_vib status: Finished
+[2026-03-14 02:24:53] ID=13: hstar_vib completed
+[2026-03-14 02:24:53] zpe_id17_vib status: Finished
+[2026-03-14 02:24:53] ID=17: hstar_vib completed
+[2026-03-14 03:07:50] zpe_id3_vib status: Finished
+[2026-03-14 03:07:50] ID=3: hstar_vib completed
+[2026-03-14 03:34:59] zpe_id1_vib status: Finished
+[2026-03-14 03:34:59] ID=1: hstar_vib completed
+[2026-03-14 03:52:42] zpe_id2_vib status: Finished
+[2026-03-14 03:52:42] ID=2: hstar_vib completed
+[2026-03-14 04:02:03] zpe_id4_vib status: Finished
+[2026-03-14 04:02:03] ID=4: hstar_vib completed
+Traceback (most recent call last):
+  File "/home/hayk_zakaryan/workdir/2D/WN/WN_codes/src/dftkit/workflows/zpe_gibbs_workflow.py", line 587, in <module>
+    main()
+  File "/home/hayk_zakaryan/workdir/2D/WN/WN_codes/src/dftkit/workflows/zpe_gibbs_workflow.py", line 495, in main
+    zpe_data = zpe_hstar_from_three_modes(modes)
+  File "/home/hayk_zakaryan/workdir/2D/WN/WN_codes/src/dftkit/workflows/zpe_gibbs_workflow.py", line 219, in zpe_hstar_from_three_modes
+    raise ValueError(f"Expected at least 3 positive real H* modes, found {len(real_pos)}")
+ValueError: Expected at least 3 positive real H* modes, found 2

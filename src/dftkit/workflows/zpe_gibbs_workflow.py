@@ -27,7 +27,6 @@ try:
         load_workflow_yaml,
         log_message,
         monitor_submitted_jobs,
-        parse_ids,
         parse_shell_conf,
         resolve_potpaw_pbe_root,
         sanitize_name,
@@ -47,7 +46,6 @@ except ModuleNotFoundError:
         load_workflow_yaml,
         log_message,
         monitor_submitted_jobs,
-        parse_ids,
         parse_shell_conf,
         resolve_potpaw_pbe_root,
         sanitize_name,
@@ -209,22 +207,37 @@ def zpe_hstar_from_three_modes(modes: list[dict[str, Any]]) -> dict[str, Any]:
     Since slab atoms are fixed in POSCAR selective dynamics, H should be the
     only movable atom and these 3 modes are the H* vibrational contribution.
     """
-    real_pos = sorted(
-        [float(m["frequency_cm1"]) for m in modes if (not m["imaginary"] and float(m["frequency_cm1"]) > 0.0)],
-        reverse=True,
-    )
+    real_pos = [float(m["frequency_cm1"]) for m in modes if (not m["imaginary"] and float(m["frequency_cm1"]) > 0.0)]
     imag = [abs(float(m["frequency_cm1"])) for m in modes if m["imaginary"]]
 
-    if len(real_pos) < 3:
-        raise ValueError(f"Expected at least 3 positive real H* modes, found {len(real_pos)}")
+    candidates = sorted(
+        [m for m in modes if abs(float(m["frequency_cm1"])) > 1e-8],
+        key=lambda m: abs(float(m["frequency_cm1"])),
+        reverse=True,
+    )
+    if len(candidates) < 3:
+        raise ValueError(f"Expected at least 3 non-zero H* modes, found {len(candidates)}")
 
-    selected = real_pos[:3]
-    zpe_ev = 0.5 * sum(selected) * CM1_TO_EV
+    selected_signed = [float(m["frequency_cm1"]) for m in candidates[:3]]
+    selected_abs = [abs(v) for v in selected_signed]
+    selected_imag = [abs(float(m["frequency_cm1"])) for m in candidates[:3] if bool(m["imaginary"])]
+    zpe_ev = 0.5 * sum(selected_abs) * CM1_TO_EV
+
+    warning: str | None = None
+    if len(real_pos) < 3:
+        warning = (
+            f"Only {len(real_pos)} positive real H* modes found; "
+            "using absolute values of top-3 modes by |frequency| for ZPE."
+        )
+
     return {
-        "selected_hstar_modes_cm1": selected,
+        "selected_hstar_modes_cm1": selected_signed,
+        "selected_hstar_modes_abs_cm1": selected_abs,
+        "selected_imaginary_modes_cm1": selected_imag,
         "real_frequencies_cm1": real_pos,
         "imaginary_frequencies_cm1": imag,
         "zpe_ev": zpe_ev,
+        "warning": warning,
     }
 
 
@@ -293,6 +306,28 @@ def write_report_csv(path: Path, rows: list[dict[str, Any]]) -> None:
             writer.writerow(row)
 
 
+def parse_ids_with_ranges(values: list[str] | None) -> set[str]:
+    """Parse IDs from tokens like: '1 2 5-9 12,14-16'."""
+    if not values:
+        return set()
+    out: set[str] = set()
+    for value in values:
+        for part in value.split(","):
+            token = part.strip()
+            if not token:
+                continue
+            match = re.fullmatch(r"(-?\d+)\s*-\s*(-?\d+)", token)
+            if match:
+                start = int(match.group(1))
+                end = int(match.group(2))
+                step = 1 if end >= start else -1
+                for rid in range(start, end + step, step):
+                    out.add(str(rid))
+            else:
+                out.add(token)
+    return out
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="ZPE/Gibbs workflow for H adsorption DB")
     parser.add_argument("--input-db", type=Path, required=True, help="Input database (.db or .json)")
@@ -331,7 +366,7 @@ def main() -> None:
     selected_potcar = args.potcar or Path(str(workflow_cfg.get("potcar_root", DEFAULT_POTCAR_DIR)))
     slurm_cfg = parse_shell_conf(args.slurm_config)
 
-    ids_filter = parse_ids(args.ids)
+    ids_filter = parse_ids_with_ranges(args.ids)
     records = select_records(load_records(args.input_db), ids_filter)
     if not records:
         raise ValueError("No records selected. Check --ids or database content.")
@@ -516,6 +551,7 @@ def main() -> None:
                 "hstar_directory": str(vib_dir),
                 "frequencies_cm1": [float(m["frequency_cm1"]) for m in modes],
                 "selected_hstar_modes_cm1": zpe_data["selected_hstar_modes_cm1"],
+                "selected_hstar_modes_abs_cm1": zpe_data["selected_hstar_modes_abs_cm1"],
                 "imaginary_frequencies_cm1": zpe_data["imaginary_frequencies_cm1"],
                 "zpe_h_star_ev": zpe_h_star_ev,
                 "zpe_h2_ev": zpe_h2_ev,
@@ -528,6 +564,8 @@ def main() -> None:
                 "adsorption_site_type": adsorption_site_type,
             }
             results.append(result)
+            if zpe_data.get("warning"):
+                log_message(log_file, f"WARNING: ID={rid}: {zpe_data['warning']}")
             report_rows.append(
                 {
                     "id": rid,

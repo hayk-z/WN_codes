@@ -12,4 +12,5 @@ cd /home/hayk_zakaryan/workdir/2D/WN/WN_codes
 module purge
 conda activate wn_env
 
-python src/dftkit/workflows/zpe_gibbs_workflow.py   --input-db data/processed/h_adsorption_materials.db   --config configs/zpe_calc.yaml   --slurm-config configs/slurm_aznavour.conf   --calc-name ZPE_Gibbs_calc   --ids 1 2 3 4 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+python src/dftkit/workflows/zpe_gibbs_workflow.py   --input-db data/processed/h_adsorption_materials.db   --config configs/zpe_calc.yaml   --slurm-config configs/slurm_aznavour.conf   --calc-name ZPE_Gibbs_calc   --ids 1-4, 7-30
+
