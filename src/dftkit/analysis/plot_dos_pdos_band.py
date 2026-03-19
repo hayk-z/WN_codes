@@ -17,6 +17,8 @@ from matplotlib.gridspec import GridSpec
 from pymatgen.electronic_structure.plotter import BSPlotter, BSPlotterProjected, DosPlotter
 from pymatgen.io.vasp.outputs import Vasprun
 
+ORBITAL_ORDER = ("s", "p", "d", "f")
+
 
 def sanitize_name(name: str) -> str:
     return re.sub(r"[^A-Za-z0-9._-]+", "_", name).strip("_") or "material"
@@ -92,6 +94,67 @@ def save_element_pdos_plot(dos_vr: Path, out_file: Path, e_min: float | None, e_
     plotter = DosPlotter(sigma=0.05)
     for element, dos in element_dos.items():
         plotter.add_dos(str(element), dos)
+
+    xlim = (e_min, e_max) if (e_min is not None and e_max is not None) else None
+    plot = plotter.get_plot(xlim=xlim)
+    save_plot_object(plot, out_file)
+
+
+def _orbital_name(orbital_key) -> str:
+    name = getattr(orbital_key, "name", str(orbital_key))
+    name = name.split(".")[-1].lower()
+    return name
+
+
+def _iter_spd_dos(spd_map: dict):
+    keyed = {_orbital_name(k): dos for k, dos in spd_map.items()}
+    for orb in ORBITAL_ORDER:
+        if orb in keyed:
+            yield orb, keyed[orb]
+
+
+def save_total_orbital_dos_plot(dos_vr: Path, out_file: Path, e_min: float | None, e_max: float | None) -> None:
+    vr = Vasprun(str(dos_vr), parse_dos=True, parse_eigen=False)
+    complete_dos = vr.complete_dos
+    spd_dos = complete_dos.get_spd_dos()
+    if not spd_dos:
+        raise ValueError("No orbital-projected DOS found in vasprun.xml")
+
+    plotter = DosPlotter(sigma=0.05)
+    plotter.add_dos("Total DOS", complete_dos)
+    added = False
+    for orb, dos in _iter_spd_dos(spd_dos):
+        plotter.add_dos(f"{orb.upper()}", dos)
+        added = True
+    if not added:
+        raise ValueError("No s/p/d/f orbital DOS channels found")
+
+    xlim = (e_min, e_max) if (e_min is not None and e_max is not None) else None
+    plot = plotter.get_plot(xlim=xlim)
+    save_plot_object(plot, out_file)
+
+
+def save_element_orbital_pdos_plot(
+    dos_vr: Path,
+    out_file: Path,
+    e_min: float | None,
+    e_max: float | None,
+) -> None:
+    vr = Vasprun(str(dos_vr), parse_dos=True, parse_eigen=False)
+    complete_dos = vr.complete_dos
+    element_dos = complete_dos.get_element_dos()
+    if not element_dos:
+        raise ValueError("No element-projected DOS found in vasprun.xml")
+
+    plotter = DosPlotter(sigma=0.05)
+    added = False
+    for element in element_dos:
+        spd_dos = complete_dos.get_element_spd_dos(element)
+        for orb, dos in _iter_spd_dos(spd_dos):
+            plotter.add_dos(f"{element}-{orb.upper()}", dos)
+            added = True
+    if not added:
+        raise ValueError("No element s/p/d/f orbital DOS channels found")
 
     xlim = (e_min, e_max) if (e_min is not None and e_max is not None) else None
     plot = plotter.get_plot(xlim=xlim)
@@ -269,6 +332,18 @@ def main() -> None:
                 print("  [OK] pdos_element.png")
             except Exception as exc:
                 print(f"  [ERR] PDOS plot failed: {type(exc).__name__}: {exc}")
+
+            try:
+                save_total_orbital_dos_plot(dos_vr, out_dir / "dos_total_spdf.png", args.emin, args.emax)
+                print("  [OK] dos_total_spdf.png")
+            except Exception as exc:
+                print(f"  [ERR] Total orbital DOS plot failed: {type(exc).__name__}: {exc}")
+
+            try:
+                save_element_orbital_pdos_plot(dos_vr, out_dir / "pdos_element_spdf.png", args.emin, args.emax)
+                print("  [OK] pdos_element_spdf.png")
+            except Exception as exc:
+                print(f"  [ERR] Element orbital PDOS plot failed: {type(exc).__name__}: {exc}")
         else:
             print(f"  [SKIP] DOS vasprun missing: {dos_vr}")
 

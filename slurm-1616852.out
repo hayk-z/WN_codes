@@ -1,0 +1,64 @@
+/home/hayk_zakaryan/workdir/2D/WN/WN_codes/src/dftkit/utils/calc_funcs_vasp.py:37: FutureWarning: Please use atoms.calc = calc
+  structure.set_calculator(calc)
+[2026-03-14 21:26:45] Starting HSE workflow: calc_name=DOS_HSE_calc
+[2026-03-14 21:26:45] Selected records: 9
+[2026-03-14 21:26:45] SLURM config: configs/slurm_aznavour.conf
+[2026-03-14 21:26:45] POTCAR path: data/potcars
+[2026-03-14 21:26:45] Start step: 1
+[2026-03-14 21:26:45] === Starting step 1 for 9 IDs ===
+[2026-03-14 21:26:45] Preparing step1 relaxation for ID=1, material=C2DB_W-N-2D_W4N3_C2DB-11836
+[2026-03-14 21:26:45] Submitted job: dos_hse_id1_r1 (job_id=1616853)
+[2026-03-14 21:26:45] Preparing step1 relaxation for ID=2, material=USPEX_FIXED_W-N-2D_287
+[2026-03-14 21:26:45] Submitted job: dos_hse_id2_r1 (job_id=1616854)
+[2026-03-14 21:26:45] Preparing step1 relaxation for ID=3, material=USPEX_VARIABLE_W-N-2D_1042
+[2026-03-14 21:26:45] Submitted job: dos_hse_id3_r1 (job_id=1616855)
+[2026-03-14 21:26:45] Preparing step1 relaxation for ID=4, material=USPEX_VARIABLE_W-N-2D_2175
+[2026-03-14 21:26:45] Submitted job: dos_hse_id4_r1 (job_id=1616856)
+[2026-03-14 21:26:45] Preparing step1 relaxation for ID=5, material=USPEX_VARIABLE_W-N-2D_2403
+[2026-03-14 21:26:45] Submitted job: dos_hse_id5_r1 (job_id=1616857)
+[2026-03-14 21:26:45] Preparing step1 relaxation for ID=6, material=USPEX_VARIABLE_W-N-2D_2971
+[2026-03-14 21:26:45] Submitted job: dos_hse_id6_r1 (job_id=1616858)
+[2026-03-14 21:26:45] Preparing step1 relaxation for ID=7, material=USPEX_VARIABLE_W-N-2D_3035
+[2026-03-14 21:26:45] Submitted job: dos_hse_id7_r1 (job_id=1616859)
+[2026-03-14 21:26:45] Preparing step1 relaxation for ID=8, material=USPEX_VARIABLE_W-N-2D_3596
+[2026-03-14 21:26:45] Submitted job: dos_hse_id8_r1 (job_id=1616860)
+[2026-03-14 21:26:45] Preparing step1 relaxation for ID=9, material=USPEX_VARIABLE_W-N-2D_4683
+[2026-03-14 21:26:45] Submitted job: dos_hse_id9_r1 (job_id=1616861)
+[2026-03-14 21:26:45] Submitted 9 jobs for step 1. Start monitoring...
+[2026-03-14 21:26:45] dos_hse_id1_r1 status: R
+[2026-03-14 21:26:45] dos_hse_id2_r1 status: R
+[2026-03-14 21:26:45] dos_hse_id3_r1 status: R
+[2026-03-14 21:26:45] dos_hse_id4_r1 status: R
+[2026-03-14 21:26:45] dos_hse_id5_r1 status: R
+[2026-03-14 21:26:45] dos_hse_id6_r1 status: R
+[2026-03-14 21:26:46] dos_hse_id7_r1 status: R
+[2026-03-14 21:26:46] dos_hse_id8_r1 status: R
+[2026-03-14 21:26:46] dos_hse_id9_r1 status: PD
+[2026-03-14 21:27:06] dos_hse_id9_r1 status: R
+[2026-03-14 21:27:46] dos_hse_id1_r1 status: Finished
+[2026-03-14 21:27:46] ID=1: step1_relax completed
+[2026-03-14 21:27:47] dos_hse_id4_r1 status: Finished
+[2026-03-14 21:27:47] ID=4: step1_relax completed
+[2026-03-14 21:28:07] dos_hse_id2_r1 status: Finished
+[2026-03-14 21:28:07] ID=2: step1_relax completed
+[2026-03-14 21:28:07] dos_hse_id7_r1 status: Finished
+[2026-03-14 21:28:07] ID=7: step1_relax completed
+[2026-03-14 21:28:48] dos_hse_id8_r1 status: Finished
+[2026-03-14 21:28:48] ID=8: step1_relax completed
+[2026-03-14 21:29:28] dos_hse_id6_r1 status: Finished
+[2026-03-14 21:29:28] ID=6: step1_relax completed
+[2026-03-14 21:29:48] dos_hse_id3_r1 status: Finished
+[2026-03-14 21:29:48] ID=3: step1_relax completed
+[2026-03-14 21:30:28] dos_hse_id9_r1 status: Finished
+[2026-03-14 21:30:28] ID=9: step1_relax completed
+[2026-03-14 21:31:29] dos_hse_id5_r1 status: Finished
+[2026-03-14 21:31:29] ID=5: step1_relax completed
+[2026-03-14 21:31:29] === Step 1 finished ===
+[2026-03-14 21:31:29] === Starting step 2 for 9 IDs ===
+[2026-03-14 21:31:29] Preparing step2 HSE-SCF for ID=1, material=C2DB_W-N-2D_W4N3_C2DB-11836 from CONTCAR
+[2026-03-14 21:31:29] Submitted job: dos_hse_id1_s2 (job_id=1616862)
+[2026-03-14 21:31:29] Preparing step2 HSE-SCF for ID=2, material=USPEX_FIXED_W-N-2D_287 from CONTCAR
+[2026-03-14 21:31:29] Submitted job: dos_hse_id2_s2 (job_id=1616863)
+[2026-03-14 21:31:29] Preparing step2 HSE-SCF for ID=3, material=USPEX_VARIABLE_W-N-2D_1042 from CONTCAR
+[2026-03-14 21:31:29] Submitted job: dos_hse_id3_s2 (job_id=1616864)
+[2026-03-14 21:31:29] Preparing step2 HSE-SCF for 
