@@ -16,27 +16,47 @@ step1_relax:
     isif: 2
     lwave: false
     lcharg: false
+    ivdw: 11
+    vdw_s8: 0.109 
+    vdw_sr: 1.129
+    kpar: 4
+    ncore: 4
+    lreal: auto
 
 step2_scf:
   vasp_tags:
-    kpts: [18, 18, 1]
+    kpts: [14, 14, 1]
     lwave: true
     lcharg: true
     nsw: 0
     ibrion: -1
-    ismear: -5
+    ismear: 0
+    sigma: 0.05
     ivdw: 11
+    vdw_s8: 0.109 
+    vdw_sr: 1.129
+    kpar: 2
+    ncore: 2
+    lreal: auto
 
 step3_dos:
   vasp_tags:
-    kpts: [18, 18, 1]
+    kpts: [14, 14, 1]
     icharge: 11 # Use charge density from previous SCF step
     lorbit: 11
     nedos: 1000
     nsw: 0
+    ismear: 0
+    sigma: 0.05
     ibrion: -1
     lwave: false
     lcharg: false
+    ivdw: 11
+    vdw_s8: 0.109 
+    vdw_sr: 1.129
+    kpar: 2
+    ncore: 2
+    lreal: auto
 
 step4_band:
   # Tolerances used for 2D layer-group symmetry (spglib) and seekpath.
@@ -48,10 +68,18 @@ step4_band:
   band_points_per_segment: 40
   # Same static setup as DOS step, but intentionally without NEDOS.
   vasp_tags:
-    kpts: [18, 18, 1]
+    kpts: [14, 14, 1]
     icharge: 11
     lorbit: 11
     nsw: 0
     ibrion: -1
     lwave: false
     lcharg: false
+    vdw_s8: 0.109 
+    vdw_sr: 1.129
+    ismear: 0
+    sigma: 0.05
+    ivdw: 11
+    kpar: 2
+    ncore: 2
+    lreal: auto

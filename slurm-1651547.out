@@ -1,0 +1,66 @@
+Calculation root: /scratch/users/hayk_zakaryan/workdir/2D/WN/WN_codes/data/calculations/h_adsorption_materials_DOS_h1_calc_test
+Selected IDs: 2, 12, 14, 19, 29, 36, 55, 65
+[ID=2] material_dir=id_2_C2DB_W-N-2D_W4N3_C2DB-11836_H_hollow_0_along_z
+  [OK] dos_total.png
+  [OK] pdos_element.png
+  [OK] dos_total_spdf.png
+  [OK] pdos_element_spdf.png
+  [OK] band_structure.png
+  [OK] band_structure_projected.png
+  [OK] band_dos_combined.png
+[ID=12] material_dir=id_12_USPEX_FIXED_W-N-2D_287_H_ontop_1_along_z
+  [OK] dos_total.png
+  [OK] pdos_element.png
+  [OK] dos_total_spdf.png
+  [OK] pdos_element_spdf.png
+  [OK] band_structure.png
+  [OK] band_structure_projected.png
+  [OK] band_dos_combined.png
+[ID=14] material_dir=id_14_USPEX_VARIABLE_W-N-2D_1042_H_bridge_1_along_z
+  [OK] dos_total.png
+  [OK] pdos_element.png
+  [OK] dos_total_spdf.png
+  [OK] pdos_element_spdf.png
+  [OK] band_structure.png
+  [OK] band_structure_projected.png
+  [OK] band_dos_combined.png
+[ID=19] material_dir=id_19_USPEX_VARIABLE_W-N-2D_2175_H_bridge_0_along_z
+  [OK] dos_total.png
+  [OK] pdos_element.png
+  [OK] dos_total_spdf.png
+  [OK] pdos_element_spdf.png
+  [OK] band_structure.png
+  [OK] band_structure_projected.png
+  [OK] band_dos_combined.png
+[ID=29] material_dir=id_29_USPEX_VARIABLE_W-N-2D_2403_H_ontop_0_along_z
+  [OK] dos_total.png
+  [OK] pdos_element.png
+  [OK] dos_total_spdf.png
+  [OK] pdos_element_spdf.png
+  [OK] band_structure.png
+  [OK] band_structure_projected.png
+  [OK] band_dos_combined.png
+[ID=36] material_dir=id_36_USPEX_VARIABLE_W-N-2D_2971_H_ontop_0_along_z
+  [OK] dos_total.png
+  [OK] pdos_element.png
+  [OK] dos_total_spdf.png
+  [OK] pdos_element_spdf.png
+  [OK] band_structure.png
+  [OK] band_structure_projected.png
+  [OK] band_dos_combined.png
+[ID=55] material_dir=id_55_USPEX_VARIABLE_W-N-2D_3596_H_hollow_1_along_z
+  [OK] dos_total.png
+  [OK] pdos_element.png
+  [OK] dos_total_spdf.png
+  [OK] pdos_element_spdf.png
+  [OK] band_structure.png
+  [OK] band_structure_projected.png
+  [OK] band_dos_combined.png
+[ID=65] material_dir=id_65_USPEX_VARIABLE_W-N-2D_4683_H_bridge_5_along_z
+  [OK] dos_total.png
+  [OK] pdos_element.png
+  [OK] dos_total_spdf.png
+  [OK] pdos_element_spdf.png
+  [OK] band_structure.png
+  [OK] band_structure_projected.png
+  [OK] band_dos_combined.png

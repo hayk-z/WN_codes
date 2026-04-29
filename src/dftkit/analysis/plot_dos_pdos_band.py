@@ -76,16 +76,79 @@ def save_plot_object(plot_obj, out_file: Path) -> None:
     plt.close(fig)
 
 
-def save_total_dos_plot(dos_vr: Path, out_file: Path, e_min: float | None, e_max: float | None) -> None:
+def _find_h_s_peak_energy(
+    complete_dos,
+    e_min: float | None,
+    e_max: float | None,
+) -> float | None:
+    element_dos = complete_dos.get_element_dos()
+    h_element = next((el for el in element_dos if str(el) == "H"), None)
+    if h_element is None:
+        return None
+
+    h_spd = complete_dos.get_element_spd_dos(h_element)
+    h_s_dos = next((dos for orb, dos in _iter_spd_dos(h_spd) if orb == "s"), None)
+    if h_s_dos is None:
+        return None
+
+    energies = np.array(h_s_dos.energies) - float(h_s_dos.efermi)
+    densities = _sum_spin_density(h_s_dos.densities)
+
+    mask = np.ones_like(energies, dtype=bool)
+    if e_min is not None:
+        mask &= energies >= e_min
+    if e_max is not None:
+        mask &= energies <= e_max
+    if not np.any(mask):
+        return None
+
+    masked_densities = densities[mask]
+    if masked_densities.size == 0 or float(np.max(masked_densities)) <= 0.0:
+        return None
+
+    masked_energies = energies[mask]
+    peak_idx = int(np.argmax(masked_densities))
+    return float(masked_energies[peak_idx])
+
+
+def _add_hs_marker_vertical(ax, energy: float | None) -> None:
+    if energy is None:
+        return
+    ax.axvline(energy, color="tab:green", ls="--", lw=1.1, alpha=0.95, label=f"H-s peak ({energy:.2f} eV)")
+
+
+def _add_hs_marker_horizontal(ax, energy: float | None) -> None:
+    if energy is None:
+        return
+    ax.axhline(energy, color="tab:green", ls="--", lw=1.1, alpha=0.95, label=f"H-s peak ({energy:.2f} eV)")
+
+
+def save_total_dos_plot(
+    dos_vr: Path,
+    out_file: Path,
+    e_min: float | None,
+    e_max: float | None,
+    show_hs_orbital_marker: bool = False,
+) -> None:
     vr = Vasprun(str(dos_vr), parse_dos=True, parse_eigen=False)
     plotter = DosPlotter(sigma=0.05)
     plotter.add_dos("Total DOS", vr.complete_dos)
     xlim = (e_min, e_max) if (e_min is not None and e_max is not None) else None
     plot = plotter.get_plot(xlim=xlim)
+    if show_hs_orbital_marker:
+        hs_peak = _find_h_s_peak_energy(vr.complete_dos, e_min, e_max)
+        _add_hs_marker_vertical(plot, hs_peak)
+        plot.legend(loc="best", fontsize=8, frameon=False)
     save_plot_object(plot, out_file)
 
 
-def save_element_pdos_plot(dos_vr: Path, out_file: Path, e_min: float | None, e_max: float | None) -> None:
+def save_element_pdos_plot(
+    dos_vr: Path,
+    out_file: Path,
+    e_min: float | None,
+    e_max: float | None,
+    show_hs_orbital_marker: bool = False,
+) -> None:
     vr = Vasprun(str(dos_vr), parse_dos=True, parse_eigen=False)
     element_dos = vr.complete_dos.get_element_dos()
     if not element_dos:
@@ -97,6 +160,10 @@ def save_element_pdos_plot(dos_vr: Path, out_file: Path, e_min: float | None, e_
 
     xlim = (e_min, e_max) if (e_min is not None and e_max is not None) else None
     plot = plotter.get_plot(xlim=xlim)
+    if show_hs_orbital_marker:
+        hs_peak = _find_h_s_peak_energy(vr.complete_dos, e_min, e_max)
+        _add_hs_marker_vertical(plot, hs_peak)
+        plot.legend(loc="best", fontsize=8, frameon=False)
     save_plot_object(plot, out_file)
 
 
@@ -113,7 +180,13 @@ def _iter_spd_dos(spd_map: dict):
             yield orb, keyed[orb]
 
 
-def save_total_orbital_dos_plot(dos_vr: Path, out_file: Path, e_min: float | None, e_max: float | None) -> None:
+def save_total_orbital_dos_plot(
+    dos_vr: Path,
+    out_file: Path,
+    e_min: float | None,
+    e_max: float | None,
+    show_hs_orbital_marker: bool = False,
+) -> None:
     vr = Vasprun(str(dos_vr), parse_dos=True, parse_eigen=False)
     complete_dos = vr.complete_dos
     spd_dos = complete_dos.get_spd_dos()
@@ -131,6 +204,10 @@ def save_total_orbital_dos_plot(dos_vr: Path, out_file: Path, e_min: float | Non
 
     xlim = (e_min, e_max) if (e_min is not None and e_max is not None) else None
     plot = plotter.get_plot(xlim=xlim)
+    if show_hs_orbital_marker:
+        hs_peak = _find_h_s_peak_energy(complete_dos, e_min, e_max)
+        _add_hs_marker_vertical(plot, hs_peak)
+        plot.legend(loc="best", fontsize=8, frameon=False)
     save_plot_object(plot, out_file)
 
 
@@ -139,6 +216,7 @@ def save_element_orbital_pdos_plot(
     out_file: Path,
     e_min: float | None,
     e_max: float | None,
+    show_hs_orbital_marker: bool = False,
 ) -> None:
     vr = Vasprun(str(dos_vr), parse_dos=True, parse_eigen=False)
     complete_dos = vr.complete_dos
@@ -158,6 +236,10 @@ def save_element_orbital_pdos_plot(
 
     xlim = (e_min, e_max) if (e_min is not None and e_max is not None) else None
     plot = plotter.get_plot(xlim=xlim)
+    if show_hs_orbital_marker:
+        hs_peak = _find_h_s_peak_energy(complete_dos, e_min, e_max)
+        _add_hs_marker_vertical(plot, hs_peak)
+        plot.legend(loc="best", fontsize=8, frameon=False)
     save_plot_object(plot, out_file)
 
 
@@ -211,6 +293,7 @@ def save_band_dos_combined_plot(
     out_file: Path,
     e_min: float | None,
     e_max: float | None,
+    show_hs_orbital_marker: bool = False,
 ) -> None:
     vr_band = Vasprun(str(band_vr), parse_projected_eigen=False)
     bs = vr_band.get_band_structure(kpoints_filename=str(kpoints_file), line_mode=True)
@@ -254,6 +337,9 @@ def save_band_dos_combined_plot(
         ax_dos.plot(el_dos, energies, lw=1.0, color=colors[i % len(colors)], label=f"{el}")
 
     ax_dos.axhline(0.0, color="tab:red", ls="--", lw=1.0)
+    if show_hs_orbital_marker:
+        hs_peak = _find_h_s_peak_energy(cdos, e_min, e_max)
+        _add_hs_marker_horizontal(ax_dos, hs_peak)
     ax_dos.set_xlabel("DOS")
     ax_dos.set_title("Total DOS + PDOS")
     ax_dos.grid(axis="y", alpha=0.2)
@@ -285,6 +371,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--plots-subdir", type=str, default="plots", help="Output subfolder inside each id dir")
     parser.add_argument("--emin", type=float, default=-6.0, help="Lower energy bound (eV)")
     parser.add_argument("--emax", type=float, default=6.0, help="Upper energy bound (eV)")
+    parser.add_argument(
+        "--show-hs-orbital-marker",
+        action="store_true",
+        help="Draw H-s orbital peak marker line in DOS plots",
+    )
     return parser.parse_args()
 
 
@@ -322,25 +413,49 @@ def main() -> None:
         dos_vr = dos_dir / "vasprun.xml"
         if dos_vr.exists():
             try:
-                save_total_dos_plot(dos_vr, out_dir / "dos_total.png", args.emin, args.emax)
+                save_total_dos_plot(
+                    dos_vr,
+                    out_dir / "dos_total.png",
+                    args.emin,
+                    args.emax,
+                    args.show_hs_orbital_marker,
+                )
                 print("  [OK] dos_total.png")
             except Exception as exc:
                 print(f"  [ERR] DOS plot failed: {type(exc).__name__}: {exc}")
 
             try:
-                save_element_pdos_plot(dos_vr, out_dir / "pdos_element.png", args.emin, args.emax)
+                save_element_pdos_plot(
+                    dos_vr,
+                    out_dir / "pdos_element.png",
+                    args.emin,
+                    args.emax,
+                    args.show_hs_orbital_marker,
+                )
                 print("  [OK] pdos_element.png")
             except Exception as exc:
                 print(f"  [ERR] PDOS plot failed: {type(exc).__name__}: {exc}")
 
             try:
-                save_total_orbital_dos_plot(dos_vr, out_dir / "dos_total_spdf.png", args.emin, args.emax)
+                save_total_orbital_dos_plot(
+                    dos_vr,
+                    out_dir / "dos_total_spdf.png",
+                    args.emin,
+                    args.emax,
+                    args.show_hs_orbital_marker,
+                )
                 print("  [OK] dos_total_spdf.png")
             except Exception as exc:
                 print(f"  [ERR] Total orbital DOS plot failed: {type(exc).__name__}: {exc}")
 
             try:
-                save_element_orbital_pdos_plot(dos_vr, out_dir / "pdos_element_spdf.png", args.emin, args.emax)
+                save_element_orbital_pdos_plot(
+                    dos_vr,
+                    out_dir / "pdos_element_spdf.png",
+                    args.emin,
+                    args.emax,
+                    args.show_hs_orbital_marker,
+                )
                 print("  [OK] pdos_element_spdf.png")
             except Exception as exc:
                 print(f"  [ERR] Element orbital PDOS plot failed: {type(exc).__name__}: {exc}")
@@ -375,6 +490,7 @@ def main() -> None:
                         out_dir / "band_dos_combined.png",
                         args.emin,
                         args.emax,
+                        args.show_hs_orbital_marker,
                     )
                     print("  [OK] band_dos_combined.png")
                 except Exception as exc:
