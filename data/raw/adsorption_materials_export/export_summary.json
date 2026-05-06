@@ -1,8 +1,8 @@
 {
-  "found_final_structures": 9,
-  "found_material_records": 9,
+  "found_final_structures": 10,
+  "found_material_records": 10,
   "generated_at_utc": "2026-02-27T11:27:19.210536+00:00",
-  "materials_count": 9,
+  "materials_count": 10,
   "results": [
     {
       "final_structure_exported_to": "report/adsorption_materials_export/materials/C2DB_W-N-2D_W4N3_C2DB-11836/FINAL_STRUCTURE.vasp",
@@ -11,6 +11,14 @@
       "found_material_record": true,
       "input_files_count": 0,
       "material": "C2DB_W-N-2D_W4N3_C2DB-11836"
+    },
+    {
+      "final_structure_exported_to": "report/adsorption_materials_export/materials/MaterialProject_W-N-MP-2D_W2N3_mp-1079251-GGA/FINAL_STRUCTURE.vasp",
+      "final_structure_source": "data/structures/MaterialProject/W-N-MP-2D/Relaxed/Relax_Positions/W2N3_mp-1079251-GGA.vasp",
+      "found_final_structure": true,
+      "found_material_record": true,
+      "input_files_count": 0,
+      "material": "MaterialProject_W-N-MP-2D_W2N3_mp-1079251-GGA"
     },
     {
       "final_structure_exported_to": "report/adsorption_materials_export/materials/USPEX_FIXED_W-N-2D_287/FINAL_STRUCTURE.vasp",

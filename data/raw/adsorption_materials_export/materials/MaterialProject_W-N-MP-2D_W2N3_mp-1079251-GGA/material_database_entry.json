@@ -1,0 +1,381 @@
+{
+  "all_stored_struct_records": {
+    "MaterialProject_W-N-MP-2D_W2N3_mp-1079251-GGA_Initial_Initial": {
+      "bolztrap_data": null,
+      "brillouin_zone_plot_path": null,
+      "calc_stage": "Initial",
+      "composition": {
+        "N": 3.0,
+        "W": 2.0
+      },
+      "composition_text": "W2N3",
+      "composition_text_pretty": "W2N3",
+      "conex_hull_id": "W-N-2D",
+      "convergence": null,
+      "enthalpy_per_atom": -10.275492502999999,
+      "exfoliation_energy": null,
+      "exfoliation_energy_per_area": null,
+      "hiphive_data": null,
+      "hybrid_bs_data": null,
+      "id": "W2N3_mp-1079251-GGA",
+      "ignored_warnings": [],
+      "interlayer_distance": null,
+      "is_magnetic": false,
+      "layered_data": null,
+      "md_override_params": {},
+      "md_params": null,
+      "override_params": {},
+      "pbe_bs_data": null,
+      "phonon_data": null,
+      "relax_data": {
+        "total_energy_eV": -51.37746251499999,
+        "total_energy_per_atom_eV": -10.275492502999999
+      },
+      "relaxed_struct": {
+        "path": "data/stored_structs/relaxed_struct/MaterialProject_W-N-MP-2D_W2N3_mp-1079251-GGA_Initial.vasp"
+      },
+      "soc_bs_data": null,
+      "source": {
+        "src_id": "W-N-MP-2D",
+        "struct_id": "W2N3_mp-1079251-GGA",
+        "type": "MaterialProject"
+      },
+      "stage": "Initial",
+      "stage_params": null,
+      "stored_struct": {
+        "path": "data/structures/MaterialProject/W-N-MP-2D/Initial/Initial/W2N3_mp-1079251-GGA.vasp"
+      },
+      "symmetry": null,
+      "tags": [],
+      "u_correction_data": null,
+      "volume_relax_data": null,
+      "work_function": null
+    },
+    "MaterialProject_W-N-MP-2D_W2N3_mp-1079251-GGA_Normalized_Initial": {
+      "bolztrap_data": null,
+      "brillouin_zone_plot_path": null,
+      "calc_stage": "Initial",
+      "composition": {
+        "N": 3.0,
+        "W": 2.0
+      },
+      "composition_text": "W2N3",
+      "composition_text_pretty": "W2N3",
+      "conex_hull_id": "W-N-2D",
+      "convergence": null,
+      "enthalpy_per_atom": -10.275492502999999,
+      "exfoliation_energy": null,
+      "exfoliation_energy_per_area": null,
+      "hiphive_data": null,
+      "hybrid_bs_data": null,
+      "id": "W2N3_mp-1079251-GGA",
+      "ignored_warnings": [],
+      "is_magnetic": false,
+      "layered_data": null,
+      "md_override_params": {},
+      "md_params": null,
+      "override_params": {},
+      "pbe_bs_data": null,
+      "phonon_data": null,
+      "relax_data": null,
+      "relaxed_struct": {
+        "path": "data/stored_structs/relaxed_struct/MaterialProject_W-N-MP-2D_W2N3_mp-1079251-GGA_Initial.vasp"
+      },
+      "soc_bs_data": null,
+      "source": {
+        "src_id": "W-N-MP-2D",
+        "struct_id": "W2N3_mp-1079251-GGA",
+        "type": "MaterialProject"
+      },
+      "stage": "Normalized",
+      "stage_params": null,
+      "stored_struct": {
+        "path": "data/structures/MaterialProject/W-N-MP-2D/Normalized/Initial/W2N3_mp-1079251-GGA.vasp"
+      },
+      "symmetry": null,
+      "tags": [],
+      "u_correction_data": null,
+      "volume_relax_data": null,
+      "work_function": null
+    },
+    "MaterialProject_W-N-MP-2D_W2N3_mp-1079251-GGA_Normalized_Relax_Positions": {
+      "bolztrap_data": null,
+      "brillouin_zone_plot_path": null,
+      "calc_stage": "Relax_Positions",
+      "composition": {
+        "N": 3.0,
+        "W": 2.0
+      },
+      "composition_text": "W2N3",
+      "composition_text_pretty": "W2N3",
+      "conex_hull_id": "W-N-2D",
+      "convergence": null,
+      "enthalpy_per_atom": -10.275492502999999,
+      "exfoliation_energy": null,
+      "exfoliation_energy_per_area": null,
+      "hiphive_data": null,
+      "hybrid_bs_data": null,
+      "id": "W2N3_mp-1079251-GGA",
+      "ignored_warnings": [],
+      "is_magnetic": false,
+      "layered_data": null,
+      "md_override_params": {},
+      "md_params": null,
+      "override_params": {},
+      "pbe_bs_data": null,
+      "phonon_data": null,
+      "relax_data": {
+        "total_energy_eV": -50.70893436,
+        "total_energy_per_atom_eV": -10.141786872
+      },
+      "soc_bs_data": null,
+      "source": {
+        "src_id": "W-N-MP-2D",
+        "struct_id": "W2N3_mp-1079251-GGA",
+        "type": "MaterialProject"
+      },
+      "stage": "Normalized",
+      "stage_params": null,
+      "stored_struct": {
+        "path": "data/structures/MaterialProject/W-N-MP-2D/Normalized/Relax_Positions/W2N3_mp-1079251-GGA.vasp"
+      },
+      "symmetry": null,
+      "tags": [],
+      "u_correction_data": null,
+      "volume_relax_data": null,
+      "work_function": null
+    },
+    "MaterialProject_W-N-MP-2D_W2N3_mp-1079251-GGA_Relaxed_Initial": {
+      "bolztrap_data": null,
+      "brillouin_zone_plot_path": null,
+      "calc_stage": "Initial",
+      "composition": {
+        "N": 3.0,
+        "W": 2.0
+      },
+      "composition_text": "W2N3",
+      "composition_text_pretty": "W2N3",
+      "conex_hull_id": "W-N-2D",
+      "convergence": null,
+      "enthalpy_per_atom": -10.275492502999999,
+      "exfoliation_energy": null,
+      "exfoliation_energy_per_area": null,
+      "hiphive_data": null,
+      "hybrid_bs_data": null,
+      "id": "W2N3_mp-1079251-GGA",
+      "ignored_warnings": [],
+      "is_magnetic": false,
+      "layered_data": null,
+      "md_override_params": {},
+      "md_params": null,
+      "override_params": {},
+      "pbe_bs_data": null,
+      "phonon_data": null,
+      "relax_data": {
+        "total_energy_eV": -50.70893436,
+        "total_energy_per_atom_eV": -10.141786872
+      },
+      "soc_bs_data": null,
+      "source": {
+        "src_id": "W-N-MP-2D",
+        "struct_id": "W2N3_mp-1079251-GGA",
+        "type": "MaterialProject"
+      },
+      "stage": "Relaxed",
+      "stage_params": null,
+      "stored_struct": {
+        "path": "data/structures/MaterialProject/W-N-MP-2D/Relaxed/Initial/W2N3_mp-1079251-GGA.vasp"
+      },
+      "symmetry": null,
+      "tags": [],
+      "u_correction_data": null,
+      "volume_relax_data": null,
+      "work_function": null
+    },
+    "MaterialProject_W-N-MP-2D_W2N3_mp-1079251-GGA_Relaxed_Relax_Positions": {
+      "calc_stage": "Relax_Positions",
+      "composition": {
+        "N": 3.0,
+        "W": 2.0
+      },
+      "composition_text": "W2N3",
+      "composition_text_pretty": "W2N3",
+      "conex_hull_id": "W-N-2D",
+      "convergence": null,
+      "exfoliation_energy": null,
+      "exfoliation_energy_per_area": null,
+      "id": "W2N3_mp-1079251-GGA",
+      "ignored_warnings": [],
+      "interlayer_distance": null,
+      "is_magnetic": false,
+      "layered_data": null,
+      "override_params": {},
+      "relax_data": {
+        "total_energy_eV": -50.70893498,
+        "total_energy_per_atom_eV": -10.141786996
+      },
+      "source": {
+        "src_id": "W-N-MP-2D",
+        "struct_id": "W2N3_mp-1079251-GGA",
+        "type": "MaterialProject"
+      },
+      "stage": "Relaxed",
+      "stage_params": null,
+      "stored_struct": {
+        "path": "data/structures/MaterialProject/W-N-MP-2D/Relaxed/Relax_Positions/W2N3_mp-1079251-GGA.vasp"
+      },
+      "symmetry": null,
+      "tags": [],
+      "u_correction_data": null
+    }
+  },
+  "available_calculation_inputs": [],
+  "convergence_data_by_struct": {},
+  "csv_row": {
+    "Adsorption Energy (eV)": "-2.123013955000",
+    "Composition": "W2N3",
+    "Energy Above Hull (eV/atom)": "0.014446493999999532",
+    "Gibbs free energy (eV)": "",
+    "Material": "MaterialProject_W-N-MP-2D_W2N3_mp-1079251-GGA",
+    "Site": "hollow_0",
+    "Surface Area (A^2)": "",
+    "Surface Area (cm^2)": "",
+    "i0": ""
+  },
+  "final_struct_record": {
+    "calc_stage": "Relax_Positions",
+    "composition": {
+      "N": 3.0,
+      "W": 2.0
+    },
+    "composition_text": "W2N3",
+    "composition_text_pretty": "W2N3",
+    "conex_hull_id": "W-N-2D",
+    "convergence": null,
+    "exfoliation_energy": null,
+    "exfoliation_energy_per_area": null,
+    "id": "W2N3_mp-1079251-GGA",
+    "ignored_warnings": [],
+    "interlayer_distance": null,
+    "is_magnetic": false,
+    "layered_data": null,
+    "override_params": {},
+    "relax_data": {
+      "total_energy_eV": -50.70893498,
+      "total_energy_per_atom_eV": -10.141786996
+    },
+    "source": {
+      "src_id": "W-N-MP-2D",
+      "struct_id": "W2N3_mp-1079251-GGA",
+      "type": "MaterialProject"
+    },
+    "stage": "Relaxed",
+    "stage_params": null,
+    "stored_struct": {
+      "path": "data/structures/MaterialProject/W-N-MP-2D/Relaxed/Relax_Positions/W2N3_mp-1079251-GGA.vasp"
+    },
+    "symmetry": null,
+    "tags": [],
+    "u_correction_data": null
+  },
+  "final_struct_record_id": "MaterialProject_W-N-MP-2D_W2N3_mp-1079251-GGA_Relaxed_Relax_Positions",
+  "final_structure_exported_to": "report/adsorption_materials_export/materials/MaterialProject_W-N-MP-2D_W2N3_mp-1079251-GGA/FINAL_STRUCTURE.vasp",
+  "final_structure_source": "data/structures/MaterialProject/W-N-MP-2D/Relaxed/Relax_Positions/W2N3_mp-1079251-GGA.vasp",
+  "kpath_data": {
+    "kpts": {
+      "A": [
+        0.0,
+        0.0,
+        0.5
+      ],
+      "G": [
+        0,
+        0,
+        0
+      ],
+      "H": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.5
+      ],
+      "K": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.0
+      ],
+      "L": [
+        0.5,
+        0.0,
+        0.5
+      ],
+      "M": [
+        0.5,
+        0.0,
+        0.0
+      ]
+    },
+    "path": "GMKGALHA,LM,KH"
+  },
+  "material": "MaterialProject_W-N-MP-2D_W2N3_mp-1079251-GGA",
+  "material_record": {
+    "adsorption_sites_data": null,
+    "composition": {
+      "N": 3.0,
+      "W": 2.0
+    },
+    "e_above_hull": 0.014446493999999532,
+    "full_name": "MaterialProject_W-N-MP-2D_W2N3_mp-1079251-GGA",
+    "hybrid_bs_data": null,
+    "is_magnetic": false,
+    "is_most_stable_in_composition": false,
+    "is_pd_element": false,
+    "pbe_bs_data": null,
+    "soc_bs_data": null,
+    "struct_id": "MaterialProject_W-N-MP-2D_W2N3_mp-1079251-GGA_Relaxed_Relax_Positions",
+    "symmetry": {
+      "bz_is_2d": true,
+      "crystal_system": "hexagonal",
+      "high_symmetry_path": {
+        "kpts": {
+          "A": [
+            0.0,
+            0.0,
+            0.5
+          ],
+          "G": [
+            0,
+            0,
+            0
+          ],
+          "H": [
+            0.3333333333333333,
+            0.3333333333333333,
+            0.5
+          ],
+          "K": [
+            0.3333333333333333,
+            0.3333333333333333,
+            0.0
+          ],
+          "L": [
+            0.5,
+            0.0,
+            0.5
+          ],
+          "M": [
+            0.5,
+            0.0,
+            0.0
+          ]
+        },
+        "path": "GMKGALHA,LM,KH"
+      },
+      "lattice_name": "primitive hexagonal",
+      "lattice_type": "hexagonal",
+      "space_group_number": 187,
+      "space_group_symbol": "P-6m2",
+      "symprec": 0.1
+    },
+    "tags": []
+  }
+}
