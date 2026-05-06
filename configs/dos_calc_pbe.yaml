@@ -19,8 +19,8 @@ step1_relax:
     ivdw: 11
     vdw_s8: 0.109 
     vdw_sr: 1.129
-    kpar: 4
-    ncore: 4
+    kpar: 2
+    ncore: 2
     lreal: auto
 
 step2_scf:

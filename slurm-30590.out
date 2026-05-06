@@ -1,0 +1,7 @@
+/mnt/dftevn/opt/slurm/var/spool/job30590/slurm_script: line 12: module: command not found
+
+CondaError: Run 'conda init' before 'conda activate'
+
+/mnt/dftevn/home/hayk/workdir/2D/W_N/WN_codes/src/dftkit/utils/calc_funcs_vasp.py:37: FutureWarning: Please use atoms.calc = calc
+  structure.set_calculator(calc)
+slurmstepd: error: *** JOB 30590 ON ysu2 CANCELLED AT 2026-05-06T07:43:20 ***

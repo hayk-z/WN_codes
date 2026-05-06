@@ -98,6 +98,90 @@
   i0: -5.49514
 -
   id: 2
+  material: "MaterialProject_W-N-MP-2D_W2N3_mp-1079251-GGA"
+  material_uid: "MaterialProject_W-N-MP-2D_W2N3_mp-1079251-GGA_Relaxed_Relax_Positions"
+  crystal_system: "hexagonal"
+  high_symmetry_path: "GMKGALHA,LM,KH"
+  kpts:
+    A:
+      - 0.0
+      - 0.0
+      - 0.5
+    G:
+      - 0
+      - 0
+      - 0
+    H:
+      - 0.3333333333333333
+      - 0.3333333333333333
+      - 0.5
+    K:
+      - 0.3333333333333333
+      - 0.3333333333333333
+      - 0.0
+    L:
+      - 0.5
+      - 0.0
+      - 0.5
+    M:
+      - 0.5
+      - 0.0
+      - 0.0
+  lattice_type: "hexagonal"
+  space_group_number: 187
+  structure_path: "data/raw/adsorption_materials_export/materials/MaterialProject_W-N-MP-2D_W2N3_mp-1079251-GGA/FINAL_STRUCTURE.vasp"
+  structure:
+    symbols:
+      - "W"
+      - "W"
+      - "N"
+      - "N"
+      - "N"
+    cell:
+      -
+        - 2.91939815
+        - 0.0
+        - 0.0
+      -
+        - -1.45969922
+        - 2.52827287
+        - 0.0
+      -
+        - 0.0
+        - 0.0
+        - 20.1789679
+    pbc:
+      - true
+      - true
+      - true
+    positions:
+      -
+        - 1.45970048636579
+        - 0.8427567805757099
+        - 11.556776816511563
+      -
+        - 1.45970048636579
+        - 0.8427567805757099
+        - 8.622191083488437
+      -
+        - -1.5563657900196493e-06
+        - 1.68551608942429
+        - 12.68004774162126
+      -
+        - -1.5563657900196493e-06
+        - 1.68551608942429
+        - 7.49892015837874
+      -
+        - -1.5563657900196493e-06
+        - 1.68551608942429
+        - 10.08948395
+  composition: "W2N3"
+  energy_above_hull_ev_atom: 0.014446493999999532
+  adsorption_energy_ev: -2.123013955
+  csv_material: "MaterialProject_W-N-MP-2D_W2N3_mp-1079251-GGA"
+  site: "hollow_0"
+-
+  id: 3
   material: "USPEX_FIXED_W-N-2D_287"
   material_uid: "USPEX_FIXED_W-N-2D_287_Relaxed_Relax_Positions"
   crystal_system: "monoclinic"
@@ -201,7 +285,7 @@
   gibbs_free_energy_ev: 0.00510483
   i0: -2.68442
 -
-  id: 3
+  id: 4
   material: "USPEX_VARIABLE_W-N-2D_1042"
   material_uid: "USPEX_VARIABLE_W-N-2D_1042_Relaxed_Relax_Positions"
   crystal_system: "triclinic"
@@ -323,7 +407,7 @@
   gibbs_free_energy_ev: -1.62862
   i0: -29.6752
 -
-  id: 4
+  id: 5
   material: "USPEX_VARIABLE_W-N-2D_2175"
   material_uid: "USPEX_VARIABLE_W-N-2D_2175_Relaxed_Relax_Positions"
   crystal_system: "hexagonal"
@@ -416,7 +500,7 @@
   gibbs_free_energy_ev: -1.29301
   i0: -24.0498
 -
-  id: 5
+  id: 6
   material: "USPEX_VARIABLE_W-N-2D_2403"
   material_uid: "USPEX_VARIABLE_W-N-2D_2403_Relaxed_Relax_Positions"
   crystal_system: "monoclinic"
@@ -537,7 +621,7 @@
   gibbs_free_energy_ev: -0.394456
   i0: -8.98244
 -
-  id: 6
+  id: 7
   material: "USPEX_VARIABLE_W-N-2D_2971"
   material_uid: "USPEX_VARIABLE_W-N-2D_2971_Relaxed_Relax_Positions"
   crystal_system: "tetragonal"
@@ -640,7 +724,7 @@
   gibbs_free_energy_ev: -1.71217
   i0: -31.1474
 -
-  id: 7
+  id: 8
   material: "USPEX_VARIABLE_W-N-2D_3035"
   material_uid: "USPEX_VARIABLE_W-N-2D_3035_Relaxed_Relax_Positions"
   crystal_system: "monoclinic"
@@ -738,7 +822,7 @@
   gibbs_free_energy_ev: 0.931402
   i0: -18.021
 -
-  id: 8
+  id: 9
   material: "USPEX_VARIABLE_W-N-2D_3596"
   material_uid: "USPEX_VARIABLE_W-N-2D_3596_Relaxed_Relax_Positions"
   crystal_system: "monoclinic"
@@ -843,7 +927,7 @@
   gibbs_free_energy_ev: -0.367198
   i0: -8.55586
 -
-  id: 9
+  id: 10
   material: "USPEX_VARIABLE_W-N-2D_4683"
   material_uid: "USPEX_VARIABLE_W-N-2D_4683_Relaxed_Relax_Positions"
   crystal_system: "monoclinic"

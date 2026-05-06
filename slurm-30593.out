@@ -1,0 +1,69 @@
+/mnt/dftevn/opt/slurm/var/spool/job30593/slurm_script: line 12: module: command not found
+
+CondaError: Run 'conda init' before 'conda activate'
+
+/mnt/dftevn/home/hayk/workdir/2D/W_N/WN_codes/src/dftkit/utils/calc_funcs_vasp.py:37: FutureWarning: Please use atoms.calc = calc
+  structure.set_calculator(calc)
+[2026-05-06 07:44:12] Starting workflow: calc_name=DOS_calc
+[2026-05-06 07:44:12] Selected records: 2
+[2026-05-06 07:44:12] SLURM config: configs/slurm_ysu2.conf
+[2026-05-06 07:44:12] POTCAR path: data/potcars
+[2026-05-06 07:44:12] Start step: 1
+[2026-05-06 07:44:12] === Starting step 1 for 2 IDs ===
+[2026-05-06 07:44:12] Preparing step1 relaxation for ID=2, material=MaterialProject_W-N-MP-2D_W2N3_mp-1079251-GGA
+[2026-05-06 07:44:12] Submitted job: dos_pbe_id2_r1 (job_id=30594)
+[2026-05-06 07:44:12] Preparing step1 relaxation for ID=10, material=USPEX_VARIABLE_W-N-2D_4683
+[2026-05-06 07:44:12] Submitted job: dos_pbe_id10_r1 (job_id=30595)
+[2026-05-06 07:44:12] Submitted 2 jobs for step 1. Start monitoring...
+[2026-05-06 07:44:12] dos_pbe_id2_r1 status: PD
+[2026-05-06 07:44:12] dos_pbe_id10_r1 status: PD
+[2026-05-06 07:44:32] dos_pbe_id2_r1 status: Finished
+[2026-05-06 07:44:32] ID=2: step1_relax completed
+[2026-05-06 07:44:32] dos_pbe_id10_r1 status: R
+[2026-05-06 07:45:32] dos_pbe_id10_r1 status: Finished
+[2026-05-06 07:45:32] ID=10: step1_relax completed
+[2026-05-06 07:45:32] === Step 1 finished ===
+[2026-05-06 07:45:32] === Starting step 2 for 2 IDs ===
+[2026-05-06 07:45:32] Preparing step2 SCF for ID=2, material=MaterialProject_W-N-MP-2D_W2N3_mp-1079251-GGA from CONTCAR
+[2026-05-06 07:45:32] Submitted job: dos_pbe_id2_s2 (job_id=30596)
+[2026-05-06 07:45:32] Preparing step2 SCF for ID=10, material=USPEX_VARIABLE_W-N-2D_4683 from CONTCAR
+[2026-05-06 07:45:32] Submitted job: dos_pbe_id10_s2 (job_id=30597)
+[2026-05-06 07:45:32] Submitted 2 jobs for step 2. Start monitoring...
+[2026-05-06 07:45:32] dos_pbe_id2_s2 status: PD
+[2026-05-06 07:45:32] dos_pbe_id10_s2 status: PD
+[2026-05-06 07:45:52] dos_pbe_id2_s2 status: R
+[2026-05-06 07:45:52] dos_pbe_id10_s2 status: R
+[2026-05-06 07:46:12] dos_pbe_id2_s2 status: Finished
+[2026-05-06 07:46:12] ID=2: step2_scf completed
+[2026-05-06 07:46:52] dos_pbe_id10_s2 status: Finished
+[2026-05-06 07:46:52] ID=10: step2_scf completed
+[2026-05-06 07:46:52] === Step 2 finished ===
+[2026-05-06 07:46:52] === Starting step 3 for 2 IDs ===
+[2026-05-06 07:46:52] Preparing step3 DOS for ID=2, material=MaterialProject_W-N-MP-2D_W2N3_mp-1079251-GGA from CONTCAR
+[2026-05-06 07:46:52] Submitted job: dos_pbe_id2_s3 (job_id=30598)
+[2026-05-06 07:46:52] Preparing step3 DOS for ID=10, material=USPEX_VARIABLE_W-N-2D_4683 from CONTCAR
+[2026-05-06 07:46:52] Submitted job: dos_pbe_id10_s3 (job_id=30599)
+[2026-05-06 07:46:52] Submitted 2 jobs for step 3. Start monitoring...
+[2026-05-06 07:46:52] dos_pbe_id2_s3 status: PD
+[2026-05-06 07:46:52] dos_pbe_id10_s3 status: PD
+[2026-05-06 07:47:12] dos_pbe_id2_s3 status: Finished
+[2026-05-06 07:47:12] ID=2: step3_dos completed
+[2026-05-06 07:47:12] dos_pbe_id10_s3 status: Finished
+[2026-05-06 07:47:12] ID=10: step3_dos completed
+[2026-05-06 07:47:12] === Step 3 finished ===
+[2026-05-06 07:47:12] === Starting step 4 for 2 IDs ===
+[2026-05-06 07:47:12] Preparing step4 2D band for ID=2, material=MaterialProject_W-N-MP-2D_W2N3_mp-1079251-GGA from CONTCAR
+[2026-05-06 07:47:12] Submitted job: dos_pbe_id2_s4 (job_id=30600)
+[2026-05-06 07:47:12] Preparing step4 2D band for ID=10, material=USPEX_VARIABLE_W-N-2D_4683 from CONTCAR
+[2026-05-06 07:47:13] Submitted job: dos_pbe_id10_s4 (job_id=30601)
+[2026-05-06 07:47:13] Submitted 2 jobs for step 4. Start monitoring...
+[2026-05-06 07:47:13] dos_pbe_id2_s4 status: R
+[2026-05-06 07:47:13] dos_pbe_id10_s4 status: PD
+[2026-05-06 07:47:33] dos_pbe_id10_s4 status: R
+[2026-05-06 07:48:13] dos_pbe_id2_s4 status: Finished
+[2026-05-06 07:48:13] ID=2: step4_band completed
+[2026-05-06 07:49:13] dos_pbe_id10_s4 status: Finished
+[2026-05-06 07:49:13] ID=10: step4_band completed
+[2026-05-06 07:49:13] === Step 4 finished ===
+[2026-05-06 07:49:13] Workflow finished
+/mnt/dftevn/opt/slurm/var/spool/job30593/slurm_script: line 19: myrun_h.sh: command not found
