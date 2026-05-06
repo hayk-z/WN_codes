@@ -1,8 +1,21 @@
 import csv
 import os
 import sys
+import argparse
 import numpy as np
 import matplotlib.pyplot as plt
+
+plt.rcParams["font.family"] = "serif"
+plt.rcParams["font.serif"] = ["Times New Roman", "Times", "DejaVu Serif"]
+plt.rcParams["mathtext.fontset"] = "stix"
+
+ONE_COLUMN_WIDTH_IN = 90.0 / 25.4  # Elsevier single-column width (90 mm)
+ONE_COLUMN_HEIGHT_IN = 3.0
+ONE_COLUMN_DPI = 1000
+LABEL_FONT_SIZE = 5.0
+PT_GIBBS = 0.08
+PT_LOG_I0 = -2.63
+PT_LABEL = "Pt"
 
 
 def read_adsorption_csv(path: str = "Reports_gen/Adsorption_filtered.csv"):
@@ -79,7 +92,13 @@ def calculate_exchange_current(header, data):
     return header + ["i0"], out
 
 
-def plot_volcano(header, data, plot_path: str = "Reports_gen/volcano_plot.png"):
+def plot_volcano(
+    header,
+    data,
+    plot_path: str = "Reports_gen/volcano_plot.png",
+    show_labels: bool = True,
+    show_legend: bool = False,
+):
     """Plot i0 vs Gibbs free energy and save volcano plot."""
     gibbs_idx = header.index("Gibbs free energy (eV)")
     i0_idx = header.index("i0")
@@ -96,9 +115,28 @@ def plot_volcano(header, data, plot_path: str = "Reports_gen/volcano_plot.png"):
     gibbs_clean = gibbs[valid_mask]
     i0_clean = i0[valid_mask]
     labels = data[valid_mask, label_idx]
+    gibbs_clean = np.append(gibbs_clean, PT_GIBBS)
+    i0_clean = np.append(i0_clean, PT_LOG_I0)
+    labels = np.append(labels, PT_LABEL)
 
-    fig, ax = plt.subplots(figsize=(12, 7))
-    ax.scatter(gibbs_clean, i0_clean, alpha=0.6, s=50, edgecolors="black", zorder=3)
+    fig, ax = plt.subplots(figsize=(ONE_COLUMN_WIDTH_IN, ONE_COLUMN_HEIGHT_IN))
+    colors = plt.cm.tab20(np.linspace(0, 1, max(gibbs_clean.size, 1)))
+    for idx, (c, x, y, label) in enumerate(zip(colors, gibbs_clean, i0_clean, labels)):
+        scatter_label = str(label) if show_legend else None
+        ax.scatter([x], [y], alpha=0.8, s=50, edgecolors="black", color=c, zorder=3, label=scatter_label)
+        if show_labels:
+            dy = 7 if idx % 2 == 0 else -8
+            va = "bottom" if dy > 0 else "top"
+            ax.annotate(
+                str(label),
+                xy=(x, y),
+                xytext=(4, dy),
+                textcoords="offset points",
+                fontsize=LABEL_FONT_SIZE,
+                color="black",
+                va=va,
+                ha="left",
+            )
 
     # Symmetric volcano branches: left increases to x=0, right decreases from x=0
     if gibbs_clean.size > 1:
@@ -135,17 +173,30 @@ def plot_volcano(header, data, plot_path: str = "Reports_gen/volcano_plot.png"):
                 y_right = y0 - slope_mag * x_right
                 ax.plot(x_right, y_right, "k-", linewidth=2.5, zorder=2)
 
-    for x, y, label in zip(gibbs_clean, i0_clean, labels):
-        ax.annotate(str(label), (x, y), fontsize=8, alpha=0.8, xytext=(3, 3), textcoords="offset points")
-
-    ax.set_xlabel(r"$\Delta G_{H^*}$ (eV)", fontsize=12)
-    ax.set_ylabel(r"$\log(i_0/(A\,cm^{-2}))$", fontsize=12)
-    ax.set_title("Volcano Plot for 2D W-N materials", fontsize=14, fontweight="bold")
+    ax.set_xlabel(r"$\Delta G_{H^*}$ (eV)", fontsize=7.5)
+    ax.set_ylabel(r"$\log(i_0/(A\,cm^{-2}))$", fontsize=7.5)
+    ax.set_title("Volcano Plot for 2D W-N materials", fontsize=8, fontweight="bold")
+    ax.tick_params(axis="both", which="major", labelsize=7)
     ax.set_ylim(-35, 0)
     ax.set_xlim(-2.2, 2.2)
     ax.axvline(x=0, color="gray", linestyle=":", alpha=0.5)
     ax.grid(True, alpha=0.3)
-    fig.savefig(plot_path, dpi=300, bbox_inches="tight")
+    if show_legend and gibbs_clean.size > 0:
+        ax.legend(
+            loc="upper right",
+            fontsize=5.2,
+            frameon=True,
+            framealpha=0.85,
+            borderpad=0.2,
+            handlelength=1.0,
+            labelspacing=0.2,
+            labelcolor="black",
+        )
+
+    fig.tight_layout(pad=0.3)
+    fig.savefig(plot_path, dpi=ONE_COLUMN_DPI)
+    base, _ = os.path.splitext(plot_path)
+    fig.savefig(f"{base}.pdf")
     plt.close(fig)
 
 
@@ -164,14 +215,51 @@ def save_csv(header, data, out_path: str = "Reports_gen/Adsorption_gibbs_with_i0
             writer.writerow(out)
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Generate volcano plot for W-N materials")
+    parser.add_argument(
+        "--show-labels",
+        dest="show_labels",
+        action="store_true",
+        default=True,
+        help="Show inline text labels on points (default: on)",
+    )
+    parser.add_argument(
+        "--hide-labels",
+        dest="show_labels",
+        action="store_false",
+        help="Hide inline text labels on points",
+    )
+    parser.add_argument(
+        "--show-legend",
+        dest="show_legend",
+        action="store_true",
+        default=False,
+        help="Show legend box",
+    )
+    parser.add_argument(
+        "--hide-legend",
+        dest="show_legend",
+        action="store_false",
+        help="Hide legend box (default)",
+    )
+    return parser.parse_args()
+
+
 if __name__ == "__main__":
     try:
+        args = parse_args()
         header, data = read_adsorption_csv()
         header, data = calculate_gibbs_free_energy(header, data)
         header, data = calculate_exchange_current(header, data)
-
         save_csv(header, data, "Reports_gen/Adsorption_gibbs_with_i0.csv")
-        plot_volcano(header, data, "Reports_gen/volcano_plot.png")
+        plot_volcano(
+            header,
+            data,
+            "Reports_gen/volcano_plot.png",
+            show_labels=args.show_labels,
+            show_legend=args.show_legend,
+        )
 
         print("Saved augmented CSV to: Reports_gen/Adsorption_gibbs_with_i0.csv")
         print("Saved volcano plot to: Reports_gen/volcano_plot.png")
