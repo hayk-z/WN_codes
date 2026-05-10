@@ -1,0 +1,50 @@
+/mnt/dftevn/opt/slurm/var/spool/job30603/slurm_script: line 14: module: command not found
+
+CondaError: Run 'conda init' before 'conda activate'
+
+/mnt/dftevn/home/hayk/workdir/2D/W_N/WN_codes/src/dftkit/utils/calc_funcs_vasp.py:37: FutureWarning: Please use atoms.calc = calc
+  structure.set_calculator(calc)
+[2026-05-06 08:36:43] Starting ZPE/Gibbs workflow: calc_name=ZPE_Gibbs_calc
+[2026-05-06 08:36:43] Selected records: 4
+[2026-05-06 08:36:43] SLURM config: configs/slurm_ysu2.conf
+[2026-05-06 08:36:43] POTCAR path: data/potcars
+[2026-05-06 08:36:43] ZPE(H2) missing in general inputs; preparing H2 vibration job
+[2026-05-06 08:36:43] Submitted job: zpe_h2_vib (job_id=30604)
+[2026-05-06 08:36:43] zpe_h2_vib status: PD
+[2026-05-06 08:37:03] zpe_h2_vib status: R
+[2026-05-06 08:38:43] zpe_h2_vib status: Finished
+[2026-05-06 08:38:43] ID=?: h2_vib completed
+[2026-05-06 08:38:43] WARNING: H2 has imaginary frequencies (cm^-1): [0.000807, 514.134624, 514.136309]
+[2026-05-06 08:38:43] Computed ZPE(H2) = 0.277832 eV
+[2026-05-06 08:38:43] Preparing H* vibration step for ID=5, material=MaterialProject_W-N-MP-2D_W2N3_mp-1079251-GGA_H_bridge_0_along_z
+[2026-05-06 08:38:43] Submitted job: zpe_id5_vib (job_id=30605)
+[2026-05-06 08:38:43] Preparing H* vibration step for ID=6, material=MaterialProject_W-N-MP-2D_W2N3_mp-1079251-GGA_H_hollow_0_along_z
+[2026-05-06 08:38:43] Submitted job: zpe_id6_vib (job_id=30606)
+[2026-05-06 08:38:43] Preparing H* vibration step for ID=7, material=MaterialProject_W-N-MP-2D_W2N3_mp-1079251-GGA_H_hollow_1_along_z
+[2026-05-06 08:38:43] Submitted job: zpe_id7_vib (job_id=30607)
+[2026-05-06 08:38:43] Preparing H* vibration step for ID=8, material=MaterialProject_W-N-MP-2D_W2N3_mp-1079251-GGA_H_ontop_0_along_z
+[2026-05-06 08:38:43] Submitted job: zpe_id8_vib (job_id=30608)
+[2026-05-06 08:38:43] zpe_id5_vib status: PD
+[2026-05-06 08:38:43] zpe_id6_vib status: PD
+[2026-05-06 08:38:43] zpe_id7_vib status: PD
+[2026-05-06 08:38:43] zpe_id8_vib status: PD
+[2026-05-06 08:39:03] zpe_id5_vib status: R
+[2026-05-06 08:39:03] zpe_id6_vib status: R
+[2026-05-06 12:32:19] zpe_id5_vib status: Finished
+[2026-05-06 12:32:19] ID=5: hstar_vib completed
+[2026-05-06 12:32:19] zpe_id7_vib status: R
+[2026-05-06 12:38:41] zpe_id6_vib status: Finished
+[2026-05-06 12:38:41] ID=6: hstar_vib completed
+[2026-05-06 12:38:41] zpe_id8_vib status: R
+[2026-05-06 16:26:18] zpe_id7_vib status: Finished
+[2026-05-06 16:26:18] ID=7: hstar_vib completed
+[2026-05-06 16:28:58] zpe_id8_vib status: Finished
+[2026-05-06 16:28:58] ID=8: hstar_vib completed
+[2026-05-06 16:28:58] WARNING: ID=5: Only 2 positive real H* modes found; using absolute values of top-3 modes by |frequency| for ZPE.
+[2026-05-06 16:28:58] WARNING: ID=5 has imaginary frequencies (cm^-1): [1797.392238]
+[2026-05-06 16:28:58] WARNING: ID=7: Only 1 positive real H* modes found; using absolute values of top-3 modes by |frequency| for ZPE.
+[2026-05-06 16:28:58] WARNING: ID=7 has imaginary frequencies (cm^-1): [1053.075008, 1054.798355]
+[2026-05-06 16:28:58] WARNING: ID=8: Only 2 positive real H* modes found; using absolute values of top-3 modes by |frequency| for ZPE.
+[2026-05-06 16:28:58] WARNING: ID=8 has imaginary frequencies (cm^-1): [1797.463589]
+[2026-05-06 16:28:58] Wrote report: /mnt/dftevn/home/hayk/workdir/2D/W_N/WN_codes/data/calculations/h_adsorption_materials_ZPE_Gibbs_calc/zpe_gibbs_report.csv
+[2026-05-06 16:28:58] Workflow finished

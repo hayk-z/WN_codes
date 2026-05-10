@@ -1,0 +1,7 @@
+
+CondaError: Run 'conda init' before 'conda activate'
+
+Traceback (most recent call last):
+  File "/mnt/dftevn/home/hayk/workdir/2D/W_N/WN_codes/src/dftkit/analysis/plot_dos_pdos_band.py", line 12, in <module>
+    import matplotlib
+ModuleNotFoundError: No module named 'matplotlib'

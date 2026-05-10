@@ -18,16 +18,14 @@ from matplotlib.gridspec import GridSpec
 from pymatgen.electronic_structure.plotter import BSPlotter, BSPlotterProjected, DosPlotter
 from pymatgen.io.vasp.outputs import Vasprun
 
-<<<<<<< HEAD
 ORBITAL_ORDER = ("s", "p", "d", "f")
-=======
 ONE_COLUMN_WIDTH_IN = 90.0 / 25.4  # Elsevier single-column width
 SINGLE_PANEL_HEIGHT_IN = 60.0 / 25.4  # 60 mm height
 COMBINED_PANEL_HEIGHT_IN = 60.0 / 25.4  # 60 mm height
 EXPORT_DPI = 1000
 AXIS_FONT_SIZE = 7
 TITLE_FONT_SIZE = 8
-DOS_LINEWIDTH_SCALE = 0.8
+DOS_LINEWIDTH_SCALE = 0.65
 LEGEND_ANCHOR_X = 1.16
 LEGEND_ANCHOR_Y = 1.0
 LEGEND_RIGHT_MARGIN = 0.76
@@ -35,7 +33,6 @@ LEGEND_RIGHT_MARGIN = 0.76
 # Prefer Times New Roman for all figure text.
 matplotlib.rcParams["font.family"] = "serif"
 matplotlib.rcParams["font.serif"] = ["Times New Roman", "Times", "DejaVu Serif"]
->>>>>>> 0b7b759 (WIP: local changes)
 
 
 def sanitize_name(name: str) -> str:
@@ -54,13 +51,18 @@ def parse_ids(values: list[str] | None) -> set[str]:
     return out
 
 
-def load_ids_from_db(input_db: Path) -> list[str]:
+def load_records_from_db(input_db: Path) -> list[dict[str, str]]:
     suffix = input_db.suffix.lower()
     if suffix == ".db":
         from ase.db import connect
 
         with connect(input_db) as db:
-            return [str(row.id) for row in db.select()]
+            out: list[dict[str, str]] = []
+            for row in db.select():
+                kv = getattr(row, "key_value_pairs", {}) or {}
+                material = str(kv.get("material", "")).strip()
+                out.append({"id": str(row.id), "material": material})
+            return out
 
     if suffix == ".json":
         data = json.loads(input_db.read_text(encoding="utf-8"))
@@ -68,18 +70,30 @@ def load_ids_from_db(input_db: Path) -> list[str]:
             data = data["records"]
         if not isinstance(data, list):
             raise ValueError("JSON input must be a list of records")
-        out: list[str] = []
+        out: list[dict[str, str]] = []
         for rec in data:
             if isinstance(rec, dict) and rec.get("id") is not None:
-                out.append(str(rec["id"]))
+                material = str(rec.get("material", "")).strip()
+                out.append({"id": str(rec["id"]), "material": material})
         return out
 
     raise ValueError(f"Unsupported input-db format: {input_db} (use .db or .json)")
 
 
-def find_material_dir(calc_root: Path, rid: str) -> Path | None:
+def find_material_dir(calc_root: Path, rid: str, material_hint: str | None = None) -> Path | None:
     matches = sorted(calc_root.glob(f"id_{rid}_*"))
-    return matches[0] if matches else None
+    material_token = sanitize_name(material_hint).lower() if material_hint else ""
+    if material_token:
+        for match in matches:
+            if material_token in match.name.lower():
+                return match
+        fallback_matches = sorted(calc_root.glob("id_*"))
+        for match in fallback_matches:
+            if material_token in match.name.lower():
+                return match
+    if matches:
+        return matches[0]
+    return None
 
 
 def _style_axes(fig: plt.Figure) -> None:
@@ -112,12 +126,39 @@ def save_plot_object(plot_obj, out_file: Path) -> None:
     _save_figure(fig, out_file, SINGLE_PANEL_HEIGHT_IN)
 
 
-<<<<<<< HEAD
-def _find_h_s_peak_energy(
-    complete_dos,
-    e_min: float | None,
-    e_max: float | None,
-) -> float | None:
+def _style_dos_lines(ax: plt.Axes) -> None:
+    for line in ax.get_lines():
+        line.set_linewidth(max(0.5, line.get_linewidth() * DOS_LINEWIDTH_SCALE))
+
+
+def _place_legend_outside_top_right(ax: plt.Axes) -> None:
+    handles, labels = ax.get_legend_handles_labels()
+    filtered = [(h, l) for h, l in zip(handles, labels) if l and not l.startswith("_")]
+    if not filtered:
+        return
+    handles, labels = zip(*filtered)
+    ax.legend(
+        handles,
+        labels,
+        loc="upper left",
+        bbox_to_anchor=(LEGEND_ANCHOR_X, LEGEND_ANCHOR_Y),
+        borderaxespad=0.0,
+        frameon=False,
+        fontsize=AXIS_FONT_SIZE,
+    )
+def _orbital_name(orbital_key) -> str:
+    name = getattr(orbital_key, "name", str(orbital_key))
+    return name.split(".")[-1].lower()
+
+
+def _iter_spd_dos(spd_map: dict):
+    keyed = {_orbital_name(k): dos for k, dos in spd_map.items()}
+    for orb in ORBITAL_ORDER:
+        if orb in keyed:
+            yield orb, keyed[orb]
+
+
+def _find_h_s_peak_energy(complete_dos, e_min: float | None, e_max: float | None) -> float | None:
     element_dos = complete_dos.get_element_dos()
     h_element = next((el for el in element_dos if str(el) == "H"), None)
     if h_element is None:
@@ -130,7 +171,6 @@ def _find_h_s_peak_energy(
 
     energies = np.array(h_s_dos.energies) - float(h_s_dos.efermi)
     densities = _sum_spin_density(h_s_dos.densities)
-
     mask = np.ones_like(energies, dtype=bool)
     if e_min is not None:
         mask &= energies >= e_min
@@ -158,28 +198,17 @@ def _add_hs_marker_horizontal(ax, energy: float | None) -> None:
     if energy is None:
         return
     ax.axhline(energy, color="tab:green", ls="--", lw=1.1, alpha=0.95, label=f"H-s peak ({energy:.2f} eV)")
-=======
-def _style_dos_lines(ax: plt.Axes) -> None:
-    for line in ax.get_lines():
-        line.set_linewidth(max(0.6, line.get_linewidth() * DOS_LINEWIDTH_SCALE))
 
 
-def _place_legend_outside_top_right(ax: plt.Axes) -> None:
-    handles, labels = ax.get_legend_handles_labels()
-    filtered = [(h, l) for h, l in zip(handles, labels) if l and not l.startswith("_")]
-    if not filtered:
-        return
-    handles, labels = zip(*filtered)
-    ax.legend(
-        handles,
-        labels,
-        loc="upper left",
-        bbox_to_anchor=(LEGEND_ANCHOR_X, LEGEND_ANCHOR_Y),
-        borderaxespad=0.0,
-        frameon=False,
-        fontsize=AXIS_FONT_SIZE,
-    )
->>>>>>> 0b7b759 (WIP: local changes)
+def _finalize_dos_plot(plot: plt.Axes, show_labels: bool, show_hs_orbital_marker: bool) -> None:
+    _style_dos_lines(plot)
+    if show_labels or show_hs_orbital_marker:
+        _place_legend_outside_top_right(plot)
+        plot.figure.subplots_adjust(right=LEGEND_RIGHT_MARGIN)
+    else:
+        legend = plot.get_legend()
+        if legend is not None:
+            legend.remove()
 
 
 def save_total_dos_plot(
@@ -187,32 +216,18 @@ def save_total_dos_plot(
     out_file: Path,
     e_min: float | None,
     e_max: float | None,
-<<<<<<< HEAD
-    show_hs_orbital_marker: bool = False,
-=======
     show_labels: bool,
->>>>>>> 0b7b759 (WIP: local changes)
+    show_hs_orbital_marker: bool = False,
 ) -> None:
     vr = Vasprun(str(dos_vr), parse_dos=True, parse_eigen=False)
     plotter = DosPlotter(sigma=0.05)
     plotter.add_dos("Total DOS", vr.complete_dos)
     xlim = (e_min, e_max) if (e_min is not None and e_max is not None) else None
     plot = plotter.get_plot(xlim=xlim)
-<<<<<<< HEAD
     if show_hs_orbital_marker:
         hs_peak = _find_h_s_peak_energy(vr.complete_dos, e_min, e_max)
         _add_hs_marker_vertical(plot, hs_peak)
-        plot.legend(loc="best", fontsize=8, frameon=False)
-=======
-    _style_dos_lines(plot)
-    if show_labels:
-        _place_legend_outside_top_right(plot)
-        plot.figure.subplots_adjust(right=LEGEND_RIGHT_MARGIN)
-    else:
-        legend = plot.get_legend()
-        if legend is not None:
-            legend.remove()
->>>>>>> 0b7b759 (WIP: local changes)
+    _finalize_dos_plot(plot, show_labels, show_hs_orbital_marker)
     save_plot_object(plot, out_file)
 
 
@@ -221,11 +236,8 @@ def save_element_pdos_plot(
     out_file: Path,
     e_min: float | None,
     e_max: float | None,
-<<<<<<< HEAD
-    show_hs_orbital_marker: bool = False,
-=======
     show_labels: bool,
->>>>>>> 0b7b759 (WIP: local changes)
+    show_hs_orbital_marker: bool = False,
 ) -> None:
     vr = Vasprun(str(dos_vr), parse_dos=True, parse_eigen=False)
     element_dos = vr.complete_dos.get_element_dos()
@@ -238,25 +250,11 @@ def save_element_pdos_plot(
 
     xlim = (e_min, e_max) if (e_min is not None and e_max is not None) else None
     plot = plotter.get_plot(xlim=xlim)
-<<<<<<< HEAD
     if show_hs_orbital_marker:
         hs_peak = _find_h_s_peak_energy(vr.complete_dos, e_min, e_max)
         _add_hs_marker_vertical(plot, hs_peak)
-        plot.legend(loc="best", fontsize=8, frameon=False)
+    _finalize_dos_plot(plot, show_labels, show_hs_orbital_marker)
     save_plot_object(plot, out_file)
-
-
-def _orbital_name(orbital_key) -> str:
-    name = getattr(orbital_key, "name", str(orbital_key))
-    name = name.split(".")[-1].lower()
-    return name
-
-
-def _iter_spd_dos(spd_map: dict):
-    keyed = {_orbital_name(k): dos for k, dos in spd_map.items()}
-    for orb in ORBITAL_ORDER:
-        if orb in keyed:
-            yield orb, keyed[orb]
 
 
 def save_total_orbital_dos_plot(
@@ -264,6 +262,7 @@ def save_total_orbital_dos_plot(
     out_file: Path,
     e_min: float | None,
     e_max: float | None,
+    show_labels: bool,
     show_hs_orbital_marker: bool = False,
 ) -> None:
     vr = Vasprun(str(dos_vr), parse_dos=True, parse_eigen=False)
@@ -286,7 +285,7 @@ def save_total_orbital_dos_plot(
     if show_hs_orbital_marker:
         hs_peak = _find_h_s_peak_energy(complete_dos, e_min, e_max)
         _add_hs_marker_vertical(plot, hs_peak)
-        plot.legend(loc="best", fontsize=8, frameon=False)
+    _finalize_dos_plot(plot, show_labels, show_hs_orbital_marker)
     save_plot_object(plot, out_file)
 
 
@@ -295,6 +294,7 @@ def save_element_orbital_pdos_plot(
     out_file: Path,
     e_min: float | None,
     e_max: float | None,
+    show_labels: bool,
     show_hs_orbital_marker: bool = False,
 ) -> None:
     vr = Vasprun(str(dos_vr), parse_dos=True, parse_eigen=False)
@@ -318,17 +318,46 @@ def save_element_orbital_pdos_plot(
     if show_hs_orbital_marker:
         hs_peak = _find_h_s_peak_energy(complete_dos, e_min, e_max)
         _add_hs_marker_vertical(plot, hs_peak)
-        plot.legend(loc="best", fontsize=8, frameon=False)
-=======
-    _style_dos_lines(plot)
-    if show_labels:
-        _place_legend_outside_top_right(plot)
-        plot.figure.subplots_adjust(right=LEGEND_RIGHT_MARGIN)
-    else:
-        legend = plot.get_legend()
-        if legend is not None:
-            legend.remove()
->>>>>>> 0b7b759 (WIP: local changes)
+    _finalize_dos_plot(plot, show_labels, show_hs_orbital_marker)
+    save_plot_object(plot, out_file)
+
+
+def save_n_w_orbital_pdos_plot(
+    dos_vr: Path,
+    out_file: Path,
+    e_min: float | None,
+    e_max: float | None,
+    show_labels: bool,
+    show_hs_orbital_marker: bool = False,
+) -> None:
+    vr = Vasprun(str(dos_vr), parse_dos=True, parse_eigen=False)
+    complete_dos = vr.complete_dos
+    element_dos = complete_dos.get_element_dos()
+    if not element_dos:
+        raise ValueError("No element-projected DOS found in vasprun.xml")
+
+    requested = {"N": {"s", "p"}, "W": {"s", "p", "d", "f"}}
+    plotter = DosPlotter(sigma=0.05)
+    added = False
+    for element in element_dos:
+        element_name = str(element)
+        if element_name not in requested:
+            continue
+        spd_dos = complete_dos.get_element_spd_dos(element)
+        for orb, dos in _iter_spd_dos(spd_dos):
+            if orb not in requested[element_name]:
+                continue
+            plotter.add_dos(f"{element_name}-{orb}", dos)
+            added = True
+    if not added:
+        raise ValueError("Requested N/W orbital PDOS channels were not found")
+
+    xlim = (e_min, e_max) if (e_min is not None and e_max is not None) else None
+    plot = plotter.get_plot(xlim=xlim)
+    if show_hs_orbital_marker:
+        hs_peak = _find_h_s_peak_energy(complete_dos, e_min, e_max)
+        _add_hs_marker_vertical(plot, hs_peak)
+    _finalize_dos_plot(plot, show_labels, show_hs_orbital_marker)
     save_plot_object(plot, out_file)
 
 
@@ -382,11 +411,8 @@ def save_band_dos_combined_plot(
     out_file: Path,
     e_min: float | None,
     e_max: float | None,
-<<<<<<< HEAD
-    show_hs_orbital_marker: bool = False,
-=======
     show_labels: bool,
->>>>>>> 0b7b759 (WIP: local changes)
+    show_hs_orbital_marker: bool = False,
 ) -> None:
     vr_band = Vasprun(str(band_vr), parse_projected_eigen=False)
     bs = vr_band.get_band_structure(kpoints_filename=str(kpoints_file), line_mode=True)
@@ -423,11 +449,11 @@ def save_band_dos_combined_plot(
     ax_band.set_title("Band Structure")
     ax_band.grid(axis="y", alpha=0.2)
 
-    ax_dos.plot(total_dos, energies, color="black", lw=1.0, label="Total DOS")
+    ax_dos.plot(total_dos, energies, color="black", lw=0.8, label="Total DOS")
     colors = ["tab:blue", "tab:orange", "tab:green", "tab:purple", "tab:brown", "tab:pink"]
     for i, (el, dos_obj) in enumerate(elem_dos.items()):
         el_dos = _sum_spin_density(dos_obj.densities)
-        ax_dos.plot(el_dos, energies, lw=0.8, color=colors[i % len(colors)], label=f"{el}")
+        ax_dos.plot(el_dos, energies, lw=0.6, color=colors[i % len(colors)], label=f"{el}")
 
     ax_dos.axhline(0.0, color="tab:red", ls="--", lw=1.0)
     if show_hs_orbital_marker:
@@ -469,11 +495,6 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--emin", type=float, default=-6.0, help="Lower energy bound (eV)")
     parser.add_argument("--emax", type=float, default=6.0, help="Upper energy bound (eV)")
     parser.add_argument(
-<<<<<<< HEAD
-        "--show-hs-orbital-marker",
-        action="store_true",
-        help="Draw H-s orbital peak marker line in DOS plots",
-=======
         "--show-labels",
         dest="show_labels",
         action="store_true",
@@ -485,7 +506,11 @@ def parse_args() -> argparse.Namespace:
         dest="show_labels",
         action="store_false",
         help="Hide plot legends/labels",
->>>>>>> 0b7b759 (WIP: local changes)
+    )
+    parser.add_argument(
+        "--show-hs-orbital-marker",
+        action="store_true",
+        help="Draw H-s orbital peak marker line in DOS plots",
     )
     return parser.parse_args()
 
@@ -500,16 +525,18 @@ def main() -> None:
         raise FileNotFoundError(f"Calculation root not found: {calc_root}")
 
     ids = parse_ids(args.ids)
-    db_ids = load_ids_from_db(args.input_db)
-    selected_ids = db_ids if not ids else [rid for rid in db_ids if rid in ids]
-    if not selected_ids:
+    db_records = load_records_from_db(args.input_db)
+    selected_records = db_records if not ids else [rec for rec in db_records if rec["id"] in ids]
+    if not selected_records:
         raise ValueError("No IDs selected.")
 
     print(f"Calculation root: {calc_root}")
-    print(f"Selected IDs: {', '.join(selected_ids)}")
+    print(f"Selected IDs: {', '.join(rec['id'] for rec in selected_records)}")
 
-    for rid in selected_ids:
-        material_dir = find_material_dir(calc_root, rid)
+    for rec in selected_records:
+        rid = rec["id"]
+        material_hint = rec.get("material", "")
+        material_dir = find_material_dir(calc_root, rid, material_hint=material_hint)
         if material_dir is None:
             print(f"[SKIP] ID={rid}: directory not found under {calc_root}")
             continue
@@ -524,33 +551,27 @@ def main() -> None:
         dos_vr = dos_dir / "vasprun.xml"
         if dos_vr.exists():
             try:
-<<<<<<< HEAD
                 save_total_dos_plot(
                     dos_vr,
                     out_dir / "dos_total.png",
                     args.emin,
                     args.emax,
+                    args.show_labels,
                     args.show_hs_orbital_marker,
                 )
-=======
-                save_total_dos_plot(dos_vr, out_dir / "dos_total.png", args.emin, args.emax, args.show_labels)
->>>>>>> 0b7b759 (WIP: local changes)
                 print("  [OK] dos_total.png")
             except Exception as exc:
                 print(f"  [ERR] DOS plot failed: {type(exc).__name__}: {exc}")
 
             try:
-<<<<<<< HEAD
                 save_element_pdos_plot(
                     dos_vr,
                     out_dir / "pdos_element.png",
                     args.emin,
                     args.emax,
+                    args.show_labels,
                     args.show_hs_orbital_marker,
                 )
-=======
-                save_element_pdos_plot(dos_vr, out_dir / "pdos_element.png", args.emin, args.emax, args.show_labels)
->>>>>>> 0b7b759 (WIP: local changes)
                 print("  [OK] pdos_element.png")
             except Exception as exc:
                 print(f"  [ERR] PDOS plot failed: {type(exc).__name__}: {exc}")
@@ -561,6 +582,7 @@ def main() -> None:
                     out_dir / "dos_total_spdf.png",
                     args.emin,
                     args.emax,
+                    args.show_labels,
                     args.show_hs_orbital_marker,
                 )
                 print("  [OK] dos_total_spdf.png")
@@ -573,11 +595,25 @@ def main() -> None:
                     out_dir / "pdos_element_spdf.png",
                     args.emin,
                     args.emax,
+                    args.show_labels,
                     args.show_hs_orbital_marker,
                 )
                 print("  [OK] pdos_element_spdf.png")
             except Exception as exc:
                 print(f"  [ERR] Element orbital PDOS plot failed: {type(exc).__name__}: {exc}")
+
+            try:
+                save_n_w_orbital_pdos_plot(
+                    dos_vr,
+                    out_dir / "pdos_n_sp_w_spdf.png",
+                    args.emin,
+                    args.emax,
+                    args.show_labels,
+                    args.show_hs_orbital_marker,
+                )
+                print("  [OK] pdos_n_sp_w_spdf.png")
+            except Exception as exc:
+                print(f"  [ERR] N/W orbital PDOS plot failed: {type(exc).__name__}: {exc}")
         else:
             print(f"  [SKIP] DOS vasprun missing: {dos_vr}")
 
@@ -609,11 +645,8 @@ def main() -> None:
                         out_dir / "band_dos_combined.png",
                         args.emin,
                         args.emax,
-<<<<<<< HEAD
-                        args.show_hs_orbital_marker,
-=======
                         args.show_labels,
->>>>>>> 0b7b759 (WIP: local changes)
+                        args.show_hs_orbital_marker,
                     )
                     print("  [OK] band_dos_combined.png")
                 except Exception as exc:
