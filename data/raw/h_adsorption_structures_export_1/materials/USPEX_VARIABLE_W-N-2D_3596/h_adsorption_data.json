@@ -1,0 +1,3940 @@
+{
+  "adsorption_complexes": [
+    {
+      "analysis_data": null,
+      "bader_analysis_data": null,
+      "bolztrap_data": null,
+      "charge_difference_path": null,
+      "copied_files": {
+        "charge_difference": null,
+        "initial_struct": "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_3596/initial_structures/USPEX_VARIABLE_W-N-2D_3596_H_bridge_0_along_z.vasp",
+        "relaxed_struct": "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_3596/relaxed_structures/USPEX_VARIABLE_W-N-2D_3596_H_bridge_0_along_z.vasp"
+      },
+      "full_name": "USPEX_VARIABLE_W-N-2D_3596_H_bridge_0_along_z",
+      "geometry_params": null,
+      "ignored_warnings": [],
+      "initial_struct": {
+        "path": "data/adsorption_complexes/initial_struct/USPEX_VARIABLE_W-N-2D_3596_H_bridge_0_along_z.vasp"
+      },
+      "material_name": "USPEX_VARIABLE_W-N-2D_3596",
+      "molecule_name": "H",
+      "orientation": "ALONG_Z",
+      "relax_data": {
+        "total_energy_eV": -613.40649279,
+        "total_energy_per_area_eV_A_sq": -7.8486366252416815
+      },
+      "relax_steps": null,
+      "relaxed_struct": {
+        "path": "data/adsorption_complexes/relaxed_struct/USPEX_VARIABLE_W-N-2D_3596_H_bridge_0_along_z.vasp"
+      },
+      "site": {
+        "name": "bridge_0",
+        "x": 2.348097057503493,
+        "y": 2.3112872044155215,
+        "z": 14.324991087822733
+      },
+      "supercell_size": [
+        3,
+        3
+      ],
+      "work_function": null
+    },
+    {
+      "analysis_data": null,
+      "bader_analysis_data": null,
+      "bolztrap_data": null,
+      "charge_difference_path": null,
+      "copied_files": {
+        "charge_difference": null,
+        "initial_struct": "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_3596/initial_structures/USPEX_VARIABLE_W-N-2D_3596_H_bridge_1_along_z.vasp",
+        "relaxed_struct": "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_3596/relaxed_structures/USPEX_VARIABLE_W-N-2D_3596_H_bridge_1_along_z.vasp"
+      },
+      "full_name": "USPEX_VARIABLE_W-N-2D_3596_H_bridge_1_along_z",
+      "geometry_params": null,
+      "ignored_warnings": [],
+      "initial_struct": {
+        "path": "data/adsorption_complexes/initial_struct/USPEX_VARIABLE_W-N-2D_3596_H_bridge_1_along_z.vasp"
+      },
+      "material_name": "USPEX_VARIABLE_W-N-2D_3596",
+      "molecule_name": "H",
+      "orientation": "ALONG_Z",
+      "relax_data": {
+        "total_energy_eV": -613.40757726,
+        "total_energy_per_area_eV_A_sq": -7.848650501213099
+      },
+      "relax_steps": null,
+      "relaxed_struct": {
+        "path": "data/adsorption_complexes/relaxed_struct/USPEX_VARIABLE_W-N-2D_3596_H_bridge_1_along_z.vasp"
+      },
+      "site": {
+        "name": "bridge_1",
+        "x": 3.8144906925034925,
+        "y": 2.3112872044155215,
+        "z": 14.439548827822733
+      },
+      "supercell_size": [
+        3,
+        3
+      ],
+      "work_function": null
+    },
+    {
+      "analysis_data": null,
+      "bader_analysis_data": null,
+      "bolztrap_data": null,
+      "charge_difference_path": null,
+      "copied_files": {
+        "charge_difference": null,
+        "initial_struct": "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_3596/initial_structures/USPEX_VARIABLE_W-N-2D_3596_H_bridge_2_along_z.vasp",
+        "relaxed_struct": "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_3596/relaxed_structures/USPEX_VARIABLE_W-N-2D_3596_H_bridge_2_along_z.vasp"
+      },
+      "full_name": "USPEX_VARIABLE_W-N-2D_3596_H_bridge_2_along_z",
+      "geometry_params": null,
+      "ignored_warnings": [],
+      "initial_struct": {
+        "path": "data/adsorption_complexes/initial_struct/USPEX_VARIABLE_W-N-2D_3596_H_bridge_2_along_z.vasp"
+      },
+      "material_name": "USPEX_VARIABLE_W-N-2D_3596",
+      "molecule_name": "H",
+      "orientation": "ALONG_Z",
+      "relax_data": {
+        "total_energy_eV": -613.40638939,
+        "total_energy_per_area_eV_A_sq": -7.848635302221731
+      },
+      "relax_steps": null,
+      "relaxed_struct": {
+        "path": "data/adsorption_complexes/relaxed_struct/USPEX_VARIABLE_W-N-2D_3596_H_bridge_2_along_z.vasp"
+      },
+      "site": {
+        "name": "bridge_2",
+        "x": 1.628207435675605,
+        "y": 3.0560266963639764,
+        "z": 14.662316784773367
+      },
+      "supercell_size": [
+        3,
+        3
+      ],
+      "work_function": null
+    },
+    {
+      "analysis_data": null,
+      "bader_analysis_data": null,
+      "bolztrap_data": null,
+      "charge_difference_path": null,
+      "copied_files": {
+        "charge_difference": null,
+        "initial_struct": "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_3596/initial_structures/USPEX_VARIABLE_W-N-2D_3596_H_bridge_3_along_z.vasp",
+        "relaxed_struct": "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_3596/relaxed_structures/USPEX_VARIABLE_W-N-2D_3596_H_bridge_3_along_z.vasp"
+      },
+      "full_name": "USPEX_VARIABLE_W-N-2D_3596_H_bridge_3_along_z",
+      "geometry_params": null,
+      "ignored_warnings": [],
+      "initial_struct": {
+        "path": "data/adsorption_complexes/initial_struct/USPEX_VARIABLE_W-N-2D_3596_H_bridge_3_along_z.vasp"
+      },
+      "material_name": "USPEX_VARIABLE_W-N-2D_3596",
+      "molecule_name": "H",
+      "orientation": "ALONG_Z",
+      "relax_data": {
+        "total_energy_eV": -613.4071149,
+        "total_energy_per_area_eV_A_sq": -7.848644585241108
+      },
+      "relax_steps": null,
+      "relaxed_struct": {
+        "path": "data/adsorption_complexes/relaxed_struct/USPEX_VARIABLE_W-N-2D_3596_H_bridge_3_along_z.vasp"
+      },
+      "site": {
+        "name": "bridge_3",
+        "x": 2.3493591075034934,
+        "y": 3.782541874415519,
+        "z": 14.405667617822731
+      },
+      "supercell_size": [
+        3,
+        3
+      ],
+      "work_function": null
+    },
+    {
+      "analysis_data": null,
+      "bader_analysis_data": null,
+      "bolztrap_data": null,
+      "charge_difference_path": null,
+      "copied_files": {
+        "charge_difference": null,
+        "initial_struct": "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_3596/initial_structures/USPEX_VARIABLE_W-N-2D_3596_H_bridge_4_along_z.vasp",
+        "relaxed_struct": "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_3596/relaxed_structures/USPEX_VARIABLE_W-N-2D_3596_H_bridge_4_along_z.vasp"
+      },
+      "full_name": "USPEX_VARIABLE_W-N-2D_3596_H_bridge_4_along_z",
+      "geometry_params": null,
+      "ignored_warnings": [],
+      "initial_struct": {
+        "path": "data/adsorption_complexes/initial_struct/USPEX_VARIABLE_W-N-2D_3596_H_bridge_4_along_z.vasp"
+      },
+      "material_name": "USPEX_VARIABLE_W-N-2D_3596",
+      "molecule_name": "H",
+      "orientation": "ALONG_Z",
+      "relax_data": {
+        "total_energy_eV": -613.4067257,
+        "total_energy_per_area_eV_A_sq": -7.84863960536331
+      },
+      "relax_steps": null,
+      "relaxed_struct": {
+        "path": "data/adsorption_complexes/relaxed_struct/USPEX_VARIABLE_W-N-2D_3596_H_bridge_4_along_z.vasp"
+      },
+      "site": {
+        "name": "bridge_4",
+        "x": 3.8157527425034923,
+        "y": 3.782541874415519,
+        "z": 14.520225357822735
+      },
+      "supercell_size": [
+        3,
+        3
+      ],
+      "work_function": null
+    },
+    {
+      "analysis_data": null,
+      "bader_analysis_data": null,
+      "bolztrap_data": null,
+      "charge_difference_path": null,
+      "copied_files": {
+        "charge_difference": null,
+        "initial_struct": "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_3596/initial_structures/USPEX_VARIABLE_W-N-2D_3596_H_bridge_5_along_z.vasp",
+        "relaxed_struct": "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_3596/relaxed_structures/USPEX_VARIABLE_W-N-2D_3596_H_bridge_5_along_z.vasp"
+      },
+      "full_name": "USPEX_VARIABLE_W-N-2D_3596_H_bridge_5_along_z",
+      "geometry_params": null,
+      "ignored_warnings": [],
+      "initial_struct": {
+        "path": "data/adsorption_complexes/initial_struct/USPEX_VARIABLE_W-N-2D_3596_H_bridge_5_along_z.vasp"
+      },
+      "material_name": "USPEX_VARIABLE_W-N-2D_3596",
+      "molecule_name": "H",
+      "orientation": "ALONG_Z",
+      "relax_data": {
+        "total_energy_eV": -613.40641288,
+        "total_energy_per_area_eV_A_sq": -7.848635602780131
+      },
+      "relax_steps": null,
+      "relaxed_struct": {
+        "path": "data/adsorption_complexes/relaxed_struct/USPEX_VARIABLE_W-N-2D_3596_H_bridge_5_along_z.vasp"
+      },
+      "site": {
+        "name": "bridge_5",
+        "x": 3.067986679331381,
+        "y": 1.56654771246706,
+        "z": 14.3781339308721
+      },
+      "supercell_size": [
+        3,
+        3
+      ],
+      "work_function": null
+    },
+    {
+      "analysis_data": null,
+      "bader_analysis_data": null,
+      "bolztrap_data": null,
+      "charge_difference_path": null,
+      "copied_files": {
+        "charge_difference": null,
+        "initial_struct": "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_3596/initial_structures/USPEX_VARIABLE_W-N-2D_3596_H_hollow_0_along_z.vasp",
+        "relaxed_struct": "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_3596/relaxed_structures/USPEX_VARIABLE_W-N-2D_3596_H_hollow_0_along_z.vasp"
+      },
+      "full_name": "USPEX_VARIABLE_W-N-2D_3596_H_hollow_0_along_z",
+      "geometry_params": null,
+      "ignored_warnings": [],
+      "initial_struct": {
+        "path": "data/adsorption_complexes/initial_struct/USPEX_VARIABLE_W-N-2D_3596_H_hollow_0_along_z.vasp"
+      },
+      "material_name": "USPEX_VARIABLE_W-N-2D_3596",
+      "molecule_name": "H",
+      "orientation": "ALONG_Z",
+      "relax_data": {
+        "total_energy_eV": -613.40773521,
+        "total_energy_per_area_eV_A_sq": -7.84865252220924
+      },
+      "relax_steps": null,
+      "relaxed_struct": {
+        "path": "data/adsorption_complexes/relaxed_struct/USPEX_VARIABLE_W-N-2D_3596_H_hollow_0_along_z.vasp"
+      },
+      "site": {
+        "name": "hollow_0",
+        "x": 1.6176532385608626,
+        "y": 2.5595337017316737,
+        "z": 14.42183454680628
+      },
+      "supercell_size": [
+        3,
+        3
+      ],
+      "work_function": null
+    },
+    {
+      "analysis_data": null,
+      "bader_analysis_data": null,
+      "bolztrap_data": null,
+      "charge_difference_path": null,
+      "copied_files": {
+        "charge_difference": null,
+        "initial_struct": "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_3596/initial_structures/USPEX_VARIABLE_W-N-2D_3596_H_hollow_1_along_z.vasp",
+        "relaxed_struct": "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_3596/relaxed_structures/USPEX_VARIABLE_W-N-2D_3596_H_hollow_1_along_z.vasp"
+      },
+      "full_name": "USPEX_VARIABLE_W-N-2D_3596_H_hollow_1_along_z",
+      "geometry_params": null,
+      "ignored_warnings": [],
+      "initial_struct": {
+        "path": "data/adsorption_complexes/initial_struct/USPEX_VARIABLE_W-N-2D_3596_H_hollow_1_along_z.vasp"
+      },
+      "material_name": "USPEX_VARIABLE_W-N-2D_3596",
+      "molecule_name": "H",
+      "orientation": "ALONG_Z",
+      "relax_data": {
+        "total_energy_eV": -613.40718811,
+        "total_energy_per_area_eV_A_sq": -7.848645521975058
+      },
+      "relax_steps": null,
+      "relaxed_struct": {
+        "path": "data/adsorption_complexes/relaxed_struct/USPEX_VARIABLE_W-N-2D_3596_H_hollow_1_along_z.vasp"
+      },
+      "site": {
+        "name": "hollow_1",
+        "x": 1.6193359718941946,
+        "y": 3.5403701483983383,
+        "z": 14.529403253472948
+      },
+      "supercell_size": [
+        3,
+        3
+      ],
+      "work_function": null
+    },
+    {
+      "analysis_data": null,
+      "bader_analysis_data": null,
+      "bolztrap_data": null,
+      "charge_difference_path": null,
+      "copied_files": {
+        "charge_difference": null,
+        "initial_struct": "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_3596/initial_structures/USPEX_VARIABLE_W-N-2D_3596_H_hollow_2_along_z.vasp",
+        "relaxed_struct": "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_3596/relaxed_structures/USPEX_VARIABLE_W-N-2D_3596_H_hollow_2_along_z.vasp"
+      },
+      "full_name": "USPEX_VARIABLE_W-N-2D_3596_H_hollow_2_along_z",
+      "geometry_params": null,
+      "ignored_warnings": [],
+      "initial_struct": {
+        "path": "data/adsorption_complexes/initial_struct/USPEX_VARIABLE_W-N-2D_3596_H_hollow_2_along_z.vasp"
+      },
+      "material_name": "USPEX_VARIABLE_W-N-2D_3596",
+      "molecule_name": "H",
+      "orientation": "ALONG_Z",
+      "relax_data": {
+        "total_energy_eV": -613.40686212,
+        "total_energy_per_area_eV_A_sq": -7.848641350879572
+      },
+      "relax_steps": null,
+      "relaxed_struct": {
+        "path": "data/adsorption_complexes/relaxed_struct/USPEX_VARIABLE_W-N-2D_3596_H_hollow_2_along_z.vasp"
+      },
+      "site": {
+        "name": "hollow_2",
+        "x": 3.0768581431127857,
+        "y": 4.024713600432698,
+        "z": 14.51104746217252
+      },
+      "supercell_size": [
+        3,
+        3
+      ],
+      "work_function": null
+    },
+    {
+      "analysis_data": null,
+      "bader_analysis_data": null,
+      "bolztrap_data": null,
+      "charge_difference_path": null,
+      "copied_files": {
+        "charge_difference": null,
+        "initial_struct": "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_3596/initial_structures/USPEX_VARIABLE_W-N-2D_3596_H_hollow_3_along_z.vasp",
+        "relaxed_struct": "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_3596/relaxed_structures/USPEX_VARIABLE_W-N-2D_3596_H_hollow_3_along_z.vasp"
+      },
+      "full_name": "USPEX_VARIABLE_W-N-2D_3596_H_hollow_3_along_z",
+      "geometry_params": null,
+      "ignored_warnings": [],
+      "initial_struct": {
+        "path": "data/adsorption_complexes/initial_struct/USPEX_VARIABLE_W-N-2D_3596_H_hollow_3_along_z.vasp"
+      },
+      "material_name": "USPEX_VARIABLE_W-N-2D_3596",
+      "molecule_name": "H",
+      "orientation": "ALONG_Z",
+      "relax_data": {
+        "total_energy_eV": -613.4071651,
+        "total_energy_per_area_eV_A_sq": -7.848645227558337
+      },
+      "relax_steps": null,
+      "relaxed_struct": {
+        "path": "data/adsorption_complexes/relaxed_struct/USPEX_VARIABLE_W-N-2D_3596_H_hollow_3_along_z.vasp"
+      },
+      "site": {
+        "name": "hollow_3",
+        "x": 3.0760167764461217,
+        "y": 2.0630407070993657,
+        "z": 14.457263108839188
+      },
+      "supercell_size": [
+        3,
+        3
+      ],
+      "work_function": null
+    },
+    {
+      "analysis_data": null,
+      "bader_analysis_data": null,
+      "bolztrap_data": null,
+      "charge_difference_path": null,
+      "copied_files": {
+        "charge_difference": null,
+        "initial_struct": "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_3596/initial_structures/USPEX_VARIABLE_W-N-2D_3596_H_ontop_0_along_z.vasp",
+        "relaxed_struct": "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_3596/relaxed_structures/USPEX_VARIABLE_W-N-2D_3596_H_ontop_0_along_z.vasp"
+      },
+      "full_name": "USPEX_VARIABLE_W-N-2D_3596_H_ontop_0_along_z",
+      "geometry_params": null,
+      "ignored_warnings": [],
+      "initial_struct": {
+        "path": "data/adsorption_complexes/initial_struct/USPEX_VARIABLE_W-N-2D_3596_H_ontop_0_along_z.vasp"
+      },
+      "material_name": "USPEX_VARIABLE_W-N-2D_3596",
+      "molecule_name": "H",
+      "orientation": "ALONG_Z",
+      "relax_data": {
+        "total_energy_eV": -613.40739994,
+        "total_energy_per_area_eV_A_sq": -7.848648232374631
+      },
+      "relax_steps": null,
+      "relaxed_struct": {
+        "path": "data/adsorption_complexes/relaxed_struct/USPEX_VARIABLE_W-N-2D_3596_H_ontop_0_along_z.vasp"
+      },
+      "site": {
+        "name": "ontop_0",
+        "x": 1.601593044331378,
+        "y": 1.5665477124670597,
+        "z": 14.263576190872097
+      },
+      "supercell_size": [
+        3,
+        3
+      ],
+      "work_function": null
+    },
+    {
+      "analysis_data": null,
+      "bader_analysis_data": null,
+      "bolztrap_data": null,
+      "charge_difference_path": null,
+      "copied_files": {
+        "charge_difference": null,
+        "initial_struct": "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_3596/initial_structures/USPEX_VARIABLE_W-N-2D_3596_H_ontop_1_along_z.vasp",
+        "relaxed_struct": "report/h_adsorption_structures_export/materials/USPEX_VARIABLE_W-N-2D_3596/relaxed_structures/USPEX_VARIABLE_W-N-2D_3596_H_ontop_1_along_z.vasp"
+      },
+      "full_name": "USPEX_VARIABLE_W-N-2D_3596_H_ontop_1_along_z",
+      "geometry_params": null,
+      "ignored_warnings": [],
+      "initial_struct": {
+        "path": "data/adsorption_complexes/initial_struct/USPEX_VARIABLE_W-N-2D_3596_H_ontop_1_along_z.vasp"
+      },
+      "material_name": "USPEX_VARIABLE_W-N-2D_3596",
+      "molecule_name": "H",
+      "orientation": "ALONG_Z",
+      "relax_data": {
+        "total_energy_eV": -612.99690348,
+        "total_energy_per_area_eV_A_sq": -7.843395862880084
+      },
+      "relax_steps": null,
+      "relaxed_struct": {
+        "path": "data/adsorption_complexes/relaxed_struct/USPEX_VARIABLE_W-N-2D_3596_H_ontop_1_along_z.vasp"
+      },
+      "site": {
+        "name": "ontop_1",
+        "x": 3.0946010706756044,
+        "y": 3.0560266963639764,
+        "z": 14.776874524773365
+      },
+      "supercell_size": [
+        3,
+        3
+      ],
+      "work_function": null
+    }
+  ],
+  "csv_row": {
+    "Adsorption Energy (eV)": "-0.7321975350000698",
+    "Composition": "W2N",
+    "Energy Above Hull (eV/atom)": "0.018809172666667706",
+    "Gibbs free energy (eV)": "-0.367198",
+    "Material": "USPEX_VARIABLE_W-N-2D_3596",
+    "Site": "hollow_0",
+    "Surface Area (A^2)": "78.15452824217245",
+    "Surface Area (cm^2)": "7.815452824217244e-15",
+    "i0": "-8.55586"
+  },
+  "existing_material_export_record": {
+    "all_stored_struct_records": {
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_1.0_layers_1_vacuum_1_FullRelax_1_Positions": {
+        "calc_stage": "FullRelax_1_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -68.17736034,
+          "total_energy_per_atom_eV": -11.362893390000002
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 1.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/3596_dist_1.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_1.0_layers_1_vacuum_1_FullRelax_2_Full": {
+        "calc_stage": "FullRelax_2_Full",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -69.54430106,
+          "total_energy_per_atom_eV": -11.590716843333333
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 1.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_2_Full/3596_dist_1.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_1.0_layers_1_vacuum_1_FullRelax_3_Full": {
+        "calc_stage": "FullRelax_3_Full",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -69.55476129,
+          "total_energy_per_atom_eV": -11.592460215000001
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 1.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_3_Full/3596_dist_1.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_1.0_layers_1_vacuum_1_FullRelax_4_Positions": {
+        "calc_stage": "FullRelax_4_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -69.55515103,
+          "total_energy_per_atom_eV": -11.592525171666667
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 1.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/3596_dist_1.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_1.0_layers_1_vacuum_1_Initial": {
+        "calc_stage": "Initial",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": null,
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 1.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/3596_dist_1.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_1.0_layers_1_vacuum_1_Selected": {
+        "calc_stage": "Selected",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -69.55515103,
+          "total_energy_per_atom_eV": -11.592525171666667
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 1.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Selected/3596_dist_1.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_1.0_layers_2_vacuum_10_FullRelax_1_Positions": {
+        "calc_stage": "FullRelax_1_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -137.00345932,
+          "total_energy_per_atom_eV": -11.416954943333332
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 1.0,
+          "layers": 2,
+          "vacuum": 10
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/3596_dist_1.0_layers_2_vacuum_10.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_1.0_layers_2_vacuum_10_FullRelax_4_Positions": {
+        "calc_stage": "FullRelax_4_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -137.07272888,
+          "total_energy_per_atom_eV": -11.422727406666667
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 1.0,
+          "layers": 2,
+          "vacuum": 10
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/3596_dist_1.0_layers_2_vacuum_10.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_1.0_layers_2_vacuum_10_Initial": {
+        "calc_stage": "Initial",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": null,
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 1.0,
+          "layers": 2,
+          "vacuum": 10
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/3596_dist_1.0_layers_2_vacuum_10.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_2.0_layers_1_vacuum_1_FullRelax_1_Positions": {
+        "calc_stage": "FullRelax_1_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -68.8994945,
+          "total_energy_per_atom_eV": -11.483249083333334
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 2.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/3596_dist_2.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_2.0_layers_1_vacuum_1_FullRelax_2_Full": {
+        "calc_stage": "FullRelax_2_Full",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -68.91775384,
+          "total_energy_per_atom_eV": -11.486292306666668
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 2.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_2_Full/3596_dist_2.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_2.0_layers_1_vacuum_1_FullRelax_3_Full": {
+        "calc_stage": "FullRelax_3_Full",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -68.93054925,
+          "total_energy_per_atom_eV": -11.488424875
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 2.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_3_Full/3596_dist_2.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_2.0_layers_1_vacuum_1_FullRelax_4_Positions": {
+        "calc_stage": "FullRelax_4_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -68.93136017,
+          "total_energy_per_atom_eV": -11.488560028333334
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 2.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/3596_dist_2.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_2.0_layers_1_vacuum_1_Initial": {
+        "calc_stage": "Initial",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": null,
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 2.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/3596_dist_2.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_2.0_layers_2_vacuum_10_FullRelax_1_Positions": {
+        "calc_stage": "FullRelax_1_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -136.57689456,
+          "total_energy_per_atom_eV": -11.38140788
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 2.0,
+          "layers": 2,
+          "vacuum": 10
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/3596_dist_2.0_layers_2_vacuum_10.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_2.0_layers_2_vacuum_10_FullRelax_4_Positions": {
+        "calc_stage": "FullRelax_4_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -136.58503742,
+          "total_energy_per_atom_eV": -11.382086451666666
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 2.0,
+          "layers": 2,
+          "vacuum": 10
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/3596_dist_2.0_layers_2_vacuum_10.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_2.0_layers_2_vacuum_10_Initial": {
+        "calc_stage": "Initial",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": null,
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 2.0,
+          "layers": 2,
+          "vacuum": 10
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/3596_dist_2.0_layers_2_vacuum_10.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_3.0_layers_1_vacuum_1_FullRelax_1_Positions": {
+        "calc_stage": "FullRelax_1_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -68.56446376,
+          "total_energy_per_atom_eV": -11.427410626666665
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 3.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/3596_dist_3.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_3.0_layers_1_vacuum_1_FullRelax_2_Full": {
+        "calc_stage": "FullRelax_2_Full",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -69.44741129,
+          "total_energy_per_atom_eV": -11.574568548333334
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 3.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_2_Full/3596_dist_3.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_3.0_layers_1_vacuum_1_FullRelax_3_Full": {
+        "calc_stage": "FullRelax_3_Full",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -69.54187043,
+          "total_energy_per_atom_eV": -11.590311738333334
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 3.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_3_Full/3596_dist_3.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_3.0_layers_1_vacuum_1_FullRelax_4_Positions": {
+        "calc_stage": "FullRelax_4_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -69.54216137,
+          "total_energy_per_atom_eV": -11.590360228333333
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 3.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/3596_dist_3.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_3.0_layers_1_vacuum_1_Initial": {
+        "calc_stage": "Initial",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": null,
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 3.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/3596_dist_3.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_3.0_layers_2_vacuum_10_FullRelax_1_Positions": {
+        "calc_stage": "FullRelax_1_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -137.22874067,
+          "total_energy_per_atom_eV": -11.435728389166668
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 3.0,
+          "layers": 2,
+          "vacuum": 10
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/3596_dist_3.0_layers_2_vacuum_10.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_3.0_layers_2_vacuum_10_FullRelax_4_Positions": {
+        "calc_stage": "FullRelax_4_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -137.33047886,
+          "total_energy_per_atom_eV": -11.444206571666667
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 3.0,
+          "layers": 2,
+          "vacuum": 10
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/3596_dist_3.0_layers_2_vacuum_10.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_3.0_layers_2_vacuum_10_Initial": {
+        "calc_stage": "Initial",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": null,
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 3.0,
+          "layers": 2,
+          "vacuum": 10
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/3596_dist_3.0_layers_2_vacuum_10.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_3.0_layers_2_vacuum_10_Selected": {
+        "calc_stage": "Selected",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -137.33047886,
+          "total_energy_per_atom_eV": -11.444206571666667
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 3.0,
+          "layers": 2,
+          "vacuum": 10
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Selected/3596_dist_3.0_layers_2_vacuum_10.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_4.0_layers_1_vacuum_1_FullRelax_1_Positions": {
+        "calc_stage": "FullRelax_1_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -67.9945691,
+          "total_energy_per_atom_eV": -11.332428183333334
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 4.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/3596_dist_4.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_4.0_layers_1_vacuum_1_FullRelax_2_Full": {
+        "calc_stage": "FullRelax_2_Full",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -68.00866351,
+          "total_energy_per_atom_eV": -11.334777251666667
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 4.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_2_Full/3596_dist_4.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_4.0_layers_1_vacuum_1_FullRelax_3_Full": {
+        "calc_stage": "FullRelax_3_Full",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -69.16932257,
+          "total_energy_per_atom_eV": -11.528220428333334
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 4.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_3_Full/3596_dist_4.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_4.0_layers_1_vacuum_1_FullRelax_4_Positions": {
+        "calc_stage": "FullRelax_4_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -69.15829928,
+          "total_energy_per_atom_eV": -11.526383213333332
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 4.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/3596_dist_4.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_4.0_layers_1_vacuum_1_Initial": {
+        "calc_stage": "Initial",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": null,
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 4.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/3596_dist_4.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_4.0_layers_2_vacuum_10_FullRelax_1_Positions": {
+        "calc_stage": "FullRelax_1_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -135.8245145,
+          "total_energy_per_atom_eV": -11.318709541666665
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 4.0,
+          "layers": 2,
+          "vacuum": 10
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/3596_dist_4.0_layers_2_vacuum_10.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_4.0_layers_2_vacuum_10_FullRelax_4_Positions": {
+        "calc_stage": "FullRelax_4_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -137.32406973,
+          "total_energy_per_atom_eV": -11.4436724775
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 4.0,
+          "layers": 2,
+          "vacuum": 10
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/3596_dist_4.0_layers_2_vacuum_10.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_4.0_layers_2_vacuum_10_Initial": {
+        "calc_stage": "Initial",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": null,
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 4.0,
+          "layers": 2,
+          "vacuum": 10
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/3596_dist_4.0_layers_2_vacuum_10.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_5.0_layers_1_vacuum_1_FullRelax_1_Positions": {
+        "calc_stage": "FullRelax_1_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -67.84671877,
+          "total_energy_per_atom_eV": -11.307786461666666
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 5.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/3596_dist_5.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_5.0_layers_1_vacuum_1_FullRelax_2_Full": {
+        "calc_stage": "FullRelax_2_Full",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -67.85547466,
+          "total_energy_per_atom_eV": -11.309245776666666
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 5.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_2_Full/3596_dist_5.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_5.0_layers_1_vacuum_1_FullRelax_3_Full": {
+        "calc_stage": "FullRelax_3_Full",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -67.85766987,
+          "total_energy_per_atom_eV": -11.309611644999999
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 5.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_3_Full/3596_dist_5.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_5.0_layers_1_vacuum_1_FullRelax_4_Positions": {
+        "calc_stage": "FullRelax_4_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -67.8592042,
+          "total_energy_per_atom_eV": -11.309867366666666
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 5.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/3596_dist_5.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_5.0_layers_1_vacuum_1_Initial": {
+        "calc_stage": "Initial",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": null,
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 5.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/3596_dist_5.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_5.0_layers_2_vacuum_10_FullRelax_1_Positions": {
+        "calc_stage": "FullRelax_1_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -135.5990408,
+          "total_energy_per_atom_eV": -11.299920066666667
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 5.0,
+          "layers": 2,
+          "vacuum": 10
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/3596_dist_5.0_layers_2_vacuum_10.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_5.0_layers_2_vacuum_10_FullRelax_4_Positions": {
+        "calc_stage": "FullRelax_4_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -135.61036631,
+          "total_energy_per_atom_eV": -11.300863859166666
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 5.0,
+          "layers": 2,
+          "vacuum": 10
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/3596_dist_5.0_layers_2_vacuum_10.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_5.0_layers_2_vacuum_10_Initial": {
+        "calc_stage": "Initial",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": null,
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 5.0,
+          "layers": 2,
+          "vacuum": 10
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/3596_dist_5.0_layers_2_vacuum_10.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_6.0_layers_1_vacuum_1_FullRelax_1_Positions": {
+        "calc_stage": "FullRelax_1_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -67.78316144,
+          "total_energy_per_atom_eV": -11.297193573333333
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 6.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/3596_dist_6.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_6.0_layers_1_vacuum_1_FullRelax_2_Full": {
+        "calc_stage": "FullRelax_2_Full",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -67.79376455,
+          "total_energy_per_atom_eV": -11.298960758333335
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 6.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_2_Full/3596_dist_6.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_6.0_layers_1_vacuum_1_FullRelax_3_Full": {
+        "calc_stage": "FullRelax_3_Full",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -67.79425979,
+          "total_energy_per_atom_eV": -11.299043298333332
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 6.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_3_Full/3596_dist_6.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_6.0_layers_1_vacuum_1_FullRelax_4_Positions": {
+        "calc_stage": "FullRelax_4_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -67.79654122,
+          "total_energy_per_atom_eV": -11.299423536666666
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 6.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/3596_dist_6.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_6.0_layers_1_vacuum_1_Initial": {
+        "calc_stage": "Initial",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": null,
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 6.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/3596_dist_6.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_6.0_layers_2_vacuum_10_FullRelax_1_Positions": {
+        "calc_stage": "FullRelax_1_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -135.51383113,
+          "total_energy_per_atom_eV": -11.292819260833333
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 6.0,
+          "layers": 2,
+          "vacuum": 10
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/3596_dist_6.0_layers_2_vacuum_10.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_6.0_layers_2_vacuum_10_FullRelax_4_Positions": {
+        "calc_stage": "FullRelax_4_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -135.52434736,
+          "total_energy_per_atom_eV": -11.293695613333334
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 6.0,
+          "layers": 2,
+          "vacuum": 10
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/3596_dist_6.0_layers_2_vacuum_10.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_6.0_layers_2_vacuum_10_Initial": {
+        "calc_stage": "Initial",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": null,
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 6.0,
+          "layers": 2,
+          "vacuum": 10
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/3596_dist_6.0_layers_2_vacuum_10.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_7.0_layers_1_vacuum_1_FullRelax_1_Positions": {
+        "calc_stage": "FullRelax_1_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -67.7537067,
+          "total_energy_per_atom_eV": -11.292284449999999
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 7.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/3596_dist_7.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_7.0_layers_1_vacuum_1_FullRelax_2_Full": {
+        "calc_stage": "FullRelax_2_Full",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -67.7618473,
+          "total_energy_per_atom_eV": -11.293641216666666
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 7.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_2_Full/3596_dist_7.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_7.0_layers_1_vacuum_1_FullRelax_3_Full": {
+        "calc_stage": "FullRelax_3_Full",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -67.76535249,
+          "total_energy_per_atom_eV": -11.294225415
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 7.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_3_Full/3596_dist_7.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_7.0_layers_1_vacuum_1_FullRelax_4_Positions": {
+        "calc_stage": "FullRelax_4_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -67.76659746,
+          "total_energy_per_atom_eV": -11.29443291
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 7.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/3596_dist_7.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_7.0_layers_1_vacuum_1_Initial": {
+        "calc_stage": "Initial",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": null,
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 7.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/3596_dist_7.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_7.0_layers_2_vacuum_10_FullRelax_1_Positions": {
+        "calc_stage": "FullRelax_1_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -135.47598635,
+          "total_energy_per_atom_eV": -11.289665529166667
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 7.0,
+          "layers": 2,
+          "vacuum": 10
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/3596_dist_7.0_layers_2_vacuum_10.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_7.0_layers_2_vacuum_10_FullRelax_4_Positions": {
+        "calc_stage": "FullRelax_4_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -135.48583509,
+          "total_energy_per_atom_eV": -11.2904862575
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 7.0,
+          "layers": 2,
+          "vacuum": 10
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/3596_dist_7.0_layers_2_vacuum_10.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_7.0_layers_2_vacuum_10_Initial": {
+        "calc_stage": "Initial",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": null,
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 7.0,
+          "layers": 2,
+          "vacuum": 10
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/3596_dist_7.0_layers_2_vacuum_10.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_8.0_layers_1_vacuum_1_FullRelax_1_Positions": {
+        "calc_stage": "FullRelax_1_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -67.73586611,
+          "total_energy_per_atom_eV": -11.289311018333335
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 8.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/3596_dist_8.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_8.0_layers_1_vacuum_1_FullRelax_2_Full": {
+        "calc_stage": "FullRelax_2_Full",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -67.74360905,
+          "total_energy_per_atom_eV": -11.290601508333333
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 8.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_2_Full/3596_dist_8.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_8.0_layers_1_vacuum_1_FullRelax_3_Full": {
+        "calc_stage": "FullRelax_3_Full",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -67.74917163,
+          "total_energy_per_atom_eV": -11.291528605000002
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 8.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_3_Full/3596_dist_8.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_8.0_layers_1_vacuum_1_FullRelax_4_Positions": {
+        "calc_stage": "FullRelax_4_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -67.74943762,
+          "total_energy_per_atom_eV": -11.291572936666666
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 8.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/3596_dist_8.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_8.0_layers_1_vacuum_1_Initial": {
+        "calc_stage": "Initial",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": null,
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 8.0,
+          "layers": 1,
+          "vacuum": 1
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/3596_dist_8.0_layers_1_vacuum_1.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_8.0_layers_2_vacuum_10_FullRelax_1_Positions": {
+        "calc_stage": "FullRelax_1_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -135.43695098,
+          "total_energy_per_atom_eV": -11.286412581666667
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 8.0,
+          "layers": 2,
+          "vacuum": 10
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_1_Positions/3596_dist_8.0_layers_2_vacuum_10.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_8.0_layers_2_vacuum_10_FullRelax_4_Positions": {
+        "calc_stage": "FullRelax_4_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": {
+          "total_energy_eV": -135.44308801,
+          "total_energy_per_atom_eV": -11.286924000833332
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 8.0,
+          "layers": 2,
+          "vacuum": 10
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/FullRelax_4_Positions/3596_dist_8.0_layers_2_vacuum_10.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Bulked_dist_8.0_layers_2_vacuum_10_Initial": {
+        "calc_stage": "Initial",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {
+          "symprec": 1e-06
+        },
+        "relax_data": null,
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Bulked",
+        "stage_params": {
+          "dist": 8.0,
+          "layers": 2,
+          "vacuum": 10
+        },
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Bulked/Initial/3596_dist_8.0_layers_2_vacuum_10.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Initial_Initial": {
+        "bolztrap_data": null,
+        "brillouin_zone_plot_path": null,
+        "calc_stage": "Initial",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "enthalpy_per_atom": -11.374,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "hiphive_data": null,
+        "hybrid_bs_data": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "interlayer_distance": null,
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "md_override_params": {},
+        "md_params": null,
+        "override_params": {},
+        "pbe_bs_data": null,
+        "phonon_data": null,
+        "relax_data": {
+          "total_energy_eV": -34.122,
+          "total_energy_per_atom_eV": -11.374
+        },
+        "relaxed_struct": {
+          "path": "data/stored_structs/relaxed_struct/USPEX_VARIABLE_W-N-2D_3596_Initial.vasp"
+        },
+        "soc_bs_data": null,
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Initial",
+        "stage_params": null,
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Initial/Initial/3596.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null,
+        "volume_relax_data": null,
+        "work_function": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Normalized_Initial": {
+        "bolztrap_data": null,
+        "brillouin_zone_plot_path": null,
+        "calc_stage": "Initial",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "enthalpy_per_atom": -11.374,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "hiphive_data": null,
+        "hybrid_bs_data": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "md_override_params": {},
+        "md_params": null,
+        "override_params": {},
+        "pbe_bs_data": null,
+        "phonon_data": null,
+        "relax_data": null,
+        "relaxed_struct": {
+          "path": "data/stored_structs/relaxed_struct/USPEX_VARIABLE_W-N-2D_3596_Initial.vasp"
+        },
+        "soc_bs_data": null,
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Normalized",
+        "stage_params": null,
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Normalized/Initial/3596.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null,
+        "volume_relax_data": null,
+        "work_function": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Normalized_NSCF": {
+        "calc_stage": "NSCF",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "hybrid_bs_data": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {},
+        "pbe_bs_data": null,
+        "relax_data": {
+          "total_energy_eV": -66.29388282,
+          "total_energy_per_atom_eV": -11.048980469999998
+        },
+        "soc_bs_data": null,
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Normalized",
+        "stage_params": null,
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Normalized/NSCF/3596.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Normalized_Relax_Positions": {
+        "bolztrap_data": null,
+        "brillouin_zone_plot_path": null,
+        "calc_stage": "Relax_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "enthalpy_per_atom": -11.374,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "hiphive_data": null,
+        "hybrid_bs_data": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "md_override_params": {},
+        "md_params": null,
+        "override_params": {},
+        "pbe_bs_data": null,
+        "phonon_data": null,
+        "relax_data": {
+          "total_energy_eV": -67.68749051,
+          "total_energy_per_atom_eV": -11.281248418333334
+        },
+        "soc_bs_data": null,
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Normalized",
+        "stage_params": null,
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Normalized/Relax_Positions/3596.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null,
+        "volume_relax_data": null,
+        "work_function": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Normalized_SCF": {
+        "calc_stage": "SCF",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": 0.3097073350000006,
+        "exfoliation_energy_per_area": 0.213988830412716,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "interlayer_distance": 1.954510646033265,
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {},
+        "relax_data": {
+          "total_energy_eV": -67.69690702,
+          "total_energy_per_atom_eV": -11.282817836666666
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Normalized",
+        "stage_params": null,
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Normalized/SCF/3596.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Relaxed_Initial": {
+        "bolztrap_data": null,
+        "brillouin_zone_plot_path": null,
+        "calc_stage": "Initial",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "enthalpy_per_atom": -11.374,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "hiphive_data": null,
+        "hybrid_bs_data": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "md_override_params": {},
+        "md_params": null,
+        "override_params": {},
+        "pbe_bs_data": null,
+        "phonon_data": null,
+        "relax_data": {
+          "total_energy_eV": -67.68749051,
+          "total_energy_per_atom_eV": -11.281248418333334
+        },
+        "soc_bs_data": null,
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Relaxed",
+        "stage_params": null,
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Relaxed/Initial/3596.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null,
+        "volume_relax_data": null,
+        "work_function": null
+      },
+      "USPEX_VARIABLE_W-N-2D_3596_Relaxed_Relax_Positions": {
+        "calc_stage": "Relax_Positions",
+        "composition": {
+          "N": 1.0,
+          "W": 2.0
+        },
+        "composition_text": "W2N",
+        "composition_text_pretty": "W2N1",
+        "conex_hull_id": "W-N-2D",
+        "convergence": null,
+        "exfoliation_energy": null,
+        "exfoliation_energy_per_area": null,
+        "id": "W-N-2D_3596",
+        "ignored_warnings": [],
+        "interlayer_distance": null,
+        "is_magnetic": false,
+        "layered_data": {
+          "initial_vacuum": 10.0,
+          "number_of_layers": 1
+        },
+        "override_params": {},
+        "relax_data": {
+          "total_energy_eV": -67.68738796,
+          "total_energy_per_atom_eV": -11.281231326666665
+        },
+        "source": {
+          "src_id": "W-N-2D",
+          "struct_id": "3596",
+          "type": "USPEX_VARIABLE"
+        },
+        "stage": "Relaxed",
+        "stage_params": null,
+        "stored_struct": {
+          "path": "data/structures/USPEX_VARIABLE/W-N-2D/Relaxed/Relax_Positions/3596.vasp"
+        },
+        "symmetry": null,
+        "tags": [],
+        "u_correction_data": null
+      }
+    },
+    "available_calculation_inputs": [],
+    "convergence_data_by_struct": {},
+    "csv_row": {
+      "Adsorption Energy (eV)": "-0.7321975350000698",
+      "Composition": "W2N",
+      "Energy Above Hull (eV/atom)": "0.018809172666667706",
+      "Gibbs free energy (eV)": "-0.367198",
+      "Material": "USPEX_VARIABLE_W-N-2D_3596",
+      "Site": "hollow_0",
+      "Surface Area (A^2)": "78.15452824217245",
+      "Surface Area (cm^2)": "7.815452824217244e-15",
+      "i0": "-8.55586"
+    },
+    "final_struct_record": {
+      "calc_stage": "Relax_Positions",
+      "composition": {
+        "N": 1.0,
+        "W": 2.0
+      },
+      "composition_text": "W2N",
+      "composition_text_pretty": "W2N1",
+      "conex_hull_id": "W-N-2D",
+      "convergence": null,
+      "exfoliation_energy": null,
+      "exfoliation_energy_per_area": null,
+      "id": "W-N-2D_3596",
+      "ignored_warnings": [],
+      "interlayer_distance": null,
+      "is_magnetic": false,
+      "layered_data": {
+        "initial_vacuum": 10.0,
+        "number_of_layers": 1
+      },
+      "override_params": {},
+      "relax_data": {
+        "total_energy_eV": -67.68738796,
+        "total_energy_per_atom_eV": -11.281231326666665
+      },
+      "source": {
+        "src_id": "W-N-2D",
+        "struct_id": "3596",
+        "type": "USPEX_VARIABLE"
+      },
+      "stage": "Relaxed",
+      "stage_params": null,
+      "stored_struct": {
+        "path": "data/structures/USPEX_VARIABLE/W-N-2D/Relaxed/Relax_Positions/3596.vasp"
+      },
+      "symmetry": null,
+      "tags": [],
+      "u_correction_data": null
+    },
+    "final_struct_record_id": "USPEX_VARIABLE_W-N-2D_3596_Relaxed_Relax_Positions",
+    "final_structure_exported_to": "report/adsorption_materials_export/materials/USPEX_VARIABLE_W-N-2D_3596/FINAL_STRUCTURE.vasp",
+    "final_structure_source": "data/structures/USPEX_VARIABLE/W-N-2D/Relaxed/Relax_Positions/3596.vasp",
+    "kpath_data": {
+      "kpts": {
+        "G": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "N": [
+          0.0,
+          0.5,
+          0.0
+        ],
+        "P": [
+          0.25,
+          0.25,
+          0.25
+        ],
+        "S": [
+          -0.2515765123089822,
+          0.2515765123089822,
+          0.2515765123089822
+        ],
+        "S1": [
+          0.2515765123089822,
+          0.7484234876910179,
+          -0.2515765123089822
+        ],
+        "X": [
+          0.0,
+          0.0,
+          0.5
+        ],
+        "Y": [
+          -0.003153024617964443,
+          0.003153024617964443,
+          0.5
+        ],
+        "Y1": [
+          0.5,
+          0.5,
+          -0.003153024617964443
+        ],
+        "Z": [
+          0.5,
+          0.5,
+          -0.5
+        ]
+      },
+      "path": "GXYSGZS1NPY1Z,XP"
+    },
+    "material": "USPEX_VARIABLE_W-N-2D_3596",
+    "material_record": {
+      "adsorption_sites_data": null,
+      "composition": {
+        "N": 1.0,
+        "W": 2.0
+      },
+      "e_above_hull": 0.018809172666667706,
+      "full_name": "USPEX_VARIABLE_W-N-2D_3596",
+      "hybrid_bs_data": null,
+      "is_magnetic": false,
+      "is_most_stable_in_composition": true,
+      "is_pd_element": false,
+      "pbe_bs_data": null,
+      "soc_bs_data": null,
+      "struct_id": "USPEX_VARIABLE_W-N-2D_3596_Relaxed_Relax_Positions",
+      "symmetry": {
+        "bz_is_2d": true,
+        "crystal_system": "monoclinic",
+        "high_symmetry_path": {
+          "kpts": {
+            "G": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "N": [
+              0.0,
+              0.5,
+              0.0
+            ],
+            "P": [
+              0.25,
+              0.25,
+              0.25
+            ],
+            "S": [
+              -0.2515765123089822,
+              0.2515765123089822,
+              0.2515765123089822
+            ],
+            "S1": [
+              0.2515765123089822,
+              0.7484234876910179,
+              -0.2515765123089822
+            ],
+            "X": [
+              0.0,
+              0.0,
+              0.5
+            ],
+            "Y": [
+              -0.003153024617964443,
+              0.003153024617964443,
+              0.5
+            ],
+            "Y1": [
+              0.5,
+              0.5,
+              -0.003153024617964443
+            ],
+            "Z": [
+              0.5,
+              0.5,
+              -0.5
+            ]
+          },
+          "path": "GXYSGZS1NPY1Z,XP"
+        },
+        "lattice_name": "body-centred tetragonal",
+        "lattice_type": "monoclinic",
+        "space_group_number": 12,
+        "space_group_symbol": "C2/m",
+        "symprec": 0.1
+      },
+      "tags": []
+    }
+  },
+  "h_adsorption_structures_count": 12,
+  "material": "USPEX_VARIABLE_W-N-2D_3596",
+  "material_record": {
+    "adsorption_sites_data": null,
+    "composition": {
+      "N": 1.0,
+      "W": 2.0
+    },
+    "e_above_hull": 0.018809172666667706,
+    "full_name": "USPEX_VARIABLE_W-N-2D_3596",
+    "hybrid_bs_data": null,
+    "is_magnetic": false,
+    "is_most_stable_in_composition": true,
+    "is_pd_element": false,
+    "pbe_bs_data": null,
+    "soc_bs_data": null,
+    "struct_id": "USPEX_VARIABLE_W-N-2D_3596_Relaxed_Relax_Positions",
+    "symmetry": {
+      "bz_is_2d": true,
+      "crystal_system": "monoclinic",
+      "high_symmetry_path": {
+        "kpts": {
+          "G": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "N": [
+            0.0,
+            0.5,
+            0.0
+          ],
+          "P": [
+            0.25,
+            0.25,
+            0.25
+          ],
+          "S": [
+            -0.2515765123089822,
+            0.2515765123089822,
+            0.2515765123089822
+          ],
+          "S1": [
+            0.2515765123089822,
+            0.7484234876910179,
+            -0.2515765123089822
+          ],
+          "X": [
+            0.0,
+            0.0,
+            0.5
+          ],
+          "Y": [
+            -0.003153024617964443,
+            0.003153024617964443,
+            0.5
+          ],
+          "Y1": [
+            0.5,
+            0.5,
+            -0.003153024617964443
+          ],
+          "Z": [
+            0.5,
+            0.5,
+            -0.5
+          ]
+        },
+        "path": "GXYSGZS1NPY1Z,XP"
+      },
+      "lattice_name": "body-centred tetragonal",
+      "lattice_type": "monoclinic",
+      "space_group_number": 12,
+      "space_group_symbol": "C2/m",
+      "symprec": 0.1
+    },
+    "tags": []
+  },
+  "sites": [
+    "bridge_0",
+    "bridge_1",
+    "bridge_2",
+    "bridge_3",
+    "bridge_4",
+    "bridge_5",
+    "hollow_0",
+    "hollow_1",
+    "hollow_2",
+    "hollow_3",
+    "ontop_0",
+    "ontop_1"
+  ]
+}

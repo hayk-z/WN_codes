@@ -13,9 +13,10 @@ ONE_COLUMN_WIDTH_IN = 90.0 / 25.4  # Elsevier single-column width (90 mm)
 ONE_COLUMN_HEIGHT_IN = 3.0
 ONE_COLUMN_DPI = 1000
 LABEL_FONT_SIZE = 5.0
+DEFAULT_INPUT_CSV = "Reports_gen/Table_1.csv"
 
 
-def read_adsorption_csv(path: str = "Reports_gen/Adsorption_filtered.csv"):
+def read_adsorption_csv(path: str = DEFAULT_INPUT_CSV):
     """Read adsorption CSV into (header, data) where data is a 2D NumPy object array."""
     if not os.path.exists(path):
         raise FileNotFoundError(f"File not found: {path}")
@@ -26,6 +27,33 @@ def read_adsorption_csv(path: str = "Reports_gen/Adsorption_filtered.csv"):
         rows = [[field.strip() for field in row] for row in reader]
 
     return header, np.array(rows, dtype=object)
+
+
+def filter_by_adsorption_range(header, data, min_adsorption_ev: float = -1.0, max_adsorption_ev: float = 1.0):
+    """Keep rows with min_adsorption_ev <= Adsorption Energy (eV) <= max_adsorption_ev."""
+    ads_idx = header.index("Adsorption Energy (eV)")
+    keep_mask = np.zeros(data.shape[0], dtype=bool)
+    for i, value in enumerate(data[:, ads_idx]):
+        text = str(value).strip()
+        try:
+            ads = np.nan if (text == "" or text.upper() == "N/A") else float(text)
+        except ValueError:
+            ads = np.nan
+        keep_mask[i] = (not np.isnan(ads)) and (min_adsorption_ev <= ads <= max_adsorption_ev)
+    return header, data[keep_mask], keep_mask
+
+
+def adsorption_values(header, data):
+    """Parse Adsorption Energy (eV) values into float array with NaN for invalid entries."""
+    ads_idx = header.index("Adsorption Energy (eV)")
+    out = np.full(data.shape[0], np.nan, dtype=float)
+    for i, value in enumerate(data[:, ads_idx]):
+        text = str(value).strip()
+        try:
+            out[i] = np.nan if (text == "" or text.upper() == "N/A") else float(text)
+        except ValueError:
+            out[i] = np.nan
+    return out
 
 
 def calculate_gibbs_free_energy(header, data, offset: float = 0.365):
@@ -55,6 +83,7 @@ def plot_reaction_coordinate(
     middle_points: int = 2,
     show_labels: bool = True,
     show_legend: bool = False,
+    line_colors=None,
 ):
     """
     Plot HER Gibbs free energy diagram with segmented linear connections.
@@ -84,7 +113,10 @@ def plot_reaction_coordinate(
     x_labels = [r"$\mathrm{H^+ + e^-}$", r"$\mathrm{H^*}$", r"$\mathrm{\frac{1}{2}H_2}$"]
 
     if gibbs.size > 0:
-        colors = plt.cm.tab20(np.linspace(0, 1, gibbs.size))
+        if line_colors is None:
+            colors = plt.cm.tab20(np.linspace(0, 1, gibbs.size))
+        else:
+            colors = line_colors
         for idx, (c, dg, label) in enumerate(zip(colors, gibbs, labels)):
             y = np.zeros_like(x)
             y[mid_start:mid_end] = float(dg)
@@ -135,17 +167,22 @@ def plot_reaction_coordinate(
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Generate HER reaction coordinate plot")
     parser.add_argument(
+        "--input",
+        default=DEFAULT_INPUT_CSV,
+        help=f"Input CSV path (default: {DEFAULT_INPUT_CSV})",
+    )
+    parser.add_argument(
         "--show-labels",
         dest="show_labels",
         action="store_true",
-        default=True,
-        help="Show inline text labels on curves (default: on)",
+        default=False,
+        help="Show inline text labels on curves",
     )
     parser.add_argument(
         "--hide-labels",
         dest="show_labels",
         action="store_false",
-        help="Hide inline text labels on curves",
+        help="Hide inline text labels on curves (default)",
     )
     parser.add_argument(
         "--show-legend",
@@ -172,7 +209,26 @@ def parse_args() -> argparse.Namespace:
 if __name__ == "__main__":
     try:
         args = parse_args()
-        header, data = read_adsorption_csv()
+        header, data_all = read_adsorption_csv(args.input)
+
+        # Build volcano-consistent per-row colors from full input order.
+        ads_all = adsorption_values(header, data_all)
+        volcano_valid_mask = ~np.isnan(ads_all)
+        volcano_valid_indices = np.where(volcano_valid_mask)[0]
+        n_volcano_points = volcano_valid_indices.size + 1  # + Pt in volcano plot
+        volcano_palette = plt.cm.tab20(np.linspace(0, 1, max(n_volcano_points, 1)))
+        rank_by_index = {idx: rank for rank, idx in enumerate(volcano_valid_indices)}
+
+        header, data, keep_mask = filter_by_adsorption_range(header, data_all, min_adsorption_ev=-1.0, max_adsorption_ev=1.0)
+        kept_indices = np.where(keep_mask)[0]
+        line_colors = []
+        for idx in kept_indices:
+            if idx in rank_by_index:
+                line_colors.append(volcano_palette[rank_by_index[idx]])
+            else:
+                line_colors.append((0.2, 0.2, 0.2, 1.0))
+        line_colors = np.array(line_colors)
+
         header, data = calculate_gibbs_free_energy(header, data)
         plot_reaction_coordinate(
             header,
@@ -181,6 +237,7 @@ if __name__ == "__main__":
             middle_points=args.middle_points,
             show_labels=args.show_labels,
             show_legend=args.show_legend,
+            line_colors=line_colors,
         )
         print("Saved reaction coordinate plot to: Reports_gen/reaction_coordinate_plot.png")
     except Exception as exc:

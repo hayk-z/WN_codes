@@ -16,9 +16,11 @@ LABEL_FONT_SIZE = 5.0
 PT_GIBBS = 0.08
 PT_LOG_I0 = -2.63
 PT_LABEL = "Pt"
+DEFAULT_INPUT_CSV = "Reports_gen/Table_1.csv"
+MARKER_SIZE = 26
 
 
-def read_adsorption_csv(path: str = "Reports_gen/Adsorption_filtered.csv"):
+def read_adsorption_csv(path: str = DEFAULT_INPUT_CSV):
     """Read adsorption CSV into (header, data) where data is a 2D NumPy object array."""
     if not os.path.exists(path):
         raise FileNotFoundError(f"File not found: {path}")
@@ -61,7 +63,14 @@ def calculate_exchange_current(header, data):
     t = 300.0               # K
     e = 1.602176634e-19     # C
 
-    area_idx = header.index("Surface Area (cm^2)")
+    if "Surface Area (cm^2)" in header:
+        area_idx = header.index("Surface Area (cm^2)")
+        area_scale = 1.0
+    elif "Surface Area (A^2)" in header:
+        area_idx = header.index("Surface Area (A^2)")
+        area_scale = 1e-16  # 1 A^2 = 1e-16 cm^2
+    else:
+        raise ValueError("Missing area column. Expected 'Surface Area (cm^2)' or 'Surface Area (A^2)'.")
     gibbs_idx = header.index("Gibbs free energy (eV)")
     nrows = data.shape[0]
 
@@ -70,7 +79,7 @@ def calculate_exchange_current(header, data):
         area_text = str(data[i, area_idx]).strip()
         gibbs_text = str(data[i, gibbs_idx]).strip()
         try:
-            area = np.nan if (area_text == "" or area_text.upper() == "N/A") else float(area_text)
+            area = np.nan if (area_text == "" or area_text.upper() == "N/A") else float(area_text) * area_scale
             g = np.nan if (gibbs_text == "" or gibbs_text.upper() == "N/A") else float(gibbs_text)
         except ValueError:
             i0_vals[i] = np.nan
@@ -102,12 +111,14 @@ def plot_volcano(
     """Plot i0 vs Gibbs free energy and save volcano plot."""
     gibbs_idx = header.index("Gibbs free energy (eV)")
     i0_idx = header.index("i0")
+    sym_idx = header.index("Symmetry of the lattice") if "Symmetry of the lattice" in header else None
     if "Material Composition" in header:
         label_idx = header.index("Material Composition")
     elif "Composition" in header:
         label_idx = header.index("Composition")
     else:
         label_idx = 0
+    comp_idx = header.index("Composition") if "Composition" in header else label_idx
     gibbs = data[:, gibbs_idx].astype(float)
     i0 = data[:, i0_idx].astype(float)
     valid_mask = ~(np.isnan(gibbs) | np.isnan(i0))
@@ -115,15 +126,40 @@ def plot_volcano(
     gibbs_clean = gibbs[valid_mask]
     i0_clean = i0[valid_mask]
     labels = data[valid_mask, label_idx]
+    compositions = data[valid_mask, comp_idx]
+    if sym_idx is not None:
+        symmetries = data[valid_mask, sym_idx]
+    else:
+        symmetries = np.array([""] * gibbs_clean.size, dtype=object)
     gibbs_clean = np.append(gibbs_clean, PT_GIBBS)
     i0_clean = np.append(i0_clean, PT_LOG_I0)
     labels = np.append(labels, PT_LABEL)
+    compositions = np.append(compositions, "Pt")
+    symmetries = np.append(symmetries, "pt")
 
     fig, ax = plt.subplots(figsize=(ONE_COLUMN_WIDTH_IN, ONE_COLUMN_HEIGHT_IN))
     colors = plt.cm.tab20(np.linspace(0, 1, max(gibbs_clean.size, 1)))
-    for idx, (c, x, y, label) in enumerate(zip(colors, gibbs_clean, i0_clean, labels)):
+    for idx, (c, x, y, label, comp, sym) in enumerate(zip(colors, gibbs_clean, i0_clean, labels, compositions, symmetries)):
         scatter_label = str(label) if show_legend else None
-        ax.scatter([x], [y], alpha=0.8, s=50, edgecolors="black", color=c, zorder=3, label=scatter_label)
+        marker = "o"
+        comp_text = str(comp).strip().lower()
+        sym_text = str(sym).strip().lower()
+        if comp_text == "w2n3":
+            if "square" in sym_text:
+                marker = "s"
+            elif "hex" in sym_text:
+                marker = "h"
+        ax.scatter(
+            [x],
+            [y],
+            alpha=0.8,
+            s=MARKER_SIZE,
+            marker=marker,
+            edgecolors="black",
+            color=c,
+            zorder=3,
+            label=scatter_label,
+        )
         if show_labels:
             dy = 7 if idx % 2 == 0 else -8
             va = "bottom" if dy > 0 else "top"
@@ -218,11 +254,16 @@ def save_csv(header, data, out_path: str = "Reports_gen/Adsorption_gibbs_with_i0
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Generate volcano plot for W-N materials")
     parser.add_argument(
+        "--input",
+        default=DEFAULT_INPUT_CSV,
+        help=f"Input CSV path (default: {DEFAULT_INPUT_CSV})",
+    )
+    parser.add_argument(
         "--show-labels",
         dest="show_labels",
         action="store_true",
-        default=True,
-        help="Show inline text labels on points (default: on)",
+        default=False,
+        help="Show inline text labels on points",
     )
     parser.add_argument(
         "--hide-labels",
@@ -249,7 +290,7 @@ def parse_args() -> argparse.Namespace:
 if __name__ == "__main__":
     try:
         args = parse_args()
-        header, data = read_adsorption_csv()
+        header, data = read_adsorption_csv(args.input)
         header, data = calculate_gibbs_free_energy(header, data)
         header, data = calculate_exchange_current(header, data)
         save_csv(header, data, "Reports_gen/Adsorption_gibbs_with_i0.csv")

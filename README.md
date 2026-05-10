@@ -49,6 +49,36 @@ conda env update --file environment.yml --prune
 conda activate wn_env
 ```
 
+### `scripts/volcano_plot_n.py`
+
+Purpose:
+- Generate volcano plot (`log(i0)` vs `Delta G_H*`) for W-N 2D materials.
+- Read `Reports_gen/Table_1.csv` by default.
+- Compute Gibbs free energy and exchange current, then save:
+  - `Reports_gen/Adsorption_gibbs_with_i0.csv`
+  - `Reports_gen/volcano_plot.png`
+  - `Reports_gen/volcano_plot.pdf`
+
+Marker style:
+- Default marker for all points: circle.
+- Only `W2N3` points are shape-mapped by lattice symmetry:
+  - `square` lattice -> square marker
+  - `hexagonal` lattice -> hexagon marker
+
+Defaults:
+- Labels: hidden by default.
+- Legend: hidden by default.
+
+Options:
+- `--input` (default: `Reports_gen/Table_1.csv`)
+- `--show-labels` / `--hide-labels`
+- `--show-legend` / `--hide-legend`
+
+Example:
+```bash
+python3 scripts/volcano_plot_n.py
+```
+
 ## Source Files
 
 ### `src/dftkit/io/build_wn_materials_db.py`

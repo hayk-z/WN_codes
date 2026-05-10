@@ -1,0 +1,10 @@
+Composition, Symmetry of the lattice, Above hull energy (meV/atom), Adsorption Energy (eV), d H-2D (A), Surface Area (A^2), Delta ZPE (eV), E_exf (meV/A^2), E_exf (meV/atom), d_bulk (A)
+W2N3       , square                 ,                          0.0, -0.360                ,      1.026,             69.85 ,          0.164,             111,              173,      1.473
+W2N3       , hexagonal              ,                         14  , -0.151                ,      1.397,             69.84 ,          0.164,              31,               45,      2.737
+W3N4       , oblique                ,                          0.0, -1.993                ,      1.02 ,             66.27 ,          0.162,             249,              262,      1.40
+W4N3       , hexagonal              ,                          0.0, -0.553                ,      1.026,             68.88 ,          0.159,              51,               56,      2.456
+W5N3       , square                 ,                          0.0, -2.077                ,      1.741,             77.614,          0.061,             175,              189,      2.56
+WN2        , hexagonal              ,                         48.5, -1.658                ,      1.02 ,             68.20 ,          0.167,             254,              320,      1.41
+W3N2       , rectangular            ,                         23.2, -0.759                ,      1.89 ,             72.71 ,          0.065,             236,              287,      1.39
+W2N        , square                 ,                         18.8, -0.732                ,      1.73 ,             78.15 ,          0.069,             212,              309,      1.95
+W3N        , oblique                ,                          9.5, -1.181                ,      1.91 ,             70.80 ,          0.064,             281,              415,      1.45
