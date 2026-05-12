@@ -23,8 +23,8 @@ ONE_COLUMN_WIDTH_IN = 90.0 / 25.4  # Elsevier single-column width
 SINGLE_PANEL_HEIGHT_IN = 60.0 / 25.4  # 60 mm height
 COMBINED_PANEL_HEIGHT_IN = 60.0 / 25.4  # 60 mm height
 EXPORT_DPI = 1000
-AXIS_FONT_SIZE = 7
-TITLE_FONT_SIZE = 8
+AXIS_FONT_SIZE = 9
+TITLE_FONT_SIZE = 10
 DOS_LINEWIDTH_SCALE = 0.65
 LEGEND_ANCHOR_X = 1.16
 LEGEND_ANCHOR_Y = 1.0
@@ -33,6 +33,7 @@ LEGEND_RIGHT_MARGIN = 0.76
 # Prefer Times New Roman for all figure text.
 matplotlib.rcParams["font.family"] = "serif"
 matplotlib.rcParams["font.serif"] = ["Times New Roman", "Times", "DejaVu Serif"]
+matplotlib.rcParams["font.size"] = 9
 
 
 def sanitize_name(name: str) -> str:
@@ -361,6 +362,73 @@ def save_n_w_orbital_pdos_plot(
     save_plot_object(plot, out_file)
 
 
+def save_total_wd_np_pdos_plot(
+    dos_vr: Path,
+    out_file: Path,
+    e_min: float | None,
+    e_max: float | None,
+    show_labels: bool,
+    show_hs_orbital_marker: bool = False,
+) -> None:
+    vr = Vasprun(str(dos_vr), parse_dos=True, parse_eigen=False)
+    complete_dos = vr.complete_dos
+    element_dos = complete_dos.get_element_dos()
+    if not element_dos:
+        raise ValueError("No element-projected DOS found in vasprun.xml")
+
+    energies = np.array(complete_dos.energies) - float(complete_dos.efermi)
+    n_p_dos = None
+    w_d_dos = None
+    for element in element_dos:
+        element_name = str(element)
+        spd_map = complete_dos.get_element_spd_dos(element)
+        for orb, dos_obj in _iter_spd_dos(spd_map):
+            if element_name == "N" and orb == "p":
+                n_p_dos = _sum_spin_density(dos_obj.densities)
+            if element_name == "W" and orb == "d":
+                w_d_dos = _sum_spin_density(dos_obj.densities)
+
+    if n_p_dos is None or w_d_dos is None:
+        missing = []
+        if n_p_dos is None:
+            missing.append("N-p")
+        if w_d_dos is None:
+            missing.append("W-d")
+        raise ValueError(f"Requested orbital PDOS channel(s) not found: {', '.join(missing)}")
+
+    fig, ax = plt.subplots()
+    ax.plot(energies, w_d_dos, color="tab:blue", label="W-d")
+    ax.plot(energies, n_p_dos, color="tab:orange", label="N-p")
+    ax.axvline(0.0, color="tab:red", ls="--", lw=1.0)
+    if show_hs_orbital_marker:
+        hs_peak = _find_h_s_peak_energy(complete_dos, e_min, e_max)
+        _add_hs_marker_vertical(ax, hs_peak)
+
+    ax.set_xlabel("E - Ef (eV)")
+    ax.set_ylabel("DOS")
+    ax.set_title("W-d / N-p PDOS")
+    if e_min is not None and e_max is not None:
+        ax.set_xlim(e_min, e_max)
+
+    mask = np.ones_like(energies, dtype=bool)
+    if e_min is not None:
+        mask &= energies >= e_min
+    if e_max is not None:
+        mask &= energies <= e_max
+    if np.any(mask):
+        ymax = max(
+            float(np.max(w_d_dos[mask])),
+            float(np.max(n_p_dos[mask])),
+        )
+    else:
+        ymax = max(float(np.max(w_d_dos)), float(np.max(n_p_dos)))
+    if ymax > 0:
+        ax.set_ylim(0, 1.12 * ymax)
+
+    _finalize_dos_plot(ax, show_labels, show_hs_orbital_marker)
+    _save_figure(fig, out_file, SINGLE_PANEL_HEIGHT_IN)
+
+
 def save_band_plot(
     band_vr: Path,
     kpoints_file: Path,
@@ -614,6 +682,19 @@ def main() -> None:
                 print("  [OK] pdos_n_sp_w_spdf.png")
             except Exception as exc:
                 print(f"  [ERR] N/W orbital PDOS plot failed: {type(exc).__name__}: {exc}")
+
+            try:
+                save_total_wd_np_pdos_plot(
+                    dos_vr,
+                    out_dir / "pdos_total_wd_np.png",
+                    args.emin,
+                    args.emax,
+                    args.show_labels,
+                    args.show_hs_orbital_marker,
+                )
+                print("  [OK] pdos_total_wd_np.png")
+            except Exception as exc:
+                print(f"  [ERR] Total+W-d/N-p PDOS plot failed: {type(exc).__name__}: {exc}")
         else:
             print(f"  [SKIP] DOS vasprun missing: {dos_vr}")
 
