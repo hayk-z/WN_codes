@@ -12,7 +12,11 @@ plt.rcParams["mathtext.fontset"] = "stix"
 ONE_COLUMN_WIDTH_IN = 90.0 / 25.4  # Elsevier single-column width (90 mm)
 ONE_COLUMN_HEIGHT_IN = 3.0
 ONE_COLUMN_DPI = 1000
-LABEL_FONT_SIZE = 5.0
+LABEL_FONT_SIZE = 9.0
+TICK_FONT_SIZE = 9.0
+AXIS_LABEL_FONT_SIZE = 9.5
+TITLE_FONT_SIZE = 10.0
+LEGEND_FONT_SIZE = 9.0
 PT_GIBBS = 0.08
 PT_LOG_I0 = -2.63
 PT_LABEL = "Pt"
@@ -209,10 +213,10 @@ def plot_volcano(
                 y_right = y0 - slope_mag * x_right
                 ax.plot(x_right, y_right, "k-", linewidth=2.5, zorder=2)
 
-    ax.set_xlabel(r"$\Delta G_{H^*}$ (eV)", fontsize=7.5)
-    ax.set_ylabel(r"$\log(i_0/(A\,cm^{-2}))$", fontsize=7.5)
-    ax.set_title("Volcano Plot for 2D W-N materials", fontsize=8, fontweight="bold")
-    ax.tick_params(axis="both", which="major", labelsize=7)
+    ax.set_xlabel(r"$\Delta G_{H^*}$ (eV)", fontsize=AXIS_LABEL_FONT_SIZE)
+    ax.set_ylabel(r"$\log(i_0/(A\,cm^{-2}))$", fontsize=AXIS_LABEL_FONT_SIZE)
+    ax.set_title("Volcano Plot for 2D W-N materials", fontsize=TITLE_FONT_SIZE, fontweight="normal")
+    ax.tick_params(axis="both", which="major", labelsize=TICK_FONT_SIZE)
     ax.set_ylim(-35, 0)
     ax.set_xlim(-2.2, 2.2)
     ax.axvline(x=0, color="gray", linestyle=":", alpha=0.5)
@@ -220,7 +224,7 @@ def plot_volcano(
     if show_legend and gibbs_clean.size > 0:
         ax.legend(
             loc="upper right",
-            fontsize=5.2,
+            fontsize=LEGEND_FONT_SIZE,
             frameon=True,
             framealpha=0.85,
             borderpad=0.2,

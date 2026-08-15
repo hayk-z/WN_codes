@@ -12,7 +12,11 @@ plt.rcParams["mathtext.fontset"] = "stix"
 ONE_COLUMN_WIDTH_IN = 90.0 / 25.4  # Elsevier single-column width (90 mm)
 ONE_COLUMN_HEIGHT_IN = 3.0
 ONE_COLUMN_DPI = 1000
-LABEL_FONT_SIZE = 5.0
+LABEL_FONT_SIZE = 9.0
+TICK_FONT_SIZE = 9.0
+AXIS_LABEL_FONT_SIZE = 9.5
+TITLE_FONT_SIZE = 10.0
+LEGEND_FONT_SIZE = 9.0
 DEFAULT_INPUT_CSV = "Reports_gen/Table_1.csv"
 
 
@@ -139,16 +143,16 @@ def plot_reaction_coordinate(
 
     ax.axhline(0.0, color="gray", linestyle="--", linewidth=1.0, alpha=0.7)
     ax.set_xticks([x[0], x_mid_center, x[-1]])
-    ax.set_xticklabels(x_labels, fontsize=7)
-    ax.set_xlabel("Reaction coordinate", fontsize=7.5)
-    ax.set_ylabel(r"$\Delta G$ (eV)", fontsize=7.5)
-    ax.set_title("HER Gibbs Free Energy Diagram", fontsize=8, fontweight="bold")
-    ax.tick_params(axis="both", which="major", labelsize=7)
+    ax.set_xticklabels(x_labels, fontsize=TICK_FONT_SIZE)
+    ax.set_xlabel("Reaction coordinate", fontsize=AXIS_LABEL_FONT_SIZE)
+    ax.set_ylabel(r"$\Delta G$ (eV)", fontsize=AXIS_LABEL_FONT_SIZE)
+    ax.set_title("HER Gibbs Free Energy Diagram", fontsize=TITLE_FONT_SIZE, fontweight="normal")
+    ax.tick_params(axis="both", which="major", labelsize=TICK_FONT_SIZE)
     ax.grid(True, alpha=0.25)
     if show_legend and gibbs.size > 0:
         ax.legend(
             loc="upper right",
-            fontsize=5.2,
+            fontsize=LEGEND_FONT_SIZE,
             frameon=True,
             framealpha=0.85,
             borderpad=0.2,
